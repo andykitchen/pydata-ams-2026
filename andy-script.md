@@ -366,7 +366,7 @@ but through it that well will understand the world around us.
 
 So finally we end at the ethic of ambiguity, we are defined by our
 relationships, our connections, our responsiblities and we are also
-self-replicating computers compressing and extracting to the exent
+self-replicating computers compressing and extracting to the extent
 physics allows.
 
 Your body is a temple and a computer.  It is both the locus of your soul
