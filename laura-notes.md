@@ -40,7 +40,7 @@ These could be used to support the points above, glancing references, quotes, vi
 
 ## Key points 
 
-- Defences forces as the "mother" of modern technology and all the hierarchy, power and violence this entails 
+- Defense forces as the "mother" of modern technology and all the hierarchy, power and violence this entails 
 - Command-and-control versus cooperate and protect 
 - Nurture as the saving grace. Care as the saving grace. 
 - Human will to live over a greater force. 
