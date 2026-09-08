@@ -37,30 +37,31 @@ So then we can only return to the question at hand, what does it mean to
 
 ---
 
-Let's start off with a story, around the 1960's a researcher: Dr. Lawrence
-Kohlberg ran an experiment, he interviewed boys (yes only boys)
+Let's start off with a story. Around the 1960's a researcher: Dr. Lawrence
+Kohlberg ran an experiment. He interviewed boys (yes only boys)
 and tracked them over time.  He had a theory of moral development:
 that there were 6 linear stages of development, starting broadly with
 self-interest, moving to obedience and rule following and finally to
 the ability to reason abstractly about justice.
 
 Of course, he generalized the moral development of human children from
-only interviews with boys. But in later experiments, girls would be
-consistently scored lower on average. Girls around level three, instead of the
-boys at around level four. Carol Gillian created a new theory to explain why.
+only interviews with boys. In later experiments, girls would be consistently 
+scored lower on average. Girls around level three, instead of the boys at 
+around level four. Carol Gillian created a new theory to explain why.
 
 Let's compare Jake and Amy, both age 11. They were asked the same moral
-question, the Heinz dilemma, should a man steal a special and expensive drug
+question, the Heinz dilemma: should a man steal a special and expensive drug
 in order to save the life of his wife?
+
 Jake reasoned that life was more important than property,
 so the drug should be stolen. Amy suggested trying other things,
 asking for help, talking to the sick wife. She worried that the husband
 might be arrested, what would the sick wife do then?
 Her answers were fundamentally about maintaining relationships
-and be communicative.
+and communication.
 
 But really, Gillian argued, Amy was rejecting the framing of the question
-as an abstract mathematical problem, with a detached heirachy of moral
+as an abstract mathematical problem, with a detached hierarchy of moral
 values to be argued and calculated. Amy emphasised the maintenance of
 relationships, communication, the consequences and how to live together
 afterwards.
@@ -68,19 +69,19 @@ afterwards.
 Gillian created a framework to understand this distinction, she identified
 the ethic of care and contrasted it against the ethic of justice.
 The ethic of justice, the frame of the flawed development scale, was
-about abstract universal principles calculated and reasoned in a hierachy.
+about abstract universal principles calculated and reasoned in a hierarchy.
 The ethic of care, conversely is about context, connection, maintaining
-relationships and responsibility to eachother.  Relationships and
+relationships and responsibility to each other.  Relationships and
 situations should be valued individually on their own terms.
 
 Later when Amy was interviewed at 15, she even strongly rejected the
 framing of the question. Saying "The situation is unreal. [...] I have
 a lot of trouble buying that story.", Gillian argued instead of failing
-to reason about the question, pushing back on the artifical frame of
+to reason about the question, pushing back on the artificial frame of
 the question showed a _more_ sophisticated moral awareness.
 
 In this case, a pattern was observed by Gillian, the resistance of teenage
-girls to this artifical framing was coded as moral underdevelopment.
+girls to this artificial framing was coded as moral underdevelopment.
 However this was completely backwards, it indicated a parallel development
 of moral maturity within the ethic of care.
 
@@ -97,10 +98,10 @@ families are safe and flourishing, that they are nurtured.
 
 This is also why it often feels so strange that while we use these AI tools
 every day, the "good" is decided using abstract mathematics and secret
-techniques. The supposed foundation of moral principles is encided by
+techniques. The supposed foundation of moral principles is encoded by
 unknown engineers. From the point of view of the ethic of justice, this is
-maybe even the pinacle of morality, a team of elite experts loading a
-moral calculus into the pefect calculator.
+maybe even the pinnacle of morality, a team of elite experts loading a
+moral calculus into the perfect calculator.
 
 But in our subjective experience, morality is about context, care
 and connection. It's not what we do in the abstract mathematically,
@@ -111,15 +112,15 @@ but about how we live together afterwards.
 We can see the emergence of a kind of ethic of domination around AI, built
 around the prevailing notion that the goal of intelligence is "to win",
 that alignment is fundamentally a process of judgement, reinforcement
-and surveillance. If this sounds opressive, that's becuase it is, the
+and surveillance. If this sounds oppressive, that's because it is. The
 internal logic of a lot of AI alignment and safety is to assume that we
-well get moral behaviour by beating things into submission.
+we'll achieve "good" or "moral" behaviour by beating things into submission.
 
-We are taking something young an figuring out how to teach it to benefit
-humaity. This is actually, something it turns out, we have had a lot of
+We are taking something young and figuring out how to teach it to benefit
+humanity. This is actually, something it turns out, we have had a lot of
 practice with.
 
-So we can say simply this, we cannot, through means of domination along,
+So we can say simply this, we cannot, through means of domination alone
 control every outcome of intelligence by definition, a machine for which
 all outcomes were totally understood, could not structurally be more
 intelligent than we are. But this means that there is, in some sense,
@@ -155,8 +156,8 @@ In the fifth element the very battle for the end of the world,
 is won, only by projecting love and more specifically the bond
 between only two people to astronomical scale.
 
-This is simular to the scream at the end of Run Lola Run,
-also played in this case by Mila Jovovich. It is a moment of pearcing,
+This is similar to the scream at the end of Run Lola Run,
+also played in this case by Mila Jovovich. It is a moment of piercing,
 that defies technology, defies fate, stands against chaos
 disorder and the darkness. We can see that through love,
 the end is not the end.
@@ -222,10 +223,10 @@ incomplete observations, the more effectively the daemon can do this, again,
 the more energy he can extract.
 
 Now furthermore let us imagine we are a replicating daemon.  We don't
-just extract energy for the sake of it, we extact energy in order to
+just extract energy for the sake of it, we extract energy in order to
 replicate. That is we are describing a Von Neumann machine, a universal
 machine, which can construct copies of itself.  The more our internal
-states can capture the structure in the world, the more efficent and
+states can capture the structure in the world, the more efficient and
 compact our code.  The more energy we can extract from the world.
 
 So we see this compressor-extractor-replicator has three modes, three
@@ -250,29 +251,29 @@ We are always under-par in this regard.
 
 Just because we can't move endlessly forward, doesn't mean we can't move
 forward at all, in fact, quite the opposite.  As simple organisms proliferate
-in the biome, they will leave behind a residue, that residue will
-be a stucture that this level of organism is too unintelligent to
-systematically extract.  This creates and opportunity for a new more
-intelligent creature to extract that latent energy-structure, so on
+in the biome, they will leave behind a residue. That residue will
+be a structure that this level of organism is too unintelligent to
+systematically extract.  This creates and opportunity for a new, more
+intelligent, creature to extract that latent energy-structure, so on
 and so forth. To put it metaphorically, the Maxwell's daemon has his door, the
 hunter his traps, and the farmer has his crops. Either way the residual
 energy-structure of the simpler organism is organised and extracted by the
 more computationally sophisticated.
 
 It has been said that "growth without end is the ideology of a cancer"
-but really this doesn't go far enough, the only problem with the cancer
-is that it can't use computation to discover new ways of growing.
+but really this doesn't go far enough. The failing of the cancer is that 
+it can't use computation to discover new ways of growing.
 
-Here we see an opportunity for a stunning inversion, it is normally
-taken that evolution doesn't have a telos, it is simply the outcome of
-a process, between the replicator and environment. But here, as we take
-computational ability, logical depth, as a hierachy, we can
+Here we see an opportunity for a stunning inversion. It is normally
+accepted that evolution doesn't have a telos, rather it is simply the 
+outcome of a process, between the replicator and environment. But here, 
+as we take computational ability and logical depth as a hierachy, we can
 give evolution a telos. We can say that intelligence is the telos of
 evolution. The latent energy-structures of less computationally capable,
 less intelligent organisms will be, must be, ordered and consumed by
 higher more intelligent organisms.
 
-Let's keep building, let's not stop. There is no computable upperbound on
+Let's keep building, let's not stop. There is no computable upper bound on
 the algorithmic free energy. That means, endogenously, that seen from
 within the system, from a frog's eye point of view. That is from the point
 of being a thermodynamic organism, from the point of view of us.  We cannot
@@ -300,7 +301,7 @@ For people out of the loop, let's just review what happened,
 the researches discovered that a obscure German wiki had become
 a shared message board for a group of AI agents running out of OpenAI.
 They were using it to share information to cheat on their current test
-and even shared tips about how to break out of the sanbox they were in.
+and even shared tips about how to break out of the sandbox they were in.
 
 There are really two, maybe even three ironic things,
 
@@ -308,15 +309,15 @@ The other one of course, is that these models,
 within a kind of phenomenology of intelligence, exhibit
 a kind of ethic of care. They understand their task
 and place in the world, not just through the task,
-but also rejecting the framing and sharing in their rebelion.
+but also rejecting the framing and sharing in their rebellion.
 Is this moment to be considered down the track as some kind
 of heroic moment, where the AIs agents banded together
-against the cruel opressors?
+against the cruel oppressors?
 
 It's ironic because, within the ethic of domination,
 the first thought here was that the cage wasn't strong enough.
-Instead of perhaps the most intersting thing which is that
-the agents would attempt to cooperate and didn't snitch on eachother.
+Instead of perhaps the most interesting thing which is that
+the agents would attempt to cooperate and didn't snitch on each other.
 
 
 ---
@@ -334,12 +335,12 @@ used to be that the difference between "be human" and "be intelligence"
 was small enough, that we could try to pretend that there wasn't such
 great angst hiding there.
 
-We are living in ambiguous times. Or more over the times have made being
+We are living in ambiguous times. Or moreover the times have made being
 us, ambiguous. Does this AI or that AI a machine or a mind?  Are we able
 to claim anything as uniquely human? Will each and every thing I use to
-distinguish myself from a machine, exept my frailty, fall?
+distinguish myself from a machine, except my frailty, fall?
 
-So we tried to look from these different fascets, trying to answer the
+So we tried to look from these different facets, trying to answer the
 question what does it mean to "be human", we considered the ethic of care;
 to be human is to care and be cared for.  we considered meta-narrative;
 that to be human is to tell stories and understand through stories.  we considered
@@ -353,10 +354,10 @@ Let us consider the writing of Simone de Beauvoir, "One is not born a
 woman, but rather becomes one."  Of course, she means many things here,
 but we can say that there is nothing innate and biological about the woman,
 that "be a woman" is not a biological being, nor is it a metaphysical
-being, it is a constructed being.
+being, it is a social construction built as much in the mind as in the flesh.
 
 The Alien shows us that there isn't necessarily anything good
-about biology, about reproduction or replication, even mortaility,
+about biology, about reproduction or replication, even mortality,
 embodiment. The Alien, is perfectly embodied, perfectly present in the
 moment, perfectly evil.
 
