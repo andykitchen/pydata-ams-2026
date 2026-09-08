@@ -128,7 +128,7 @@ https://x.com/timnitGebru/status/2096756886477627569?s=20
 ## AI Fatigue & Pushback
 https://x.com/GergelyOrosz/status/2096507015510085639?s=20
 https://x.com/arikuschnir/status/2096302713248346356?s=20
-
+https://x.com/jeffreyhuber/status/2079708414905860441?s=20
 
 ## Her 
 
@@ -137,7 +137,7 @@ https://x.com/tszzl/status/2093119574250271187?s=20
 https://x.com/jon_stokes/status/2093383024998076466?s=20
 
 ## Theranos 
-https://www.youtube.com/watch?v=GGJSRFWALTI
+https://www.youtube.com/watch?v=GGJSRFWALTI (ambiguity)
 
 ----------------------
 
