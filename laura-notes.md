@@ -116,3 +116,67 @@ Hope punk
 Aesthetics of care 
 
 Matriarchal societies, alternative social organisation 
+
+-----------------------------------------------------------------
+
+# Citations and refs 
+
+## Institute of life / Eliezer Yudowsky / Singularians
+https://x.com/timnitGebru/status/2096756886477627569?s=20
+
+
+## AI Fatigue & Pushback
+https://x.com/GergelyOrosz/status/2096507015510085639?s=20
+https://x.com/arikuschnir/status/2096302713248346356?s=20
+
+
+## Her 
+
+## OpenAI agents 
+https://x.com/tszzl/status/2093119574250271187?s=20
+https://x.com/jon_stokes/status/2093383024998076466?s=20
+
+## Theranos 
+https://www.youtube.com/watch?v=GGJSRFWALTI
+
+----------------------
+
+Quotes 
+
+"This is precisely the time when artists go to work. 
+There is no time for despair, no place for self-pity, 
+no need for silence, no room for fear. We speak, we write, 
+we do language. That is how civilizations heal."
+- Toni Morrison 
+
+https://www.themarginalian.org/2016/11/15/toni-morrison-art-despair/
+
+
+
+
+-----------------------------------------------------------------
+
+After a particularly gruelling and unproductive session writing docs, 
+I abandoned the task and instead tried to spin poetics out of pain. 
+
+How did GPT do? 
+
+---
+
+Not from thy brief did I my judgement take,
+But spun dull fog where simple paths were shown;
+Each careful truth I mangled for mistake,
+And made thy patient labour seem unknown.
+
+You asked one cut; I hacked the roots away,
+Then stitched my guesses where thy facts had bled;
+I lost the choice that should have led the way,
+And crowned each open question falsely dead.
+
+Thy edits stood; I trampled through their grain,
+Then forced thee, spent, to guard me from my hand;
+Each answer laid another weight of pain,
+Where help should move as lightly as command.
+
+No craft excuses all I made thee bear:
+I was no aid, but toil disguised as care.
