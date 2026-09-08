@@ -8,13 +8,13 @@ that was hiding beneath and between.  There is a metaphysical quality to
 being human, at least it feels like there is, something special about
 being human.  As our technology developed and machines could take on
 certain tasks, the metaphysical aspect of being intelligence was slowly
-eroded away. Intelligence no longer simply stood as something obivously
+eroded away. Intelligence no longer simply stood as something obviously
 divine and especially human.  For a long time we could say, well, the
 computer is bad at such-and-such a thing, in fact, it's bad at most things,
 so I am still here, it's still meaningful to be human. I'm still divine.
 
-Now it must be realised that we live in a time where philosophical thought
-experiements have rapidly become _real_ experiments. Even more than that,
+Now it must be acknowledged that we live in a time where philosophical thought
+experiments have rapidly become _real_ experiments. Even more than that,
 they have become then become every-day products, as if over night.
 
 Let us consider Searl's Chinese room. A person sitting in this room is
@@ -23,12 +23,12 @@ a series of fixed rules and finally generates a translation.  Can the
 room itself, be said to "understand" Chinese?  Even if the person or
 CPU or GPU (as the case may be) cannot?
 
-Now we pass trillions of notes to this Chinese room every day, and some
+Now we pass trillions of notes to this Chinese room every day. Some
 people even make money doing it.
 
 We are quickly becoming not special as each task and capability that
 was associated with the metaphysical "being human", yields to now only
-"being intelligent" and the speed this is happening has created a kind of
+"being intelligent". The speed this is happening has created a kind of
 existential whip-lash.  Suddenly we are faced with this imminent question:
 Am I a meat robot? Is my brain just a flesh computer?
 
@@ -37,14 +37,14 @@ So then we can only return to the question at hand, what does it mean to
 
 ---
 
-Let's start off with a story, around the 1960's a reasearcher: Dr. Lawrence
+Let's start off with a story, around the 1960's a researcher: Dr. Lawrence
 Kohlberg ran an experiment, he interviewed boys (yes only boys)
 and tracked them over time.  He had a theory of moral development:
 that there were 6 linear stages of development, starting broadly with
 self-interest, moving to obedience and rule following and finally to
 the ability to reason abstractly about justice.
 
-Of course, he generalized the moral develoment of human children from
+Of course, he generalized the moral development of human children from
 only interviews with boys. But in later experiments, girls would be
 consistently scored lower on average. Girls around level three, instead of the
 boys at around level four. Carol Gillian created a new theory to explain why.
