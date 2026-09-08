@@ -130,7 +130,8 @@ https://x.com/GergelyOrosz/status/2096507015510085639?s=20
 https://x.com/arikuschnir/status/2096302713248346356?s=20
 https://x.com/jeffreyhuber/status/2079708414905860441?s=20
 
-## Her 
+## Her
+
 
 ## OpenAI agents 
 https://x.com/tszzl/status/2093119574250271187?s=20
@@ -150,8 +151,6 @@ we do language. That is how civilizations heal."
 - Toni Morrison 
 
 https://www.themarginalian.org/2016/11/15/toni-morrison-art-despair/
-
-
 
 
 -----------------------------------------------------------------
