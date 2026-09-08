@@ -12,6 +12,7 @@ $systemFontsMono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, mono
 $systemFontsScript:  Molle, cursive;
 $systemFontsDisplay:  Major Mono Display, monospace;
 $systemFontsGrotesk:  Hanken Grotesk,  avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+$systemFontsSerif: Fraunces, serif;
 
 $background: #282a36;
 $foreground: #f8f8f2;
@@ -84,6 +85,8 @@ $codeFont: 'Fira Code', $systemFontsMono;
 	i,
 	blockquote {
 		color: var(--r-italic-color);
+		font-family:  #{$systemFontsSerif};
+		font-weight: 400;
 	}
 	code {
 		color: var(--r-inline-code-color);
@@ -101,5 +104,28 @@ $codeFont: 'Fira Code', $systemFontsMono;
   		--r-heading-color: #{$green};
  		--r-heading1-size: 1.5em;
 		--r-heading-text-transform: uppercase;
-	}  
+	}
+
+	.display {
+		font-family: #{$systemFontsDisplay};
+		text-transform:  uppercase;
+	}
+	.script {
+		font-family: #{$systemFontsScript};
+	}
+	.orange {
+		color: #{$orange};
+	}
+	.pink {
+		color: #{$pink};
+	}
+	.green {
+		color: #{$green};
+	}
+	.cyan {
+		color: #{$cyan};
+	}
+	.purple {
+		color: #{$purple};
+	}
 }
