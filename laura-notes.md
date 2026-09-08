@@ -130,6 +130,11 @@ https://x.com/GergelyOrosz/status/2096507015510085639?s=20
 https://x.com/arikuschnir/status/2096302713248346356?s=20
 https://x.com/jeffreyhuber/status/2079708414905860441?s=20
 
+
+## Ethic of judgement 👉 ethic of domination 
+https://lnkd.in/p/d-vYkZRr
+
+
 ## Her
 
 
@@ -139,6 +144,11 @@ https://x.com/jon_stokes/status/2093383024998076466?s=20
 
 ## Theranos 
 https://www.youtube.com/watch?v=GGJSRFWALTI (ambiguity)
+
+## Examples for the conclusion 
+
+http://softer.global/
+https://satyrn.ai/
 
 ----------------------
 
