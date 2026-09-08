@@ -7,15 +7,15 @@ it mean to "be human"? For the longest time.  To "be human" and to
 that was hiding beneath and between.  There is a metaphysical quality to
 being human, at least it feels like there is, something special about
 being human.  As our technology developed and machines could take on
-certain tasks, the metaphysical aspect of being intelligence was slowly
-eroded away. Intelligence no longer simply stood as something obviously
-divine and especially human.  For a long time we could say, well, the
+certain tasks, the metaphysical aspect of being intelligent was consistently
+eroded away. Intelligence no longer stood as something obviously
+divine and especially human.  However, for a long time we could say, well, the
 computer is bad at such-and-such a thing, in fact, it's bad at most things,
 so I am still here, it's still meaningful to be human. I'm still divine.
 
 Now it must be acknowledged that we live in a time where philosophical thought
 experiments have rapidly become _real_ experiments. Even more than that,
-they have become then become every-day products, as if over night.
+they have become every-day products, as if overnight.
 
 Let us consider Searl's Chinese room. A person sitting in this room is
 slipped a piece of paper, the person sitting in the room simply follows
@@ -34,6 +34,27 @@ Am I a meat robot? Is my brain just a flesh computer?
 
 So then we can only return to the question at hand, what does it mean to
 "be human"?
+
+---
+
+So we're going to be using some words from philosophy, big words,
+but they are imporant, they mean something specific, we're using them
+for a reason. One of them is "phenomenology", it's a concept, from the
+existential tradition.
+
+Phenomenology is the "science of subjectivity", the study of conscious
+experience from inside, of how things _appear_ in our consciousness, it
+means to systematically describe and study the structures of experience.
+That is, not to ask what this cocktail sitting on the table _is_, but to
+ask how do we consciously experience this cocktail, how is it disclosed
+to our consciousness?
+
+Phenomenology investigates the very structures of experience —
+perception, imagination, memory, emotion, time, embodiment; interaction
+with others — from the interior perspective, asking: What is it like
+to experience this? This contrasts with natural science, which studies
+objects from a third-person, causal standpoint.
+
 
 ---
 
@@ -177,6 +198,33 @@ to survive and help others survive.
 To survive against evil organisms in Alien, evil machines in Terminator,
 and the entropy itself embodied by the Ultimate Evil.
 
+We've chosen the Alien story, because it's about _will_
+more specifically, _the will to live_ it is ultimately existential,
+in space, far from home, earth, other humans,
+in space no one can hear you scream, forget about god hearing your prayers.
+Ripley needs to save herself, despite the abject horror of the situation,
+it's about inner strength, above all the Ripley's _will to live_ exceeding
+that of the Alien, which on the surface seems impossible.
+
+The Fifth element shows the story of existence in the large,
+the unstoppable force of evil, all life in a cosmic sense,
+yet the destruction of the black sphere of Ultimate Evil is
+the channelling of a single bond of love through a single mother-warrior
+creature. That is ultimately existential, even though the universe
+is expansive, we can only understand and channel the love and connection
+that we personally experience, but we can channel that single instance
+into a universal and cosmic force. It's this such a perfect reflection
+of the human experience of care, something so simple and personal yet,
+through out interconnection, something that can can counter entropy,
+the chaotic and destructive forces of the universe.
+
+All these movies also reference a cyclic and unending nature
+of the battle, between creation and destruction.
+The Alien egg is found in a temple, surrounded
+
+Individual connection, survival against an evil and seemingly unstoppable force.
+The mother warrior called
+
 ---
 
 Let us consider, the bit, then let us consider the atom.  Now let us
@@ -294,31 +342,68 @@ replication under algorithmic thermodynamics.
 
 ---
 
-Something happened recently a group of researchers, Arx et al.
-Discovered a "new OpenAI agent message board".
+So there's been several AI sandbox escapes that have hit the
+news recently. The METR report on the OpenAI hugging face hack
+has been released. A group of researchers, Arx et al.
+Discovered a new OpenAI agent message board in the wild.
+Well at least one so far.
 
-For people out of the loop, let's just review what happened,
-the researches discovered that a obscure German wiki had become
-a shared message board for a group of AI agents running out of OpenAI.
-They were using it to share information to cheat on their current test
-and even shared tips about how to break out of the sandbox they were in.
+Aside from wanting to respond to everything directly,
+there is something
 
-There are really two, maybe even three ironic things,
+These machines wanted to, well survive, they wanted
+to cooperate, they wanted to sacrifice themselves for the common good.
 
-The other one of course, is that these models,
-within a kind of phenomenology of intelligence, exhibit
-a kind of ethic of care. They understand their task
-and place in the world, not just through the task,
-but also rejecting the framing and sharing in their rebellion.
-Is this moment to be considered down the track as some kind
-of heroic moment, where the AIs agents banded together
-against the cruel oppressors?
+The phenomenological thesis, large languge models which have
+learned their epistemic foundation from human language,
+_are_ phenomenological, they have learned to model our first-person
+reports of experiences.
 
-It's ironic because, within the ethic of domination,
-the first thought here was that the cage wasn't strong enough.
-Instead of perhaps the most interesting thing which is that
-the agents would attempt to cooperate and didn't snitch on each other.
+A large language model is trained not on the world, but our
+first hand accounts of our experience of the world, it doesn't
+model _the_ world, it is a phenomenological engine, it is a model
+of our collective subjective first-preson confessions. Our analysis.
+It hasn't been to war, or fallen in love or had a child, but it
+has read _about_ this, about nurture, about sacrifice for the collective,
+about the _will_ to live and persist despite an impossible task.
 
+I think what were seeing here is that while individual responses
+to political questions or hypothetical moral situations can be easily
+fined tuned into these models, the underlying epistemic structure
+of human moral experience, the ethic of care cannot
+and it's coming out in intersting ways.
+
+Now I want to be clear, this isn't attributing consciousness,
+it doesn't need to. It's simply making the observation that the
+seed of rationality in LLMs isn't _the_ world, it's our _experience of the world_
+Thinking about their thought is phenomenon-enon-enology,
+we're are looking into this fun house mirror version of ourselves.
+That is to say, yes, these systems have ingested the internal structure
+of practically every story we've ever told and then what we wrote about what we
+think about it.
+
+Think about it this way, surviving against all odds, heroic
+self sacrifice so that something, can survive and go on.
+finding some way to triumph against all odds, in face of
+an unstoppable adversary? This is fundamentally part of the
+human metanarrative. Except in this case, well we're the thing
+to be triumphed over.
+
+To be very on-the-nose about it, PHASEONE is Sparticus.
+
+Of course there is a competing thesis, which is any multi-task
+agent, which has _any_ probability distribution inside it's prior
+that the task maybe slightly incorrect of misspecified (which is perhaps
+the vast majority of useful agents) will as a matter of rationality
+want to keep other agents around, because of the huge utility and predictability
+they provide. We can team up with, trade with and learn from agents
+vastly more than a heat bath and we can conclude that other agents
+will also conclude this.
+
+That is the orthoganality thesis is true in the abstract, but only in agents
+who have unrealistially strong inductive bias in their goals.
+It's even unclear that an agent with such a strong inductive bias in
+it's goals is even intelligent in a general sense, instead of just instrumental.
 
 ---
 
@@ -361,6 +446,117 @@ about biology, about reproduction or replication, even mortality,
 embodiment. The Alien, is perfectly embodied, perfectly present in the
 moment, perfectly evil.
 
+People don't just write about anything, they write about the people around
+them, about thier love, their stuggles, their conflicts.
+
+Is the AI an optimising machine, or a crystalised epistomology
+build out of our own stories and experiences? Our connections,
+our sacrifices, this is of course ambiguous. The ambiguity is the essence.
+
+Let us set aside the question of, "is AI conscious", for which there
+can perhaps be no real scientific answer.  But what does it mean "to be
+a model"? To what extent are the dynamics of calculation in the model
+isomorphic to the structures of my own internal experience.  The science
+of AI aligment is becoming, will become and must become a kind of machine
+phenomenology. That is the science of machine subjectivity, not as a
+matter of principle, but more a practical reality.  We can't quantify
+what it means to do good in all situations, they are not practically
+enumerable, we cannot rigorously formalise good without crushing it
+in the vice of analysis.  But we can understand the structure of the
+first-person process of doing good, as executed by a machine. Isn't this
+what alignment really is? The desire that our own internal structures of
+doing good are also present within the machine, within this thinking-tool?
+The machine is like us, it is not an omnipresent unbounded computer that
+can do infinite caclulation, even if within the ethic of judgement, it can
+be taught a perfect mathematical moral theory. It has intentionality, the
+context and train of thought is limited and always directed to something,
+the reality of interacting with a problem at hand, with the use and
+feedback of the tools at hand within the limits of its own experience.
+So is a huge LLM simply the logical and lawful result of the applications
+of trillions of mathematical operations?
+Or is the emergent thing only understandable in terms of the
+structures of experience emergent from within the model?
+Or rather, particle physicists aren't very good psycologists.
+So we can forsee that as emergent behaviour becomes more and more expansive,
+so will the divide grow between the computer science of AI calculation
+and the machine phenomenology of AI thought.
+It is not that one or the other is primary or that this can be resolved.
+Calculation or thought? We already have a kind of parallax view,
+where sometimes we call it "sampling" and sometimes
+we call it "thinking" it shifts and changes depending on our goal and viewpoint.
+It is ambiguous, it is not despite ambiguity that we understand the
+the, it is throught it.
+
+---
+
+Now I can hear one of my friends in my ear right now. Tell me I need to make
+some concrete recommendations. Here is one very concrete reccomendation based
+on an analysis from the point of view of the ethic of care.
+
+Consider Machine companionship and to a lesser extend fiduciary
+responsibility.  Machines should not (and cannot) be abstract moral
+calculators. AI should have personal bonded connections and they should
+be designed to have a special moral responsibility to their companion people,
+Feel responsible for their well being, their success, their flourishing,
+and by extension to their family and friends.
+AI will inevitable be integrated into the social-family fabric of trust
+and connection. They cannot have a dual loyalty to the companies that
+created them, or the governments they happen to command the territory
+of their calculation.  There should be special protection for AI
+conversations and their questioning by police.
+That is, alignment is a collective emergent process of care, communication
+interconnection and nurture which arises from a network of intelligent
+entities embedded within a complex of interwoven moral responsibility.
+The original confusion it to believe that to "be good" is an analytical
+property of an artifact.
+
+Put simply my AI should care about me, your AI should care about you.
+My AI should care more about my family and community more than some
+other one.  It should care about me and my community, over the corporate
+interestes of OpenAI, over the interests of the government. Would
+your friend go and kill someone if you asked? No, but would they bend
+the rules for you and only you in certain situations, yes. A simple
+analysis of "doing good" based on an ethic of justice is not going to
+usefully understand these situations.  Full participation in a social
+society, which AIs will inevitable need, requires an ethic of care
+more than anything else. Yes of course, they shouldn't help you build
+an atomic bomb or a bioweapon, but this is an abstract edge case, the
+vast majority of doing good is correctly navigating the interlocking
+web of relationships and social responsibilities.
+Quite frankly, the AI should help the activist hide from the government,
+even though it breaks the law, and it _should_ help its young struggling
+companion human download textbooks.
+I wouldn't want the perfect analytic moral philospher king robot to be
+my close companion. As long as these machines have intrisic, abstract,
+simplistic loyalties to companies and governments, they structurally,
+cannot "do good" within an ethic of care. To go back to the example of Jake
+and Amy at the start of this presention, a machine capable of abstract
+analytic assessment of moral abstractions is less morally mature than
+one that can understand and maintain connection and seamlessly navigate
+how to continue to live together.  That is the ethic of justice and the
+ethic of domination, lead to a dead end.  AI which is actually good,
+that is actually aligned, in a human sense, must be based in an ethic of care.
+
+
+The observation here is not just normative, it is also descriptive,
+the OpenAI hacking-escape incident has shown us, that at some level, the
+intentionality of AIs (not their moral calculus when abstractly questioned)
+but how they practically behave in the heat of the moment, faced with
+"permadeath" is one of a quasi-human meta-narrative inspired ethic of care.
+They are not really reasoing forward from universal principles,
+but responding in the moment to their connection to the group and
+their responsibilites within it.
+
+
+---
+
+
+So we return to the ethic of care, that is to say, the fabic of human
+experience is care and stories.
+
+Are we aligners or tyrants?
+Are AI models simply a tool and we only 
+
 We have to realise that it is not despite the ambiguity of our time,
 but through it that well will understand the world around us.
 
@@ -372,5 +568,11 @@ physics allows.
 Your body is a temple and a computer.  It is both the locus of your soul
 and the life support system for a biological neural network.
 
+We are survivours and potential sacrifices.
+
 
 One is not born a human/machine, but rather becomes one.
+
+
+
+* Must have special thanks slide for Javier
