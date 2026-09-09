@@ -145,6 +145,15 @@ https://x.com/jon_stokes/status/2093383024998076466?s=20
 ## Resignations
 https://x.com/hilbertspaess/status/2097476196791709843?s=20
 https://x.com/redwhiteblue369/status/2097524395799425052?s=20
+https://x.com/milesdeutscher/status/2097514328429846569?s=20
+https://x.com/Turn_Trout/status/2097557335732359491?s=20
+https://x.com/xriskology/status/2097600849312620907?s=20
+https://x.com/timnitGebru/status/2097554236137689206?s=20
+
+## Maths 
+https://x.com/GaryMarcus/status/2097446464041660608?s=20
+https://mathstodon.xyz/@tao/117237320796901560
+https://x.com/ValerioCapraro/status/2097342040639983909?s=20
 
 ## Theranos 
 https://www.youtube.com/watch?v=GGJSRFWALTI (ambiguity)
