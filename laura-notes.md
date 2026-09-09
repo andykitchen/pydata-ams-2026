@@ -142,6 +142,10 @@ https://lnkd.in/p/d-vYkZRr
 https://x.com/tszzl/status/2093119574250271187?s=20
 https://x.com/jon_stokes/status/2093383024998076466?s=20
 
+## Resignations
+https://x.com/hilbertspaess/status/2097476196791709843?s=20
+https://x.com/redwhiteblue369/status/2097524395799425052?s=20
+
 ## Theranos 
 https://www.youtube.com/watch?v=GGJSRFWALTI (ambiguity)
 
