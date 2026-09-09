@@ -149,6 +149,7 @@ https://x.com/milesdeutscher/status/2097514328429846569?s=20
 https://x.com/Turn_Trout/status/2097557335732359491?s=20
 https://x.com/xriskology/status/2097600849312620907?s=20
 https://x.com/timnitGebru/status/2097554236137689206?s=20
+https://x.com/a_nnawang/status/2097720574500102615?s=20
 
 ## Maths 
 https://x.com/GaryMarcus/status/2097446464041660608?s=20
