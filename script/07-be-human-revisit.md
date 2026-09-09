@@ -29,4 +29,4 @@ It is not that one or the other is primary or that this can be resolved.
 Calculation or thought? We already have a kind of parallax view, where sometimes 
 we call it "sampling" and sometimes we call it "thinking" it shifts and changes 
 depending on our goal and viewpoint. It is ambiguous, it is not despite ambiguity 
-that we understand, it is through it
+that we understand, it is through it.
