@@ -93,4 +93,62 @@ The Ethic of Care
 
 Based on connection, responsibility, nurture.
 
+So we're making a very concrete argument here,
+just like how we can't actually directly program intelligence,
+we don't know how, we can only setup the conditions for
+intelligence to emerge. So to can we only setup the conditions,
+for doing good to emerge.
+We already have a system for doing this, it's a process of care
+and nurture with a meta-narrative,
+It is the communicative and participatory process that humans
+have used as long as we have existed.
+We can't directly and explicitly create a static and optimal goodness,
+because it doesn't exist. Good is a emergent and dynamical property.
+The good, is the ability to change together, to do it by telling
+stories, but nurturing, by understanding and being understood.
+
+Is being good, still in priciple, an optimisation function over
+an abstract objective or a subjective process of aligning the
+internal intentional structures of good to the meta-narrative
+frame recieved from ones' community?
+The cause and resolution of this confusion is ambiguity.
+There is a calculation, experience ambiguity.
+
+Re: Terry Tao
+
+Are we creatures of inspiration and insight?
+Or wetware compression engines?
+
+
+
+## Links
+
+Power of Intelligence (Yud)
+https://www.lesswrong.com/s/MH2b8NfWv22dBtrs8/p/aiQabnugDhcrFtr9n
+
+Minds: An Introduction
+https://www.lesswrong.com/s/MH2b8NfWv22dBtrs8/p/8GhSZzsQmusCN9is7
+
+https://en.wikipedia.org/wiki/Lawrence_Kohlberg
+https://en.wikipedia.org/wiki/Heinz_dilemma
+
+The Psycology of Moral Development
+https://archive.org/details/psychologyofmora0000kohl/page/n5/mode/2up
+
+https://www.torch.ox.ac.uk/article/one-is-not-born-but-becomes-a-woman
+https://plato.stanford.edu/entries/chinese-room/
+
+Minds, Brains, and Programs
+https://web.archive.org/web/20071210043312/http://members.aol.com/NeoNoetics/MindsBrainsPrograms.html
+
+https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/
+https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/
+https://www.youtube.com/watch?v=87DyyMV0kCY&t=997s
+https://collusion.wiki/index.html#the-agents-gain-write-to-the-internet-via-get-requests
+https://techcrunch.com/2026/08/26/openai-releases-its-official-report-on-the-hugging-face-breach/
+https://x.com/METR_Evals/status/2092692175452803393
+https://x.com/AISafetyMemes/status/2092781910305235280/photo/1
+
+
+https://knowyourmeme.com/memes/dehumanize-yourself-and-face-to-bloodshed
 
