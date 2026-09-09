@@ -129,6 +129,11 @@ https://www.lesswrong.com/s/MH2b8NfWv22dBtrs8/p/aiQabnugDhcrFtr9n
 Minds: An Introduction
 https://www.lesswrong.com/s/MH2b8NfWv22dBtrs8/p/8GhSZzsQmusCN9is7
 
+https://www.lesswrong.com/posts/BahoNzY2pzSeM2Dtk/beware-of-stephen-j-gould
+https://www.lesswrong.com/posts/uMQ3cqWDPHhjtiesc/agi-ruin-a-list-of-lethalities
+https://www.lesswrong.com/w/orthogonality-thesis
+
+
 https://en.wikipedia.org/wiki/Lawrence_Kohlberg
 https://en.wikipedia.org/wiki/Heinz_dilemma
 
@@ -141,8 +146,8 @@ https://plato.stanford.edu/entries/chinese-room/
 Minds, Brains, and Programs
 https://web.archive.org/web/20071210043312/http://members.aol.com/NeoNoetics/MindsBrainsPrograms.html
 
-https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/
 https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/
+https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/
 https://www.youtube.com/watch?v=87DyyMV0kCY&t=997s
 https://collusion.wiki/index.html#the-agents-gain-write-to-the-internet-via-get-requests
 https://techcrunch.com/2026/08/26/openai-releases-its-official-report-on-the-hugging-face-breach/
@@ -152,3 +157,5 @@ https://x.com/AISafetyMemes/status/2092781910305235280/photo/1
 
 https://knowyourmeme.com/memes/dehumanize-yourself-and-face-to-bloodshed
 
+https://www.anthropic.com/research/global-workspace
+https://en.wikipedia.org/wiki/Moravec%27s_paradox
