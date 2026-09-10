@@ -237,4 +237,89 @@ $codeFont: 'Fira Code', $systemFontsMono;
 			color: inherit;
 		}
 	}
+
+	/* ————————————————————————————————
+	   Agent log quotes (Section 6, METR report)
+	   Minimal message-board read-out: mono kicker / serif voice /
+	   mono cite. Human quotes stay centred + purple; machine
+	   quotes go left-ruled, colour-coded per beat:
+	   connect = cyan, coordinate = green, sacrifice = pink.
+	   ———————————————————————————————— */
+	.agent-log-slide {
+		text-align: left;
+	}
+
+	.agent-log {
+		--agent-accent: #{$cyan};
+
+		max-width: 22em;
+		margin: 0 auto;
+		padding: 0 0 0 1.1em;
+		border-left: 2px solid var(--agent-accent);
+		text-align: left;
+	}
+
+	.agent-log--connect {
+		--agent-accent: #{$cyan};
+	}
+
+	.agent-log--coordinate {
+		--agent-accent: #{$green};
+	}
+
+	.agent-log--sacrifice {
+		--agent-accent: #{$pink};
+	}
+
+	.agent-log__kicker {
+		margin: 0 0 0.9em;
+		color: var(--agent-accent);
+		font-family: $systemFontsMono;
+		font-size: 0.42em;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+
+	.agent-log__text {
+		width: auto;
+		margin: 0 0 0.9em;
+		padding: 0;
+		border: 0;
+		background: none;
+		box-shadow: none;
+		color: $foreground;
+		font-family: $systemFontsSerif;
+		font-size: 0.95em;
+		font-style: italic;
+		font-weight: 400;
+		line-height: 1.35;
+	}
+
+	.agent-log__id {
+		display: block;
+		margin: 0 0 0.9em;
+		color: $comment;
+		font-family: $systemFontsMono;
+		font-size: 0.4em;
+		letter-spacing: 0.02em;
+		line-height: 1.5;
+		overflow-wrap: anywhere;
+	}
+
+	.agent-log__cite {
+		margin: 0;
+		color: $comment;
+		font-family: $mainFont;
+		font-size: 0.45em;
+		font-weight: 200;
+		letter-spacing: 0.02em;
+		line-height: 1.5;
+	}
+
+	.agent-log__cite a {
+		color: inherit;
+		text-decoration: underline;
+		text-decoration-color: var(--agent-accent);
+		text-underline-offset: 0.2em;
+	}
 }
