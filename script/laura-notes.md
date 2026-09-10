@@ -148,6 +148,9 @@ https://x.com/jon_stokes/status/2093383024998076466?s=20
 https://simonwillison.net/2026/Sep/4/rogue-agent-wikis/
 https://www.linkedin.com/feed/update/urn:li:activity:7503488134991720448
 https://www.linkedin.com/feed/update/urn:li:activity:7503589269144309760/
+https://x.com/timnitGebru/status/2097838162618011703?s=20
+https://x.com/thdxr/status/2097677780397781152?s=20
+https://x.com/ishadesign/status/2097710859149877421?s=20
 
 
 ## Resignations
