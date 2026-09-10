@@ -143,8 +143,8 @@ def main():
             f"{fmt_mmss(speaking_secs):>10}{fmt_mmss(total_secs):>9}"
             f"{target_str:>9}  {truncate(title, 40)}{note}"
         )
-        if stages:
-            print(f"{'':<27}(skipped {stages} stage direction(s))")
+        #if stages:
+        #    print(f"{'':<27}(skipped {stages} stage direction(s))")
 
     print("-" * len(header))
     target_total = f"{sum(targets):g}m" if targets else "-"
