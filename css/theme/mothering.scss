@@ -137,7 +137,7 @@ $codeFont: 'Fira Code', $systemFontsMono;
 	   Background intentionally left alone.
 	   ———————————————————————————————— */
 	.present .credits-inner {
-		animation: credits-roll 18s linear 1 forwards;
+		animation: credits-roll 11s ease-in-out 1 forwards;
 	}
 
 	@keyframes credits-roll {
@@ -171,6 +171,10 @@ $codeFont: 'Fira Code', $systemFontsMono;
 		p {
 			margin: 0;
 		}
+	}
+
+	.credits.past .credits-inner {
+		transform: translateY(-120%);
 	}
 
 	.credits-kicker,
