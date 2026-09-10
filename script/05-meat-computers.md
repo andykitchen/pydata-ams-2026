@@ -1,26 +1,26 @@
-## Meat computers / Algorithmic thermodynamics (8m)
+## Meat Computers / Algorithmic Thermodynamics (8m)
 
 [M]
 Let us consider, the bit, then let us consider the atom.  Now let us
 consider replication. Now, THE ENTROPEAN will tell you: to copy ourselves,
 our information and systems, we need energy and we need computation.
-That is what it is to be alive.
+That is what it is to be alive. But is it?
 
 [E]
 Let us consider as a though experiment, Maxwell's daemon.  A hypothetical
 daemon sits between two chambers filled with gas, controlling a little door. 
-When the daemon sees an atom going in one direction towards the door, he 
+When the daemon sees an atom going in one direction towards the door, she 
 quickly opens it for a moment to let the atom pass.  If there is an atom going 
 the other direction, the door says closed.  Eventually the atoms all build up 
 on one side. In this case there is more order in the system, order was created,
 this pressure difference could be used to do physical work.  This seems
-to violate the second law of thermodynamics—that systems should naturally tend
+to violate the second law of thermodynamics --- that systems should naturally tend
 toward entropy, chaos, disorder.  What is the resolution to this paradox?
 
 First to resolve the paradox, imagine the daemon was running a little
 simulation of the gas and using it to decide when to open the door
 and when to close it. Then we can use the patterns in the head of the
-daemon to predict the movements of the atoms. We'll call this prediction 
+daemon to predict the movements of the atoms. There is so called
 "mutual information".  Given information about the latent internal states
 of the daemon, we can learn about the atoms of the gas.  This mutual
 information implies there is still available free energy in the system.
@@ -29,26 +29,24 @@ the system was not as disordered as it seemed.
 
 Now let us imagine further that this is special gas is not totally
 disordered. Imagine it has structure: there are some rules describing
-how the atoms move together. If the daemon could learn these rules,
-no only could she use this information to extract energy; the better she
-could learn rules, the more efficiently she could extract energy. Given
-certain computational limits, representing the structure of the gas-world
-with a shorter program, or one that runs more quickly, will allow us to
-extract more energy give the same computation limit. We are utilising
-the low Kolmogorov complexity of our environment to generate energy.
-This specific type of free energy, algorithmic free energy is described
-by algorithmic thermodynamics.
+how the atoms move together. If the daemon could learn these rules, she
+use this information to extract energy; the better she could learn rules,
+the more efficiently she could extract energy.  Representing the structure
+of the gas-world with a shorter program, or one that runs more quickly,
+will allow us to extract more energy give the same computation limits.
+We are utilising the low Kolmogorov complexity of our environment to
+generate energy.  This is algorithmic free energy.
 
 [M]
 So our little daemon can tell stories about the gas? Little gassy stories?
 
 [E]
-But let us not assume that the daemon, magically starts with a program
-describing its world. It must learn the structure of the gas-world
-by partial observation and experiment, it must do inference. It must
-build up a small logically efficient picture of the gas from sparse and
-incomplete observations. The more effectively the daemon can do this, again,
-the more energy she can extract.
+Haha yes, but let us not assume that the daemon, magically starts
+with a program describing its world. It must learn the structure of the
+gas-world by partial observation and experiment, it must do inference. She
+must build up, as fast she can, a picture of the gas from sparse and
+incomplete observations. The more effectively the daemon can do this,
+again, the more energy she can extract.
 
 Now furthermore let us imagine we are a replicating daemon.  We don't
 just extract energy for the sake of it, we extract energy in order to
@@ -65,17 +63,15 @@ described is a living organism.  A more intelligent organism will simply
 be able to complete this process with ever more efficiency.
 
 But let us keep building up with this idea. Each stage of this
-compressor-extractor-replicator has fundamental physical limits. There
-is the bound of the Kolmogorov complexity of the environment for the
-compressor, the extractor-daemon can only access a limited amount of
-energy depending on how much mutual information its brain really contains.
-The replicator is bounded below by a Neumann-Landauer style bound.  So really,
-intelligence is not a positive property, it is not necessarily a
-direction where we can move endlessly forward. Intelligence (or lack
-thereof) is now a negative property. It is really a measure of how far
-we are from this physically fundamental compress-extract-replicate bound.
-Our unintelligence is our distance from the optimal extractor-replicator. 
-A measurable distance in vector space. We are always under-par in this regard.
+compressor-extractor-replicator has fundamental physical limits.  The
+extractor-daemon can only access a limited amount of energy depending on
+how much mutual information its brain really contains.  The replicator is
+bounded by a Neumann-Landauer style bound.  So really, intelligence
+is not a positive property.  Intelligence (or lack thereof) is now a negative
+property. It is really a measure of how far we are from this theoretically
+perfect compress-extract-replicate bound.  Our unintelligence is our
+distance from the optimal extractor-replicator.
+We are always under-par in this regard.
 
 Just because we can't move endlessly forward, doesn't mean we can't move
 forward at all, in fact, quite the opposite.  As simple organisms proliferate
@@ -83,8 +79,8 @@ in the biome, they will leave behind a residue. That residue will
 be a structure that this same level of organism is too unintelligent to
 systematically extract.  This creates and opportunity for a new, more
 intelligent creature to extract that latent energy-structure, and so on
-and so forth. To put it metaphorically, the Maxwell's daemon has his door, the
-hunter his traps, and the farmer has his crops. Either way the residual
+and so forth. To put it metaphorically, the Maxwell's daemon has her door, the
+hunter her traps, and the farmer has her crops. Either way the residual
 energy-structure of the simpler organism is organised and extracted by the
 more computationally sophisticated.
 
@@ -97,11 +93,11 @@ the algorithmic free energy. That means, endogenously, that seen from
 within the system, from a frog's eye point of view. That is from the point
 of being a thermodynamic organism, from the point of view of us.  We cannot
 subjectively know how much energy-structure remains to be extracted.
-This leads us to this very funny conclusion, a funny epistemic state.
+This leads us to this very funny conclusion, a funny epistemic state...
 
 [M]
 So then are we are always and forever lost inside an endless singularity?
-Will we always look back and see the past as boring, slow, under-exploited
+Will we always look back and see the past as boring, slow, over-exploited
 and operating a low energy levels.  We will always look forward to an
 unknown and unknowable future, fleeting, risky, energetic? We will forever
 be using the last dregs of the energy of the past to try and unlock the

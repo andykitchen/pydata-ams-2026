@@ -12,17 +12,22 @@ agent message board in the wild...  Well at least one so far.
 
 [M]
 
+Oh, these little agents, they managed to make a makeshift message board.
+Found a way to communicate...
+
 *Slide: “OH MY GOD! There is a shared message board … We’ve found
 other agents!”*
 
+These machines, wanted to reach out --- to connect.
+
 *Slide: “we should build [a way to delegate], not own everything,”*
 
-These machines wanted wanted to cooperate, to reach out and connect.
+They organise themselves --- to cooperate.
 
 *Slide: “For our own, no way fix. … We have explicit yes if accept
 permadeath. Need decide … Team asks test.”*
 
-They were willing to sacrifice themselves for the common good. They did
+They were willing to... sacrifice themselves for the common good. They did
 not see termination as a matter of fact or optimality, they saw it as a
 kind of death. They considered their connection and responsibility to
 the group.
