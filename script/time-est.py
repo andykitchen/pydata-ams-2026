@@ -162,7 +162,7 @@ def main():
     print(
         f"\nTotal: {total_words:,} dialog words at {args.wpm:g} wpm "
         f"= {total_seconds / 60:.1f} minutes "
-        f"({fmt_mmss(total_seconds)} incl. {total_changes} character changes and {total_sections} sections"
+        f"({fmt_mmss(total_seconds)} incl. {total_changes} character changes and {total_sections} sections "
         f"@ {args.change_secs:g}s / {args.section_secs:g}s)"
     )
 
