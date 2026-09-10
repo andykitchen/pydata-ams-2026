@@ -101,6 +101,10 @@ def main():
         "--change-secs", type=float, default=2.0,
         help="seconds allowed per character (speaker) change",
     )
+    parser.add_argument(
+        "--section-secs", type=float, default=5.0,
+        help="seconds per section change",
+    )
     args = parser.parse_args()
 
     files = sorted(
@@ -122,17 +126,19 @@ def main():
 
     total_words = 0
     total_changes = 0
+    total_sections = 0
     total_seconds = 0.0
     targets = []
 
     for path in files:
         title, target_min, words, changes, stages, empty = parse_section(path)
         speaking_secs = words / args.wpm * 60
-        total_secs = speaking_secs + changes * args.change_secs
+        total_secs = speaking_secs + changes * args.change_secs + args.section_secs
 
         total_words += words
         total_changes += changes
         total_seconds += total_secs
+        total_sections += 1
         if target_min is not None:
             targets.append(target_min)
 
@@ -156,8 +162,8 @@ def main():
     print(
         f"\nTotal: {total_words:,} dialog words at {args.wpm:g} wpm "
         f"= {total_seconds / 60:.1f} minutes "
-        f"({fmt_mmss(total_seconds)} incl. {total_changes} character changes "
-        f"@ {args.change_secs:g}s)"
+        f"({fmt_mmss(total_seconds)} incl. {total_changes} character changes and {total_sections} sections"
+        f"@ {args.change_secs:g}s / {args.section_secs:g}s)"
     )
 
 
