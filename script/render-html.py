@@ -8,8 +8,9 @@ internal read-through use (both speakers read off the same screen).
 Semantics handled:
   * Files            -> <section> with an <h1> heading (+ TOC entry).
   * Internal headers (## / ### ...) -> <h2> sub-headings (unread, for scanning).
-  * Speaker turns    -> one <article class="speech speaker-m|speaker-e"> bubble
-                        per paragraph for [M] (MIDWYFE) and [E] (ENTROPEAN);
+  * Speaker turns    -> one <p class="speech speaker-m|speaker-e"> bubble per
+                        paragraph for [M] (MIDWYFE) and [E] (ENTROPEAN), or a
+                        <blockquote class="speech ..."> for quoted verse;
                         consecutive short paragraphs may share a bubble, so no
                         single bubble is ever close to a full page.
   * Actions          -> <p class="action">, e.g. a line that is only _pause_
@@ -122,39 +123,55 @@ def render_inline(text):
     return "".join(out)
 
 
-def flush_paragraph(buffer, blocks):
-    """Join wrapped markdown lines into one <p>, or <blockquote> for quotes."""
-    # Strip empty lines; group may still be empty.
+def flush_para(buffer):
+    """Reduce buffered lines to a (kind, inner_html) paragraph, or None.
+
+    kind is "quote" for `>` lines, else "p". Callers wrap the inner HTML
+    in the appropriate element; dialog bubbles use the element itself so
+    no <p> ever nests inside another.
+    """
     lines = [ln for ln in buffer]
     buffer.clear()
     if not lines:
-        return
+        return None
     if all(ln.lstrip().startswith(">") for ln in lines):
         stripped = [re.sub(r"^\s*>\s?", "", ln) for ln in lines]
         text = " ".join(s.strip() for s in stripped if s.strip())
-        blocks.append(f"<blockquote>{render_inline(text)}</blockquote>")
+        return ("quote", render_inline(text)) if text else None
+    text = " ".join(ln.strip() for ln in lines if ln.strip())
+    return ("p", render_inline(text)) if text else None
+
+
+def flush_paragraph(buffer, blocks):
+    """Join wrapped markdown lines into one <p>, or <blockquote> for quotes."""
+    item = flush_para(buffer)
+    if item is None:
+        return
+    kind, inner = item
+    if kind == "quote":
+        blocks.append(f"<blockquote>{inner}</blockquote>")
     else:
-        text = " ".join(ln.strip() for ln in lines if ln.strip())
-        if text:
-            blocks.append(f"<p>{render_inline(text)}</p>")
+        blocks.append(f"<p>{inner}</p>")
 
 
-def _plain_words(chunk):
-    """Word count of an HTML chunk, ignoring tags."""
-    return len(re.sub(r"<[^>]+>", "", chunk).split())
+def _para_words(kind, inner):
+    """Word count of a paragraph's inner HTML, ignoring tags."""
+    return len(re.sub(r"<[^>]+>", "", inner).split())
 
 
-def _is_short(chunk, words):
-    return words <= SHORT_WORDS and not chunk.startswith("<blockquote")
+def _para_short(kind, inner):
+    return kind == "p" and _para_words(kind, inner) <= SHORT_WORDS
 
 
 def flush_speech(blocks, speaker, paras):
-    """Emit one <article> bubble per paragraph of the speaker's turn.
+    """Emit one bubble per paragraph of the speaker's turn.
 
-    Consecutive short paragraphs (e.g. a one-line punchline following a
-    short setup) may share a bubble, and a short trailing line joins the
-    previous bubble rather than sitting alone -- but no bubble ever holds
-    more than a few short paragraphs, so each stays well under a page.
+    The bubble *is* the paragraph: a <p class="speech ...">, or a
+    <blockquote class="speech ..."> for quoted verse. Consecutive short
+    paragraphs (e.g. a one-line punchline following a short setup) are
+    joined into a single <p>, and a short trailing line joins the previous
+    bubble rather than sitting alone -- but no bubble ever holds more than
+    a couple of short paragraphs, so each stays well under a page.
     Continuation bubbles after the first carry a small "(cont.)" marker.
     """
     if speaker is None or not paras:
@@ -163,41 +180,47 @@ def flush_speech(blocks, speaker, paras):
     name = SPEAKERS.get(key, key)
     cls = f"speaker-{key.lower()}"
 
-    groups = []  # each group: list of (html, words, is_short)
-    for chunk in paras:
-        words = _plain_words(chunk)
-        short = _is_short(chunk, words)
+    groups = []  # each group: list of (kind, inner) tuples
+    for kind, inner in paras:
         if (
-            short
+            _para_short(kind, inner)
             and groups
             and len(groups[-1]) < 2
-            and all(s for _, _, s in groups[-1])
+            and all(_para_short(k, v) for k, v in groups[-1])
         ):
-            groups[-1].append((chunk, words, short))
+            groups[-1].append((kind, inner))
         else:
-            groups.append([(chunk, words, short)])
+            groups.append([(kind, inner)])
     # A short trailing line should not sit in a bubble on its own.
-    if len(groups) > 1 and len(groups[-1]) == 1 and groups[-1][0][2]:
-        groups[-2].append(groups[-1][0])
-        groups.pop()
-        if len(groups[-1]) > 2:
-            # Pair from the end so the turn still ends on a shared bubble.
-            groups[-1:] = [groups[-1][:1], groups[-1][1:]]
+    if len(groups) > 1 and len(groups[-1]) == 1:
+        kind, inner = groups[-1][0]
+        if _para_short(kind, inner):
+            groups[-2].append((kind, inner))
+            groups.pop()
+            if len(groups[-1]) > 2:
+                # Pair from the end so the turn still ends on a shared bubble.
+                groups[-1:] = [groups[-1][:1], groups[-1][1:]]
 
     for n, group in enumerate(groups):
-        inner = "\n".join(h for h, _, _ in group)
         badge = f"{html.escape(key)} &middot; {html.escape(name)}"
         cont = ""
         if n:
             badge += ' <span class="cont-mark">(cont.)</span>'
             cont = " cont"
-        blocks.append(
-            f'<article class="speech {cls}{cont}" data-speaker="{html.escape(key)}">\n'
-            f'<header class="who" aria-label="Speaker {html.escape(name)}">'
-            f'<span class="badge">{badge}</span></header>\n'
-            f"{inner}\n"
-            f"</article>"
-        )
+        lead = f'<span class="badge">{badge}</span>'
+        if len(group) == 1 and group[0][0] == "quote":
+            blocks.append(
+                f'<blockquote class="speech {cls}{cont}" data-speaker="{html.escape(key)}">\n'
+                f"{lead}\n{group[0][1]}\n"
+                f"</blockquote>"
+            )
+        else:
+            joined = " ".join(inner for _, inner in group)
+            blocks.append(
+                f'<p class="speech {cls}{cont}" data-speaker="{html.escape(key)}">\n'
+                f"{lead}\n{joined}\n"
+                f"</p>"
+            )
 
 
 def render_section(path, index, timing=""):
@@ -212,14 +235,19 @@ def render_section(path, index, timing=""):
     sub_id = 0
 
     blocks = []        # finished top-level HTML chunks for this section
-    paras = []         # finished <p>/etc chunks for the open speech block
+    paras = []         # (kind, inner_html) paragraphs of the open speech turn
     buf = []           # wrapped lines accumulating into one paragraph
     speaker = None     # current speaker key ("M"/"E") or None
     slides = 0
 
+    def flush_turn_para():
+        item = flush_para(buf)
+        if item is not None:
+            paras.append(item)
+
     def emit_bubbles():
         """Flush the open paragraph and emit one bubble per paragraph."""
-        flush_paragraph(buf, paras)
+        flush_turn_para()
         flush_speech(blocks, speaker, paras)
         paras.clear()
 
@@ -248,7 +276,7 @@ def render_section(path, index, timing=""):
 
         if not line:
             if speaker is not None:
-                flush_paragraph(buf, paras)
+                flush_turn_para()
             else:
                 flush_paragraph(buf, blocks)
             continue
@@ -408,14 +436,13 @@ h2 { font-size: 1.3rem; margin: 2rem 0 0.75rem; scroll-margin-top: 1rem; }
   margin: 1.25rem 0;
   color: #000;
 }
-.speech p { margin: 0.7rem 0; }
-.speech p:first-of-type { margin-top: 0.6rem; }
-.speech p:last-child { margin-bottom: 0; }
 .speech.speaker-m { border-color: var(--m-bar); background: var(--m-bg); }
 .speech.speaker-e { border-color: var(--e-bar); background: var(--e-bg); }
 .speech.cont { padding-top: 0.7rem; }
 .speech.cont .badge { font-size: 0.75rem; }
-.who { margin: 0; }
+/* Speaker badge sits on its own line above the dialog text. A span is
+   phrasing content, so this stays valid inside <p>. */
+.speech > .badge { display: block; width: fit-content; margin: 0 0 0.6rem; }
 .badge {
   display: inline-block;
   font-size: 0.85rem;
@@ -435,7 +462,7 @@ blockquote {
   color: #111;
   font-style: italic;
 }
-.speech blockquote { background: rgba(255,255,255,0.6); border-radius: 0 8px 8px 0; }
+blockquote.speech { border-radius: 0 8px 8px 0; }
 /* Actions / stage directions: centred, quiet, clearly unread. */
 p.action {
   text-align: center;
@@ -505,7 +532,7 @@ NAV_JS = """(function () {
   function init() {
     var steps = Array.prototype.slice.call(
       document.querySelectorAll(
-        "article.speech, p.action, div.slide," +
+        "p.speech, blockquote.speech, p.action, div.slide," +
         " section.script-section > h1, section.script-section > h2"
       )
     );
