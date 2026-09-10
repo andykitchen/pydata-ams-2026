@@ -322,4 +322,55 @@ $codeFont: 'Fira Code', $systemFontsMono;
 		text-decoration-color: var(--agent-accent);
 		text-underline-offset: 0.2em;
 	}
+
+	/* ————————————————————————————————
+	   Tweet embeds (Section 6, #/8/5 + #/8/6)
+	   Twitter's widgets.js injects a fixed-width (550px) iframe
+	   with left-aligned inline margins and a fixed pixel height
+	   (894px for #/8/5, 512px for #/8/6). Without help the tall
+	   tweet sticks to the left and overflows the 960x700 slide
+	   (reveal.js pins overflowing slides to top:0, clipping the
+	   image). Force the slide to fill its box and flex-centre the
+	   embed, and scale the tall tweet so its image fits.
+	   ———————————————————————————————— */
+	.tweet-slide.present {
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		top: 0 !important;
+		height: 100%;
+		max-height: 700px;
+		overflow: hidden;
+	}
+
+	.tweet-slide .twitter-tweet,
+	.tweet-slide .twitter-tweet-rendered {
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	// Fallback while widgets.js hasn't rendered yet: keep the
+	// plain blockquote small enough to fit the slide.
+	.tweet-slide .twitter-tweet {
+		max-width: 24em;
+		font-size: 0.55em;
+	}
+
+	.tweet-slide--tall .twitter-tweet {
+		font-size: 0.45em;
+	}
+
+	// Rendered embed: centre + scale the tall tweet (#/8/5,
+	// ~914px incl. margins) down into the 700px slide.
+	.tweet-slide .twitter-tweet-rendered {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		max-height: 100%;
+	}
+
+	.tweet-slide--tall .twitter-tweet-rendered {
+		zoom: 0.72;
+	}
 }
