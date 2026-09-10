@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maxwell's daemon — sorting simulation</title>
+<style>
+  /* ---------------------------------------------------------------
+     Maxwell's daemon — minimal standalone simulation.
+     All behaviour is driven by CONFIG in the <script> below.
+     Styling matches the "mothering the machine" deck
+     (dark #191919, ink #f8f8f2, accents cyan / green / pink).
+     --------------------------------------------------------------- */
+  :root {
+    --bg: #191919;
+    --panel: #202028;
+    --ink: #f8f8f2;
+    --muted: rgba(248, 248, 242, 0.62);
+    --faint: rgba(248, 248, 242, 0.14);
+    --cyan: #8be9fd;
+    --green: #50fa7b;
+    --pink: #ff79c6;
+    --purple: #bd93f9;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Hanken Grotesk", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  .card {
+    width: min(880px, 100%);
+    background: linear-gradient(180deg, #22222c 0%, #1b1b23 100%);
+    border: 1px solid var(--faint);
+    border-radius: 16px;
+    padding: 10px 12px 8px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  }
+  .bar {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 0 4px 8px;
+  }
+  .title {
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .title em {
+    font-style: normal;
+    color: var(--cyan);
+  }
+  .counts {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .counts strong { color: var(--ink); font-weight: 600; }
+  .dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: baseline;
+    background: var(--pink);
+    transition: background 0.15s linear;
+  }
+  .dot.open { background: var(--green); box-shadow: 0 0 10px rgba(80, 250, 123, 0.9); }
+  .dot.closed { background: var(--pink); box-shadow: 0 0 10px rgba(255, 121, 198, 0.7); }
+  #doorLabel { min-width: 86px; display: inline-block; text-align: left; }
+  button {
+    font: inherit;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--faint);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+  }
+  button:hover { border-color: var(--cyan); color: var(--cyan); }
+  .stage {
+    position: relative;
+    border: 1px solid var(--faint);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #14141b;
+  }
+  canvas { display: block; width: 100%; height: auto; }
+  .caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 7px 4px 0;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .caption .done { color: var(--green); }
+  #bareReset { display: none; }
+  /* Bare embed mode (?bare=1): no text, no chrome — just the chambers.
+     The page background matches the stage so the canvas melts edge to edge. */
+  body.bare { padding: 0; background: #14141b; }
+  .bare .card {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+  .bare .bar, .bare .caption { display: none; }
+  .bare .stage { border: 0; border-radius: 0; }
+  .bare canvas { height: auto; }
+  .bare #bareReset {
+    display: block;
+    position: fixed;
+    right: 14px;
+    bottom: 12px;
+    font-size: 11px;
+    padding: 4px 12px;
+    opacity: 0.3;
+    border-color: rgba(248, 248, 242, 0.25);
+    transition: opacity 0.2s linear;
+  }
+  .bare #bareReset:hover { opacity: 1; border-color: var(--cyan); color: var(--cyan); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="bar">
+      <div class="title">Maxwell&rsquo;s <em>daemon</em></div>
+      <div class="counts">
+        <span>left <strong id="leftCount">–</strong></span>
+        <span>right <strong id="rightCount">–</strong></span>
+        <span id="clock">0.0s</span>
+        <span><span id="doorDot" class="dot closed"></span><span id="doorLabel">door shut</span></span>
+        <button id="reset" type="button">reset</button>
+      </div>
+    </div>
+    <div class="stage">
+      <canvas id="scene" width="860" height="460"></canvas>
+    </div>
+    <div class="caption">
+      <span>The daemon lets atoms pass left&nbsp;&rarr;&nbsp;right, never right&nbsp;&rarr;&nbsp;left.</span>
+      <span id="stateLine">disorder &rarr; order</span>
+    </div>
+    <button id="bareReset" type="button" title="restart the simulation">reset</button>
+  </div>
+
+<script>
+'use strict';
+/* ================================================================
+   TWEAKABLES — everything the brief asked to make adjustable lives
+   in this one CONFIG object.
+   ================================================================ */
+const CONFIG = {
+  ATOM_COUNT: 12,        // total atoms (identical — same size, same speed)
+  ATOMS_LEFT_START: 6,   // how many begin in the left chamber (rest start right)
+  ATOM_RADIUS: 15,       // px — large & easy to see from the back row
+  ATOM_COLOR: '#f8f8f2', // identical atoms: one color, no "temperatures"
+  ATOM_RIM: 'rgba(139, 233, 253, 0.55)',
+
+  BASE_SPEED: 600,       // px/s — brisk; raise to sort faster, lower to slow down
+  SPEED_JITTER: 0.12,    // ± fraction of BASE_SPEED per atom (keeps magnitudes ~equal)
+  THERMOSTAT_RATE: 0.8,  // /s — heat bath: relaxes each atom's speed back toward its target.
+                         // Collisions spread speeds (some atoms stall, some blur); the bath
+                         // keeps one temperature so every atom stays demo-fast. 0 = off.
+
+  DOOR_HEIGHT: 190,      // px — height of the daemon's doorway gap (wider = faster sorting)
+  WALL_THICKNESS: 8,     // px — thickness of the dividing wall
+  SENSE_LEFT: 200,       // px — how far out she tracks atoms wanting left→right (short = fresher forecasts)
+  SENSE_RIGHT: 340,      // px — how far out she tracks sneak attempts (prediction filters; distance doesn't veto)
+  DOOR_LATCH_MS: 100,    // ms — min time the door stays open once triggered
+  OPEN_BIAS_S: 0.15,     // s — tie-break favouring left→right when both sides race
+  CANDIDATE_MIN_VX: 160, // px/s — ignore grazing approaches: slow crossers drift off-line
+                         // mid-transit and clip the frame. Head-on atoms only.
+  CANDIDATE_MAX_SLOPE: 2.0, // |vy/vx| cap for candidates — steep divers drift off-line
+                            // mid-transit just like grazers. (Use Infinity to disable.)
+  SPAWN_MAX_SLOPE: 1.1,  // |vy/vx| cap at spawn — atoms start moving door-ward so the
+                         // action begins immediately (equilibrium takes over within seconds)
+  DOOR_EDGE: 4,          // px — safety margin inside the door frame when predicting a pass
+  WALL_ROUGHNESS: 0.15,  // rad — microscopic wall roughness: jitters each bounce angle by ±this.
+                         // Real walls scatter diffusely; this restores molecular chaos so no
+                         // atom can hide in a periodic orbit forever. 0 = mirror-smooth walls.
+
+  SORT_GOAL_S: 25,       // informational: design target is ~20–30s to build up
+  TIME_ACCEL: 1,         // 1 = real time. ?fast=N in the URL multiplies dt (for testing)
+};
+
+/* ---------------- world geometry (logical pixels) ---------------- */
+const canvas = document.getElementById('scene');
+const ctx = canvas.getContext('2d');
+
+try {
+  const q = new URLSearchParams(location.search);
+  if (q.has('fast')) CONFIG.TIME_ACCEL = Math.max(0.25, parseFloat(q.get('fast')) || 1);
+  if (q.has('bare')) {
+    document.body.classList.add('bare'); // ?bare=1: edge-to-edge embed, no text
+    canvas.width = 960; canvas.height = 660; // near-full-bleed (all physics derives from W/H below)
+  }
+} catch (_) { /* file:// or old browser — ignore */ }
+const BARE = document.body.classList.contains('bare');
+const W = canvas.width;
+const H = canvas.height;
+const PAD = 18;                 // outer wall inset
+const CX = W / 2;               // x of the dividing wall
+const CY = H / 2;               // y centre of the doorway
+const DOOR_TOP = CY - CONFIG.DOOR_HEIGHT / 2;
+const DOOR_BOT = CY + CONFIG.DOOR_HEIGHT / 2;
+
+const leftEl = document.getElementById('leftCount');
+const rightEl = document.getElementById('rightCount');
+const clockEl = document.getElementById('clock');
+const doorDot = document.getElementById('doorDot');
+const doorLabel = document.getElementById('doorLabel');
+const stateLine = document.getElementById('stateLine');
+
+let atoms = [];
+let doorOpen = false;
+let doorLatchUntil = 0;
+let simTime = 0;
+let lastTick = performance.now();
+let sortedAnnounced = false;
+
+function rand(min, max) { return min + Math.random() * (max - min); }
+
+function spawn() {
+  atoms = [];
+  simTime = 0;
+  sortedAnnounced = false;
+  doorOpen = false;
+  doorLatchUntil = 0;
+  lastTick = performance.now();
+
+  for (let i = 0; i < CONFIG.ATOM_COUNT; i++) {
+    const leftSide = i < CONFIG.ATOMS_LEFT_START;
+    const speed = CONFIG.BASE_SPEED * (1 + rand(-CONFIG.SPEED_JITTER, CONFIG.SPEED_JITTER));
+    // Start moving door-ward (flat angles) so the demo acts immediately.
+    let angle = rand(0, Math.PI * 2);
+    let vx = Math.cos(angle), vy = Math.sin(angle);
+    if (Math.abs(vy) > CONFIG.SPAWN_MAX_SLOPE * Math.abs(vx)) {
+      const s = Math.sign(vy || 1) * CONFIG.SPAWN_MAX_SLOPE;
+      const n = Math.hypot(1, s);
+      vx = Math.sign(vx || (Math.random() < 0.5 ? -1 : 1)) / n;
+      vy = s / n;
+    }
+    // Keep clear of the wall and outer frame at spawn.
+    const xMin = leftSide ? PAD + CONFIG.ATOM_RADIUS + 2 : CX + CONFIG.WALL_THICKNESS + CONFIG.ATOM_RADIUS + 2;
+    const xMax = leftSide ? CX - CONFIG.WALL_THICKNESS - CONFIG.ATOM_RADIUS - 2 : W - PAD - CONFIG.ATOM_RADIUS - 2;
+    atoms.push({
+      x: rand(xMin, Math.max(xMin + 1, xMax)),
+      y: rand(PAD + CONFIG.ATOM_RADIUS + 2, H - PAD - CONFIG.ATOM_RADIUS - 2),
+      vx: vx * speed,
+      vy: vy * speed,
+      target: speed,   // the heat bath relaxes |v| back to this (direction untouched)
+    });
+  }
+}
+
+/* ------- the daemon: a one-way valve, left -> right only --------
+   She predicts: for each approaching atom she forecasts where it will
+   cross the wall plane (folding the forecast off top/bottom walls) and
+   opens only for a left atom whose forecast falls inside the doorway —
+   and only if no right atom is forecast to get there first. */
+function predictY(a, t) {
+  // Where will the atom be vertically after t seconds? (mirror-folded
+  // off the top/bottom walls; atom–atom collisions en route are ignored
+  // and simply re-evaluated every substep.)
+  const R = CONFIG.ATOM_RADIUS;
+  const top = PAD + R, bot = H - PAD - R, span = bot - top;
+  let y = (a.y + a.vy * t - top) % (2 * span);
+  if (y < 0) y += 2 * span;
+  if (y > span) y = 2 * span - y;
+  return top + y;
+}
+
+function arrivalETA(a, horizonPx, passHalf, minVx, maxSlope) {
+  // Seconds until this atom reaches the doorway mouth on a passable
+  // line — Infinity if it isn't approaching, is too slow across the
+  // wall, is too steep (it would drift off-line mid-transit and only
+  // clip the frame), is too far, or is forecast to miss the doorway.
+  const approaching = (a.x < CX && a.vx > 0) || (a.x > CX && a.vx < 0);
+  if (!approaching || Math.abs(a.vx) < minVx) return Infinity;
+  if (Math.abs(a.vy) > maxSlope * Math.abs(a.vx)) return Infinity;
+  const dist = Math.abs(a.x - CX) - CONFIG.WALL_THICKNESS / 2;
+  if (dist < 0 || dist > horizonPx) return Infinity;
+  const t = dist / Math.abs(a.vx);
+  return Math.abs(predictY(a, t) - CY) <= passHalf ? t : Infinity;
+}
+
+function daemon(now) {
+  const R = CONFIG.ATOM_RADIUS;
+  const inTransit = atoms.some(a =>
+    Math.abs(a.x - CX) < CONFIG.WALL_THICKNESS / 2 + R + 2 &&
+    a.y > DOOR_TOP - 2 && a.y < DOOR_BOT + 2 && a.vx > 0 && a.x < CX + R
+  );
+  if (inTransit) return true;                        // never slam the door on a passer
+  const passHalfL = CONFIG.DOOR_HEIGHT / 2 - R - CONFIG.DOOR_EDGE;
+  const passHalfR = CONFIG.DOOR_HEIGHT / 2 - R - CONFIG.DOOR_EDGE;
+  // Note: she vetoes only clean sneak attempts. Atoms forecast to merely
+  // clip the frame bounce off it harmlessly — no need to hold the door.
+  let bestLeft = Infinity, bestRight = Infinity;
+  for (const a of atoms) {
+    if (a.x < CX) bestLeft = Math.min(bestLeft, arrivalETA(a, CONFIG.SENSE_LEFT, passHalfL, CONFIG.CANDIDATE_MIN_VX, CONFIG.CANDIDATE_MAX_SLOPE));
+    else bestRight = Math.min(bestRight, arrivalETA(a, CONFIG.SENSE_RIGHT, passHalfR, 1e-6, Infinity));
+  }
+  if (bestLeft < Infinity && bestLeft <= bestRight + CONFIG.OPEN_BIAS_S) {
+    doorLatchUntil = now + CONFIG.DOOR_LATCH_MS;
+    return true;
+  }
+  if (now < doorLatchUntil && bestRight === Infinity) return true;
+  return false;
+}
+
+/* ------------------------- physics step ------------------------- */
+function roughen(a) {
+  // Microscopic wall roughness: rotate velocity by a tiny random angle.
+  // Speed (temperature) is unchanged — atoms stay identical.
+  const j = CONFIG.WALL_ROUGHNESS;
+  if (!j) return;
+  const th = rand(-j, j);
+  const cos = Math.cos(th), sin = Math.sin(th);
+  const vx = a.vx * cos - a.vy * sin;
+  const vy = a.vx * sin + a.vy * cos;
+  a.vx = vx; a.vy = vy;
+}
+
+function step(dt) {
+  const R = CONFIG.ATOM_RADIUS;
+  const WT = CONFIG.WALL_THICKNESS;
+  const x0 = PAD, x1 = W - PAD, y0 = PAD, y1 = H - PAD;
+
+  for (const a of atoms) {
+    a.x += a.vx * dt;
+    a.y += a.vy * dt;
+
+    // Heat bath: relax speed toward target (direction untouched).
+    const k = CONFIG.THERMOSTAT_RATE;
+    if (k > 0) {
+      const s = Math.hypot(a.vx, a.vy);
+      if (s > 1e-6) {
+        const f = 1 + Math.min(1, k * dt) * (a.target / s - 1);
+        a.vx *= f; a.vy *= f;
+      }
+    }
+
+    // Outer box.
+    if (a.x < x0 + R) { a.x = x0 + R; a.vx = Math.abs(a.vx); roughen(a); }
+    if (a.x > x1 - R) { a.x = x1 - R; a.vx = -Math.abs(a.vx); roughen(a); }
+    if (a.y < y0 + R) { a.y = y0 + R; a.vy = Math.abs(a.vy); roughen(a); }
+    if (a.y > y1 - R) { a.y = y1 - R; a.vy = -Math.abs(a.vy); roughen(a); }
+
+    // Dividing wall (two solid segments + door frame lips).
+    const inWallX = a.x + R > CX - WT / 2 && a.x - R < CX + WT / 2;
+    if (inWallX) {
+      const inGap = a.y - R > DOOR_TOP + 1 && a.y + R < DOOR_BOT - 1;
+      if (!(doorOpen && inGap)) {
+        // Bounce off whichever solid segment we overlap (or the shut door).
+        const hitsTopSeg = a.y < DOOR_TOP + R && a.y < CY;
+        const hitsBotSeg = a.y > DOOR_BOT - R && a.y > CY;
+        const hitsShutDoor = !doorOpen && a.y >= DOOR_TOP - R && a.y <= DOOR_BOT + R;
+        if (hitsTopSeg || hitsBotSeg || hitsShutDoor) {
+          if (a.x < CX) { a.x = CX - WT / 2 - R; a.vx = -Math.abs(a.vx); }
+          else { a.x = CX + WT / 2 + R; a.vx = Math.abs(a.vx); }
+          roughen(a);
+        } else if (doorOpen) {
+          // Clip the door-frame lips while passing through.
+          if (Math.abs(a.y - DOOR_TOP) < R && a.vy > 0 && a.y < DOOR_TOP) { a.y = DOOR_TOP - R; a.vy = -Math.abs(a.vy); }
+          if (Math.abs(a.y - DOOR_BOT) < R && a.vy < 0 && a.y > DOOR_BOT) { a.y = DOOR_BOT + R; a.vy = Math.abs(a.vy); }
+        }
+      }
+    }
+  }
+
+  // Atom–atom elastic collisions (identical masses: swap normal components).
+  for (let i = 0; i < atoms.length; i++) {
+    for (let j = i + 1; j < atoms.length; j++) {
+      const a = atoms[i], b = atoms[j];
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const dist = Math.hypot(dx, dy);
+      const min = 2 * R;
+      if (dist > 0 && dist < min) {
+        const nx = dx / dist, ny = dy / dist;
+        const overlap = (min - dist) / 2;
+        a.x -= nx * overlap; a.y -= ny * overlap;
+        b.x += nx * overlap; b.y += ny * overlap;
+        const rel = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
+        if (rel < 0) {
+          const ix = rel * nx, iy = rel * ny;
+          a.vx += ix; a.vy += iy;
+          b.vx -= ix; b.vy -= iy;
+        }
+      }
+    }
+  }
+}
+
+/* ----------------------------- draw ----------------------------- */
+function draw() {
+  const R = CONFIG.ATOM_RADIUS;
+  ctx.clearRect(0, 0, W, H);
+
+  // Chambers.
+  ctx.fillStyle = '#14141b';
+  ctx.fillRect(0, 0, W, H);
+
+  // Subtle side tint: fills as order builds (left empties, right fills).
+  const nRight = atoms.filter(a => a.x >= CX).length;
+  const frac = atoms.length ? nRight / atoms.length : 0;
+  ctx.fillStyle = `rgba(80, 250, 123, ${0.02 + frac * 0.06})`;
+  ctx.fillRect(CX, PAD, W - PAD - CX, H - 2 * PAD);
+
+  // Outer frame.
+  ctx.strokeStyle = 'rgba(248, 248, 242, 0.28)';
+  ctx.lineWidth = 2;
+  roundRect(PAD, PAD, W - 2 * PAD, H - 2 * PAD, 10);
+  ctx.stroke();
+
+  // Dividing wall (two segments, gap = doorway).
+  ctx.fillStyle = 'rgba(248, 248, 242, 0.85)';
+  const wt = CONFIG.WALL_THICKNESS;
+  ctx.fillRect(CX - wt / 2, PAD, wt, DOOR_TOP - PAD);
+  ctx.fillRect(CX - wt / 2, DOOR_BOT, wt, H - PAD - DOOR_BOT);
+
+  // Doorway state.
+  if (doorOpen) {
+    ctx.save();
+    ctx.shadowColor = 'rgba(80, 250, 123, 0.9)';
+    ctx.shadowBlur = 18;
+    ctx.fillStyle = '#50fa7b';
+    ctx.fillRect(CX - wt / 2, DOOR_TOP, wt, DOOR_BOT - DOOR_TOP);
+    ctx.restore();
+    // Daemon "eye" — watching, door open.
+    ctx.fillStyle = '#50fa7b';
+  } else {
+    ctx.fillStyle = 'rgba(255, 121, 198, 0.9)';
+    ctx.fillRect(CX - wt / 2, DOOR_TOP - 2, wt, 4);
+    ctx.fillRect(CX - wt / 2, DOOR_BOT - 2, wt, 4);
+    ctx.fillStyle = 'rgba(255, 121, 198, 0.28)';
+    ctx.fillRect(CX - wt / 2, DOOR_TOP, wt, DOOR_BOT - DOOR_TOP);
+    ctx.fillStyle = '#ff79c6';
+  }
+  ctx.beginPath();
+  ctx.arc(CX, DOOR_TOP - 16, 6, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Labels — the fuller side reads "high pressure" (omitted in bare mode).
+  if (!BARE) {
+    const leftCount = atoms.filter(a => a.x < CX).length;
+    const rightFull = atoms.length - leftCount >= leftCount;
+    ctx.fillStyle = 'rgba(248, 248, 242, 0.5)';
+    ctx.font = '300 13px "Hanken Grotesk", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(rightFull ? 'high pressure' : 'low pressure', CX + (W - PAD - CX) / 2, H - 28);
+    ctx.fillText(rightFull ? 'low pressure' : 'high pressure', CX - (CX - PAD) / 2, H - 28);
+  }
+
+  // Atoms — identical, soft & large.
+  for (const a of atoms) {
+    const g = ctx.createRadialGradient(a.x - R * 0.35, a.y - R * 0.35, R * 0.1, a.x, a.y, R);
+    g.addColorStop(0, '#ffffff');
+    g.addColorStop(0.55, CONFIG.ATOM_COLOR);
+    g.addColorStop(1, '#c9c9d4');
+    ctx.beginPath();
+    ctx.arc(a.x, a.y, R, 0, Math.PI * 2);
+    ctx.fillStyle = g;
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = CONFIG.ATOM_RIM;
+    ctx.stroke();
+  }
+}
+
+function roundRect(x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+/* ----------------------------- loop ----------------------------- */
+function frame(now) {
+  let dt = Math.min(0.05, (now - lastTick) / 1000);
+  lastTick = now;
+  dt *= CONFIG.TIME_ACCEL;
+  // Sub-step for stability at high speeds / fast test mode.
+  // The daemon watches continuously: she re-decides every substep.
+  const sub = Math.max(1, Math.ceil(dt / (1 / 240)));
+  const h = dt / sub;
+  for (let s = 0; s < sub; s++) { doorOpen = daemon(now); step(h); }
+  simTime += dt;
+
+  const nL = atoms.filter(a => a.x < CX).length;
+  const nR = atoms.length - nL;
+  leftEl.textContent = nL;
+  rightEl.textContent = nR;
+  clockEl.textContent = simTime.toFixed(1) + 's';
+  doorDot.className = 'dot ' + (doorOpen ? 'open' : 'closed');
+  doorLabel.textContent = doorOpen ? 'door open' : 'door shut';
+  if (nL === 0 && atoms.length > 0) {
+    stateLine.innerHTML = '<span class="done">ordered — pressure can do work ✓</span>';
+    sortedAnnounced = true;
+  } else if (!sortedAnnounced) {
+    stateLine.textContent = 'disorder → order';
+  }
+
+  draw();
+  requestAnimationFrame(frame);
+}
+
+document.getElementById('reset').addEventListener('click', spawn);
+document.getElementById('bareReset').addEventListener('click', spawn);
+
+// Read-only handle for automated checks (headless verification).
+window.__maxwell = { config: CONFIG, get atoms() { return atoms; }, get simTime() { return simTime; }, get doorOpen() { return doorOpen; } };
+
+spawn();
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
