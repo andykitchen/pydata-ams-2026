@@ -136,8 +136,22 @@ $codeFont: 'Fira Code', $systemFontsMono;
 	   Script lines → Molle, title line → Major Mono Display.
 	   Background intentionally left alone.
 	   ———————————————————————————————— */
-	$credits-pink: #ff8aff; // sampled from credits1.jpg text
-	$credits-green: #a5ffa7; // sampled from credits2.jpg text
+	.present .credits-inner {
+		animation: credits-roll 18s linear 1 forwards;
+	}
+
+	@keyframes credits-roll {
+		from { transform: translateY(120%); }
+		to   { transform: translateY(-120%); }
+	}
+
+	.slides:has(> .credits.present) {
+		overflow: hidden;
+	}
+
+	.credits-block + .credits-block {
+		margin-top: 4em;
+	}
 
 	.credits {
 		text-align: center;
@@ -199,7 +213,7 @@ $codeFont: 'Fira Code', $systemFontsMono;
 	}
 
 	.credits--midwyfe {
-		color: $credits-pink;
+		color: $pink;
 
 		.credits-kicker,
 		.credits-name,
@@ -210,7 +224,7 @@ $codeFont: 'Fira Code', $systemFontsMono;
 	}
 
 	.credits--entropian {
-		color: $credits-green;
+		color: $green;
 
 		.credits-kicker,
 		.credits-name,
