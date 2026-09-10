@@ -93,13 +93,13 @@ institutional owner. The argument is consistent across the three: militarised
 technology is the threat, and technology repurposed by care is the remedy.
 
 <slide>
-Silicon Valley was itself born of aerospace and radar, of DARPA money and
-command-and-control culture. The lineage is not secret, merely unmarketable. So
-they're styled in hipster threads now: craft, creativity, abundance,
-empowerment. Pastel gradients over the missile silo. Skynet was the scar the
-military industrial ghouls left on our collective imagination. Their descendants 
-now sell us the assistant, the companion, the copilot, and ask us not to notice 
-the family resemblance.
+Silicon Valley was born of aerospace and radar, of DARPA money and
+command-and-control culture. The lineage isn't secret, it's just not what goes
+in the brand book. So it's styled in hipster threads now: craft, creativity,
+abundance, empowerment. Pastel gradients over the missile silo. Skynet was
+the mark the military-industrial complex left on our collective imagination.
+The descendents of that industry now sells us the assistant, the companion, 
+the copilot, and would rather we didn't dwell on the family resemblance.
 
 <slide>
 [E] 
