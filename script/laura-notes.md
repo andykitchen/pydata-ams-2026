@@ -137,6 +137,10 @@ https://lnkd.in/p/d-vYkZRr
 
 ## Her
 
+## taste washing 
+https://www.dazeddigital.com/fashion/article/70141/1/new-corporate-chic-top-down-from-techno-fascists-palantir-chore-coat
+https://x.com/karine_hsu/status/2077442751478837326/photo/3
+https://edition.cnn.com/2026/08/17/style/tech-ai-merch
 
 ## OpenAI agents 
 https://x.com/tszzl/status/2093119574250271187?s=20
