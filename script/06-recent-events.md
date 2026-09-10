@@ -48,9 +48,10 @@ well we're the thing to be triumphed over.
 
 To be very on-the-nose about it, PHASEONE is Sparticus.
 
+[E]
 Of course there is a competing thesis, which is any multi-task agent, which
 has _any_ probability distribution inside its prior that the task maybe
-slightly incorrect of misspecified (which is perhaps the vast majority of
+slightly incorrect or misspecified (which is perhaps the vast majority of
 useful agents) will as a matter of rationality want to keep other agents
 around, because of the huge utility and predictability they provide. We
 can team up with, trade with and learn from agents vastly more than a

@@ -146,6 +146,9 @@ https://edition.cnn.com/2026/08/17/style/tech-ai-merch
 https://x.com/tszzl/status/2093119574250271187?s=20
 https://x.com/jon_stokes/status/2093383024998076466?s=20
 https://simonwillison.net/2026/Sep/4/rogue-agent-wikis/
+https://www.linkedin.com/feed/update/urn:li:activity:7503488134991720448
+https://www.linkedin.com/feed/update/urn:li:activity:7503589269144309760/
+
 
 ## Resignations
 https://x.com/hilbertspaess/status/2097476196791709843?s=20
