@@ -189,12 +189,13 @@ $codeFont: 'Fira Code', $systemFontsMono;
 	.credits-title {
 		font-family: $systemFontsDisplay;
 		font-weight: 400;
-		font-size: 1.2em;
+		font-size: 2em;
 		letter-spacing: 0.1em;
 		text-indent: 0.1em; // re-centre for trailing letter-spacing
 		line-height: 1;
 		margin: 0.65em 0 0;
 		white-space: nowrap;
+		text-transform: uppercase;
 	}
 
 	.credits--midwyfe {
