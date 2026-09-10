@@ -128,4 +128,94 @@ $codeFont: 'Fira Code', $systemFontsMono;
 	.purple {
 		color: #{$purple};
 	}
+
+	/* ————————————————————————————————
+	   Opening credits (live text)
+	   Layout reference: img/credits1.jpg + img/credits2.jpg
+	   Stack: kicker / name / role / title, all centred.
+	   Script lines → Molle, title line → Major Mono Display.
+	   Background intentionally left alone.
+	   ———————————————————————————————— */
+	$credits-pink: #ff8aff; // sampled from credits1.jpg text
+	$credits-green: #a5ffa7; // sampled from credits2.jpg text
+
+	.credits {
+		text-align: center;
+		line-height: 1.1;
+	}
+
+	// Inner wrapper does the centring so we never fight
+	// reveal.js inline `display` styles on <section>.
+	.credits-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 65vh;
+		height: 100%;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.credits-kicker,
+	.credits-role {
+		font-family: $systemFontsScript;
+		font-style: italic;
+		font-weight: 400;
+		font-size: 0.62em;
+		letter-spacing: 0.02em;
+		line-height: 1.2;
+	}
+
+	.credits-kicker {
+		margin-bottom: 0.5em;
+	}
+
+	.credits-name {
+		font-family: $systemFontsScript;
+		font-style: italic;
+		font-weight: 400;
+		font-size: 1.75em;
+		line-height: 1.15;
+		white-space: nowrap;
+	}
+
+	.credits-role {
+		margin-top: 0.35em;
+	}
+
+	.credits-title {
+		font-family: $systemFontsDisplay;
+		font-weight: 400;
+		font-size: 1.2em;
+		letter-spacing: 0.1em;
+		text-indent: 0.1em; // re-centre for trailing letter-spacing
+		line-height: 1;
+		margin: 0.65em 0 0;
+		white-space: nowrap;
+	}
+
+	.credits--midwyfe {
+		color: $credits-pink;
+
+		.credits-kicker,
+		.credits-name,
+		.credits-role,
+		.credits-title {
+			color: inherit;
+		}
+	}
+
+	.credits--entropian {
+		color: $credits-green;
+
+		.credits-kicker,
+		.credits-name,
+		.credits-role,
+		.credits-title {
+			color: inherit;
+		}
+	}
 }
