@@ -1,7 +1,7 @@
 ## What does it mean to be human? (3m)
 
 [M]
-Welcome, welcome, everyone, We're really looking forward to sharing something
+Welcome, welcome, everyone, we're really looking forward to sharing something
 special with you all!
 
 Oh, but I haven't even introduced myself. I am THE MIDWYFE, and it is my pleasure 
@@ -14,8 +14,8 @@ I hope you'll be able to do a really big update to your Bayesian belief state.
 People around here call me, THE ENTROPEAN.
 
 [M]
-Well, without futher ado, we will start from the start, of course.
-With the simplist and most natural of questions:
+Well, without further ado, we will start from the start, of course.
+With the simplest and most natural of questions:
 
 "What does it mean to be human?"
 
@@ -31,11 +31,11 @@ As our technology develops and machines can take on
 more and more tasks, the metaphysical aspect of being intelligent has consistently
 diminished. Intelligence no longer stands as something obviously
 divine and especially human. For a long time we could say, "Well, the
-computer is bad at such-and-such a thing, in fact, it's bad at most things!.
+computer is bad at such-and-such a thing, in fact, it's bad at most things!"
 So I'm still here, it's still meaningful to be human. _I am_ still divine."
 
 [M]
-The speed this is happening has created a kind of existential whip-lash.
+The speed this is happening has created a kind of existential whiplash.
 We must finally grapple with the question which was born when the first
 transistor switched between 0 and 1: "Am I a meat robot? Is my brain
 just a flesh computer?"
@@ -49,7 +49,7 @@ That's easy to answer, it means to care and be cared for!
 
 [E]
 But you need to process information, you need to do inference, be logical,
-be rational. You need to _extact energy_ from the environment.
+be rational. You need to _extract energy_ from the environment.
 
 [M]
 Yes! You can tell stories, and you can hear other people's stories.

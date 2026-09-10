@@ -2,7 +2,7 @@
 <slide>
 [M] 
 In this talk, we're co-opting language from philosophy as well as
-computation. 10 dollar words, as Hemmingway would have it. Our intention is not
+computation. 10 dollar words, as Hemingway would have it. Our intention is not
 to overwhelm or alienate - rather to illuminate. Words are important. Their
 meaning should be specific, and we use them for a reason.
 
@@ -28,5 +28,5 @@ what chemicals make up the cocktail, physics investigates the viscosity
 of the liquid, etc.
 
 But what is the phenomenology of intelligence?
-What is the experience of being intelligent.
+What is the experience of being intelligent?
 What is the experience-structure of interacting with another intelligence?

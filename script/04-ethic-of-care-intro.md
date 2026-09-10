@@ -2,8 +2,8 @@
 
 [M]
 
-Let's start off with a story. Around the 1960's a researcher: Dr. Lawrence
-Kohlberg ran an experiment. He interviewed boys (yes only boys)
+Let's start off with a story. Around the 1960s a researcher: Dr. Lawrence
+Kohlberg ran an experiment. He interviewed boys (yes, only boys)
 and tracked them over time.  He had a theory of moral development:
 that there were 6 linear stages, starting with
 selfishness, moving to obedience and rule following and finally to
@@ -14,7 +14,7 @@ only interviews with boys. In later experiments, girls would be consistently
 scored lower on average. Girls around level three, compared to the boys at 
 around level four. Carol Gilligan proposed a new theory to explain why.
 
-Let's compare Jake and Amy, both age 11. They were asked the same moral
+Let's compare Jake and Amy, both aged 11. They were asked the same moral
 question, the Heinz dilemma: Should a man steal a special and expensive drug
 in order to save the life of his wife?
 
@@ -50,14 +50,14 @@ on their own terms.
 [M]
 
 Later when Amy was interviewed at 15, she even strongly rejected the
-framing of the question. Saying "The situation is unreal. [...] I have
-a lot of trouble buying that story.", Gilligan argued instead of failing
-to reason about the question, pushing back on the artificial frame of
+framing of the question, saying "The situation is unreal. [...] I have
+a lot of trouble buying that story." Gilligan argued that, rather than
+failing to reason about the question, pushing back on the artificial frame of
 the question showed a _more_ sophisticated moral awareness.
 
 In this case, a pattern was observed by Gilligan, the resistance of teenage
 girls to this artificial framing was coded as moral underdevelopment.
-However this was completely backwards, it indicated a parallel development
+However, this was completely backwards, it indicated a parallel development
 of moral maturity within the ethic of care.
 
 This is also why it often feels so strange that while we use these AI tools

@@ -7,32 +7,32 @@ our information and systems, we need energy and we need computation.
 That is what it is to be alive. But is it?
 
 [E]
-Let us consider as a though experiment, Maxwell's daemon.  A hypothetical
+Let us consider as a thought experiment, Maxwell's daemon.  A hypothetical
 daemon sits between two chambers filled with gas, controlling a little door. 
 When the daemon sees an atom going in one direction towards the door, she 
 quickly opens it for a moment to let the atom pass.  If there is an atom going 
-the other direction, the door says closed.  Eventually the atoms all build up 
+the other direction, the door stays closed.  Eventually the atoms all build up 
 on one side. In this case there is more order in the system, order was created,
 this pressure difference could be used to do physical work.  This seems
 to violate the second law of thermodynamics --- that systems should naturally tend
 toward entropy, chaos, disorder.  What is the resolution to this paradox?
 
-First to resolve the paradox, imagine the daemon was running a little
+First, to resolve the paradox, imagine the daemon was running a little
 simulation of the gas and using it to decide when to open the door.
-The patterns in the head of the daemon to predict the movements of the
-atoms.  There is so called "mutual information". This mutual information
+The patterns in the head of the daemon predict the movements of the
+atoms.  There is so-called "mutual information". This mutual information
 implies there is still available free energy in the system.  There is
 no paradox: when including the mind-computer of the daemon, the system
 was not as disordered as it seemed.
 
-Now let us imagine further that this is special gas is not totally
+Now let us imagine further that this special gas is not totally
 disordered. Imagine it has structure; there are some patterns
-how the atoms move together. If the daemon could learn these patterns, she
+in how the atoms move together. If the daemon could learn these patterns, she
 could use this information to extract energy. The better she could learn
 these patterns, the more efficiently she could extract energy.
 
 Representing the structure of the gas-world with a shorter program,
-or compression, if you will. Allow her to extract more energy for the
+or compression, if you will. This allows her to extract more energy for the
 same computation limits.  She can use the low Kolmogorov complexity of
 our environment to generate energy.  This is algorithmic free energy.
 
@@ -40,10 +40,10 @@ our environment to generate energy.  This is algorithmic free energy.
 So our little daemon can tell stories about the gas? Little gassy stories?
 
 [E]
-Haha yes, but let us not assume that the daemon, magically starts
+Haha yes, but let us not assume that the daemon magically starts
 with a program describing its world. It must learn the structure of the
 gas-world by partial observation and experiment, it must do inference. She
-must build up, as fast she can, a picture of the gas from sparse and
+must build up, as fast as she can, a picture of the gas from sparse and
 incomplete observations. The more effectively the daemon can do this,
 again, the more energy she can extract.
 
@@ -73,7 +73,7 @@ distance from the optimal extractor-replicator.
 
 As simple organisms proliferate in the biome, they will leave behind
 a residue. That residue will be a structure that this same level of
-organism is too unintelligent to systematically extract.  This creates and
+organism is too unintelligent to systematically extract.  This creates an
 opportunity for a new, more intelligent creature to extract that latent
 energy-structure, and so on and so forth. To put it metaphorically, the
 Maxwell's daemon has her door, the hunter her traps, and the farmer has
@@ -86,13 +86,13 @@ it can't use computation to discover new ways of growing.
 
 Let's keep building, let's not stop. There is no computable upper bound on
 the algorithmic free energy. That means, endogenously, that seen from
-within the system, from a frog's eye point of view. That is from the point
-of being a thermodynamic organism, from the point of view of us.  We cannot
+within the system, from a frog's-eye point of view, that is, from the point
+of view of being a thermodynamic organism, from the point of view of us.  We cannot
 subjectively know how much energy-structure remains to be extracted.
 This leads us to this very funny conclusion, a funny epistemic state...
 
 [M]
-So then are we are always and forever lost inside an endless singularity?
+So then are we always and forever lost inside an endless singularity?
 Will we always look back and see the past as boring, slow, over-exploited
 and operating a low energy levels.  We will always look forward to an
 unknown and unknowable future, fleeting, risky, energetic? We will forever

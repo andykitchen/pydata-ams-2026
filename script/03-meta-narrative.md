@@ -16,7 +16,7 @@ and trauma of real human experience.
 
 <slide>
 [E] 
-Science fiction, and story telling more broadly, is arguably the practice of
+Science fiction, and storytelling more broadly, is arguably the practice of
 thought experiments, writ large.
 
 [M] 
@@ -25,7 +25,7 @@ world. They bring us together, they bind us. Meta-narrative, themes which repeat
 and mutate, human experience patterns darting and looping: all this reflects us
 back to ourselves.
 
-Let's consider a specific archtype: the mother-warrior, and consider three
+Let's consider a specific archetype: the mother-warrior, and consider three
 examples of the trope.
 
 <slide>
@@ -63,7 +63,7 @@ saving. Only Korben's declaration of love restores her will to fight.
 A glorious narrative flurry! There are many things to observe here. Each
 film makes a clear stand against militarisation and corporate greed, against the
 ethic of domination. None of our heroines fights for individual power or
-domination over others. Their hero's journey is a call to survive, to rebirth
+domination over others. Their heroes' journey is a call to survive, to rebirth
 the world through their sacrifice and struggle.
 
 <slide>
@@ -112,7 +112,7 @@ is literal and alien.
 Children of Men and Fury Road are chase films in which the cargo is a
 pregnant woman.
 
-I Am Mother gives the maternal role to the machine itself and ask whether
+I Am Mother gives the maternal role to the machine itself and asks whether
 an engineered parent can raise a human child.
 
 The Creator inverts the search-and-destroy plot: the weapon the soldier
