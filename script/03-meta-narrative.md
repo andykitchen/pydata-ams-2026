@@ -118,11 +118,14 @@ pregnant woman.
 I Am Mother gives the maternal role to the machine itself and asks whether
 an engineered parent can raise a human child.
 
+<slide>
 The Creator inverts the search-and-destroy plot: the weapon the soldier
 is sent to kill is a child, built by the woman he loved. Nirmata is
 both a person and an idea, a woman who carries a human pregnancy and
 engineers a machine child in parallel; only the machine survives, and
 the mother-idea persists as a myth the machines pray to.
+
+<slide>
 
 Blade Runner 2049 hinges on a replicant birth, and explores the question 
 of what separates humans from replicants.
