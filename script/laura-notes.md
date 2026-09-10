@@ -141,6 +141,7 @@ https://lnkd.in/p/d-vYkZRr
 ## OpenAI agents 
 https://x.com/tszzl/status/2093119574250271187?s=20
 https://x.com/jon_stokes/status/2093383024998076466?s=20
+https://simonwillison.net/2026/Sep/4/rogue-agent-wikis/
 
 ## Resignations
 https://x.com/hilbertspaess/status/2097476196791709843?s=20
@@ -155,6 +156,8 @@ https://x.com/a_nnawang/status/2097720574500102615?s=20
 https://x.com/GaryMarcus/status/2097446464041660608?s=20
 https://mathstodon.xyz/@tao/117237320796901560
 https://x.com/ValerioCapraro/status/2097342040639983909?s=20
+https://simonwillison.net/2026/Sep/8/on-navier-stokes/
+
 
 ## Theranos 
 https://www.youtube.com/watch?v=GGJSRFWALTI (ambiguity)
