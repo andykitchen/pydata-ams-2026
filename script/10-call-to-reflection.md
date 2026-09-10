@@ -26,7 +26,7 @@ Isn't that out job, to invent and build little bridges that allow us to cross
 over, like the one called AI?
 
 We are science and fiction.
-We are worlds and models.
+We are world and model.
 We are meat and mind.
 
 [M]
