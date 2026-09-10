@@ -267,4 +267,19 @@ a shared phenomenology
 the human intelligence-complex,
 at large, including everything that we've written 
 
+---
 
+[E]
+Of course there is a competing thesis, without stories, Any multi-task
+agent, which has _any_ probability distribution inside its prior that the
+task maybe slightly incorrect of misspecified (which is perhaps the vast
+majority of useful agents) will as a matter of rationality want to keep
+other agents around, because of the huge utility and predictability they
+provide. We can team up with, trade with and learn from agents vastly
+more than a heat bath and we can conclude that other agents will also
+conclude this.
+
+That is the orthoganality thesis is true in the abstract, but only in
+agents who have unrealistially strong inductive bias in their goals.
+It's even unclear that an agent with such a strong inductive bias in it's
+goals is even intelligent in a general sense, instead of just instrumental.
