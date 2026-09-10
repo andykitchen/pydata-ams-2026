@@ -16,12 +16,16 @@ Semantics handled:
                         or _Laura and Andy pause and swap hats_.
   * Slide cues       -> <div class="slide">, for `<slide>` lines and for
                         `*Slide: ...*` lines.
+  * Timing           -> every section header gets a "T+MM:SS = H:MM:SS" marker
+                        computed with the exact algorithm from the sibling
+                        time-est.py (same wpm / allowances), relative to a
+                        configurable talk start time (default 16:00).
 
 The page also embeds a tiny script: clicking any bubble, cue or heading
 focuses it, and the up/down arrow keys step through the script line by line.
 
 Usage:
-    python3 render-html.py [--output script.html] [--dir .]
+    python3 render-html.py [--output ../public/script.html] [--dir .]
 
 Only the standard library is used; the stylesheet lives in a <style> block
 at the top of the generated file.
@@ -51,6 +55,48 @@ SPEAKERS = {
 SHORT_WORDS = 35
 
 INLINE_RE = re.compile(r"(\*\*.+?\*\*|\*[^*]+?\*|_[^_]+?_)")
+
+
+def _load_time_est(directory):
+    """Import the sibling time-est.py so markers reuse its exact algorithm."""
+    import importlib.util
+    import sys
+    candidate = Path(directory) / "time-est.py"
+    if not candidate.is_file():
+        raise SystemExit(
+            f"Time markers need the sibling estimator: {candidate} not found"
+        )
+    spec = importlib.util.spec_from_file_location("talk_time_est", candidate)
+    module = importlib.util.module_from_spec(spec)
+    old_flag, sys.dont_write_bytecode = sys.dont_write_bytecode, True
+    try:
+        spec.loader.exec_module(module)
+    finally:
+        sys.dont_write_bytecode = old_flag
+    return module
+
+
+def parse_start_time(value):
+    """Parse HH:MM[:SS] (24h clock) into seconds since midnight."""
+    try:
+        parts = [int(p) for p in value.strip().split(":")]
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f"bad start time: {value!r} (want HH:MM)")
+    if len(parts) == 2:
+        parts.append(0)
+    if (len(parts) != 3 or not
+            (0 <= parts[0] < 24 and 0 <= parts[1] < 60 and 0 <= parts[2] < 60)):
+        raise argparse.ArgumentTypeError(
+            f"bad start time: {value!r} (want HH:MM)")
+    hours, minutes, seconds = parts
+    return hours * 3600 + minutes * 60 + seconds
+
+
+def fmt_clock(total_seconds):
+    """Format seconds since midnight as H:MM:SS."""
+    total = int(round(total_seconds)) % (24 * 3600)
+    return f"{total // 3600}:{(total % 3600) // 60:02d}:{total % 60:02d}"
 
 
 def slugify(text):
@@ -154,8 +200,12 @@ def flush_speech(blocks, speaker, paras):
         )
 
 
-def render_section(path, index):
-    """Render one markdown file -> (section_id, title, html, slide_count)."""
+def render_section(path, index, timing=""):
+    """Render one markdown file -> (section_id, title, html, slide_count).
+
+    `timing` is an optional prebuilt HTML stamp (e.g. a T+/clock marker)
+    inserted directly under the section <h1>.
+    """
     raw = path.read_text(encoding="utf-8")
     section_id = f"s{index:02d}-{slugify(path.stem[3:] or path.stem)}"
     title = path.stem.replace("-", " ").strip()
@@ -280,9 +330,11 @@ def render_section(path, index):
         flush_paragraph(buf, blocks)
 
     body = "\n".join(blocks)
+    timing_block = f"{timing}\n" if timing else ""
     section = (
         f'<section class="script-section" id="{section_id}" aria-label="{html.escape(title)}">\n'
         f"<h1>{render_inline(title)}</h1>\n"
+        f"{timing_block}"
         f'<p class="file-tag">{html.escape(path.name)}</p>\n'
         f"{body}\n"
         f"</section>"
@@ -417,6 +469,25 @@ section.script-section > h1:focus, section.script-section > h2:focus {
   outline: 3px solid var(--focus);
   outline-offset: 4px;
 }
+/* Timing markers: glanceable "where should we be" stamps. */
+.timing { margin: 0.4rem 0 0.5rem; }
+.timing-pill {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.1rem 0.8rem;
+  white-space: nowrap;
+}
+.timing-sub { color: var(--muted); font-size: 0.95rem; margin-left: 0.5rem; }
+.toc-time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
 .back-top { display: block; margin-top: 2rem; font-size: 0.95rem; }
 .back-top a { color: var(--muted); }
 @media print {
@@ -430,35 +501,56 @@ section.script-section > h1:focus, section.script-section > h2:focus {
 
 
 NAV_JS = """(function () {
-  var steps = Array.prototype.slice.call(
-    document.querySelectorAll(
-      "article.speech, p.action, div.slide," +
-      " section.script-section > h1, section.script-section > h2"
-    )
-  );
-  var current = -1;
-  function setCurrent(i, scroll) {
+  "use strict";
+  function init() {
+    var steps = Array.prototype.slice.call(
+      document.querySelectorAll(
+        "article.speech, p.action, div.slide," +
+        " section.script-section > h1, section.script-section > h2"
+      )
+    );
     if (!steps.length) return;
-    if (i < 0) i = 0;
-    if (i > steps.length - 1) i = steps.length - 1;
-    if (current >= 0 && steps[current]) steps[current].classList.remove("current");
-    current = i;
-    var el = steps[current];
-    el.classList.add("current");
-    el.focus({ preventScroll: true });
-    if (scroll !== false) el.scrollIntoView({ block: "center", behavior: "smooth" });
+    var current = -1;
+    function focusEl(el) {
+      try { el.focus({ preventScroll: true }); }
+      catch (e) { el.focus(); }
+    }
+    function scrollEl(el) {
+      try { el.scrollIntoView({ block: "center", behavior: "smooth" }); }
+      catch (e) { el.scrollIntoView(); }
+    }
+    function setCurrent(i, scroll) {
+      if (i < 0) i = 0;
+      if (i > steps.length - 1) i = steps.length - 1;
+      if (current >= 0 && steps[current]) steps[current].classList.remove("current");
+      current = i;
+      var el = steps[current];
+      el.classList.add("current");
+      focusEl(el);
+      if (scroll !== false) scrollEl(el);
+    }
+    steps.forEach(function (el, i) {
+      el.setAttribute("tabindex", "0");
+      el.addEventListener("click", function () { setCurrent(i, true); });
+    });
+    document.addEventListener("keydown", function (e) {
+      var t = e.target;
+      var tag = (t && t.tagName) || "";
+      if (tag === "INPUT" || tag === "TEXTAREA" || (t && t.isContentEditable)) return;
+      var key = e.key;
+      if (!key) {
+        if (e.keyCode === 40) key = "ArrowDown";
+        else if (e.keyCode === 38) key = "ArrowUp";
+      }
+      if (key === "ArrowDown") { e.preventDefault(); setCurrent(current + 1); }
+      else if (key === "ArrowUp") { e.preventDefault(); setCurrent(current - 1); }
+    });
   }
-  steps.forEach(function (el, i) {
-    el.setAttribute("tabindex", "0");
-    el.addEventListener("click", function () { setCurrent(i, true); });
-  });
-  document.addEventListener("keydown", function (e) {
-    var t = e.target;
-    var tag = (t && t.tagName) || "";
-    if (tag === "INPUT" || tag === "TEXTAREA" || (t && t.isContentEditable)) return;
-    if (e.key === "ArrowDown") { e.preventDefault(); setCurrent(current + 1); }
-    else if (e.key === "ArrowUp") { e.preventDefault(); setCurrent(current - 1); }
-  });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();"""
 
 
@@ -477,6 +569,7 @@ PAGE = """<!DOCTYPE html>
 <header class="page-head">
 <h1>{title}</h1>
 <p>Internal read-through copy &mdash; large print. {n_sections} sections, {n_slides} slide cues.</p>
+<p>Estimated {est_total}, ending {end_clock} (from {start_str} at {wpm:g} wpm).</p>
 <p class="hint">Click any bubble to focus it, then step through with &uarr; / &darr;.</p>
 <div class="legend" aria-label="Speaker key">
 <span class="badge">M &middot; Midwyfe</span>
@@ -504,8 +597,18 @@ def main():
     )
     parser.add_argument("--dir", type=Path, default=default_dir,
                         help="directory containing the numbered section files")
-    parser.add_argument("--output", type=Path, default=default_dir / "script.html",
+    parser.add_argument("--output", type=Path,
+                        default=default_dir.parent / "public" / "script.html",
                         help="HTML file to write")
+    parser.add_argument("--wpm", type=float, default=110.0,
+                        help="speaking rate in words per minute (as in time-est.py)")
+    parser.add_argument("--change-secs", type=float, default=2.0,
+                        help="seconds allowed per character (speaker) change")
+    parser.add_argument("--section-secs", type=float, default=5.0,
+                        help="seconds allowed per section change")
+    parser.add_argument("--start", type=parse_start_time,
+                        default=parse_start_time("16:00"),
+                        help="talk start time as HH:MM on a 24h clock")
     parser.add_argument("--title", default="Talk script — read-through copy",
                         help="title used in <title> and the page header")
     args = parser.parse_args()
@@ -514,26 +617,53 @@ def main():
     if not files:
         raise SystemExit(f"No numbered section files found in {args.dir}")
 
+    time_est = _load_time_est(args.dir)
+
     rendered = []
     toc_items = []
     total_slides = 0
+    elapsed = 0.0
     for i, path in enumerate(files, start=1):
-        section_id, title, section_html, slides = render_section(path, i)
+        _, target_min, words, changes, _, _ = time_est.parse_section(path)
+        speaking_secs = words / args.wpm * 60
+        duration_secs = speaking_secs + changes * args.change_secs + args.section_secs
+        clock = fmt_clock(args.start + elapsed)
+        marker = f"T+{time_est.fmt_mmss(elapsed)} = {clock}"
+        sub = f"\u2248{time_est.fmt_mmss(duration_secs)}"
+        if target_min is not None:
+            sub += f" (target {target_min:g}m)"
+        timing = (
+            f'<p class="timing"><span class="timing-pill">{marker}</span> '
+            f'<span class="timing-sub">{sub}</span></p>'
+        )
+        section_id, title, section_html, slides = render_section(path, i, timing)
         total_slides += slides
         rendered.append(section_html + '\n<p class="back-top"><a href="#top">&uarr; back to top</a></p>')
         toc_items.append(
-            f'<li><a href="#{section_id}">{render_inline(title)}</a></li>'
+            f'<li><a href="#{section_id}">{render_inline(title)}</a> '
+            f'<span class="toc-time">{marker}</span></li>'
         )
+        elapsed += duration_secs
 
+    end_clock = fmt_clock(args.start + elapsed)
     page = PAGE.format(
         title=html.escape(args.title),
         css=CSS,
         n_sections=len(files),
         n_slides=total_slides,
+        est_total=time_est.fmt_mmss(elapsed),
+        end_clock=end_clock,
+        start_str=fmt_clock(args.start),
+        wpm=args.wpm,
         toc="\n".join(toc_items),
         sections="\n".join(rendered),
     )
     page = page.replace("</body>", "<script>\n" + NAV_JS + "\n</script>\n</body>")
+    if args.output.is_symlink():
+        # A leftover symlink (e.g. public/script.html -> ../script/script.html)
+        # would capture the write; replace it with the real file.
+        args.output.unlink()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(page + "\n", encoding="utf-8")
     print(f"Wrote {args.output} ({len(files)} sections, {total_slides} slide cues)")
 
