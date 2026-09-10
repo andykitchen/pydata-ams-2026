@@ -1,8 +1,4 @@
-## What does it mean to be a mother? (5m)
-
-- To bring new life, new ideas, new cultures into the world 
-- To replicate our values, or ways of thinking, to thrust our ideas into the future 
-- To nurture long enough for our offspring to stand on their own feet, to give both structure and freedom 
+## What does it mean to be a mother? (4m)
 
 <slide>
 [M]
@@ -22,7 +18,7 @@ RLHF could be seen, if you squint, as a form of machine parenting. If we build w
 [M]
 Exactly. And while we try our best although often failing to incalcate our values, ideas and ideologies into our technologies. Our methods of machine parenting, the design and technical systems we build for this purpose - this says as much about us and our ideas about ourselves, the world, our future possibilities, as it does about any real or imagined AI consciousness.
 
-I'm reminded of the poem of the great poet, Khalil Gibran, "On Children". It goes: 
+I'm reminded of a poem by the great poet Khalil Gibran, "On Children". It goes: 
 
 And a woman who held a babe against her bosom said, Speak to us of Children.
     And he said:

@@ -1,5 +1,7 @@
 ## Return: what does it mean to "be human"? (2m)
 
+_Laura and Andy pause and swap hats_
+
 [M]
 Let us consider again the question that we started with, what does it mean
 to "be human"? We tried to look from these different perspectives.
