@@ -42,6 +42,7 @@ AI consciousness.
 
 I'm reminded of a poem by the great poet Khalil Gibran, "On Children". It goes: 
 
+[E]
 > And a woman who held a babe against her bosom said, Speak to us of Children.
 >     And he said:
 >     Your children are not your children.

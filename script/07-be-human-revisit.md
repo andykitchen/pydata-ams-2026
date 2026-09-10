@@ -2,7 +2,7 @@
 
 _Laura and Andy pause and swap hats_
 
-[M]
+[E]
 Let us consider again the question that we started with, what does it
 mean to "be human"? We tried to look from these different perspectives.
 We considered the ethic of care: to be human is to care and be cared for.
@@ -10,6 +10,7 @@ we considered meta-narrative: to be human is to tell stories and hear
 stories.  We considered physics: intelligent organisms compress, extract
 energy and replicate.
 
+[M]
 Let us consider that in our time, things have become ambiguous, it used
 to be that the difference between "be human" and "be intelligence" was
 small enough, that we could try to pretend that there wasn't such great

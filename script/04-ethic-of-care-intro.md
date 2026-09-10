@@ -1,13 +1,16 @@
 ## Ethic of care vs ethic of justice (5m)
 
+[E]
+
+Let's talk about some research now, I like research.  Around the 1960s
+the American psycologist: Dr. Lawrence Kohlberg ran an experiment. He
+interviewed boys (yes, only boys) and tracked them over time.
+
 [M]
 
-Let's start off with a story. Around the 1960s a researcher: Dr. Lawrence
-Kohlberg ran an experiment. He interviewed boys (yes, only boys)
-and tracked them over time.  He had a theory of moral development:
-that there were 6 linear stages, starting with
-selfishness, moving to obedience and rule following and finally to
-the ability to reason abstractly about justice.
+He had a theory of moral development: that there were 6 linear stages,
+starting with selfishness, moving to obedience and rule following and
+finally to the ability to reason abstractly about justice.
 
 Of course, he generalized the moral development of human children from
 only interviews with boys. In later experiments, girls would be consistently 

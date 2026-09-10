@@ -2,15 +2,13 @@
 
 ### AI sandbox escapes
 
-[E]
+[M]
 So there've been several AI sandbox escapes that have hit the news
 recently. The METR report on the OpenAI Hugging Face hack has been
 released.
 
 A group of researchers, Arx et al., discovered a new OpenAI
 agent message board in the wild...  Well at least one so far.
-
-[M]
 
 Oh, these little agents, they managed to make a makeshift message board.
 Found a way to communicate...
