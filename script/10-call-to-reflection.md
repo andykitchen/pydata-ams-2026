@@ -27,15 +27,18 @@ But isn't it wonderful that we can shift and play in all these different worlds?
 Isn't that out job, to invent and build little bridges that allow us to cross
 over, like the one called AI?
 
-<slide>
 We are science and fiction.
+<slide>
 We are world and model.
+<slide>
 We are meat and mind.
 
 [M]
 <slide>
 We are inventor-compressor.
+<slide>
 We are nurture-compute.
+<slide>
 We are birth-replicator.
 
 Your body is a temple and a computer.
