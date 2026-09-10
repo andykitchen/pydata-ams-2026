@@ -1,23 +1,31 @@
 ## Call to reflection (2m)
 
-- Simone de Beauvoir - ethic of ambiguity 
-- Maria Lugones - Playfulness, world travelling, loving perception 
+[M]
+We are living in Ambiguous times. _We_ are Ambiguous.
 
-We are science and fiction
-We are worlds and models
+[E]
+But isn't it wonderful that we can play in all these different worlds?
 
-We are mind-meat
+We are science and fiction.
+We are worlds and models.
+We are meat and mind.
 
-We are creator-destroyer
-
-We are nurture-compute
+[M]
+We are inventor-compressor.
+We are nurture-compute.
+We are birth-replicator.
 
 Your body is a temple and a computer.
-It is both the locus of your soul
-and the life support system for a biological neural network.
 
-Invitation to get comfortable with discomfort and ambiguity. 
-Do you need to be right? or be better?
-Invitation to be a good mother - to yourself, to others, and to technologies you birth. 
+Your body is the spacesuit for your soul...
+
+[E]
+and your body is just the life support system for a biological neural network.
 
 
+[M]
+We invite you to a moment of reflection,
+Create an invitation to yourself to be a good mother --- to yourself, to others, and to technologies you birth. 
+
+Be playful,
+Be multitudes
