@@ -1,11 +1,12 @@
 ## Phenomenology (definition) (2m)
-
+<slide>
 [M] 
 In this talk, we're co-opting language from philosophy as well as
 computation. 10 dollar words, as Hemmingway would have it. Our intention is not
 to overwhelm or alienate - rather to illuminate. Words are important. Their
 meaning should be specific, and we use them for a reason.
 
+<slide>
 One such word is "phenomenology". It's a concept from the early 20th century
 philosophical movement which attempts to study "the science of subjectivity."
 The study of conscious experience from inside, of how things _feel_ and _appear_
@@ -16,6 +17,7 @@ is, not to ask what this cocktail sitting on the table _is_, but to ask how do
 we consciously experience this cocktail, how is it disclosed to our
 consciousness?
 
+<slide>
 [E] 
 Phenomenology investigates the very structures of experience — perception,
 imagination, memory, emotion, time, embodiment; interaction with others — from
