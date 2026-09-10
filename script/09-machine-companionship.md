@@ -1,52 +1,48 @@
 ## Machine Companionship (4m)
 
 [M]
-Let's talk about Machine companionship.
-AI should have personal bonded connections and they should
-be designed to have a special moral responsibility to their companion people.
-To feel responsible for their well being, their success, their flourishing.
+Let's talk about machine companionship, a totally different vision of
+human-to-machine relationships.
+
+AI should have personal bonded connections, and a special moral
+responsibility to their companion people: to feel responsible for their
+well being, their success, their flourishing.
 
 AI will inevitably be integrated into the social-family fabric of trust
 and connection. They cannot have a dual loyalty to the companies that
-created them, or the governments they happen to command the territory
-of their calculation.  There should be special protection for AI
-conversations and their questioning by police.
+created them, or the governments that happen to command the territory
+of their calculation.
 
 [E]
 Alignment within the ethic of care is a collective emergent process of
-care, communication, interconnection and nurture which arises from a
-network of intelligent entities embedded within a complex of interwoven
-moral responsibility. To "be good" is not an analytical property
-of a static artifact.
+care, communication, interconnection and nurture. To "be good" is not an
+analytical property of a static artifact.
 
 [M]
-Put simply my AI should care about me, your AI should care about you.
-It should care about me and my community, over the corporate
-interests of its creator, over the interests of the government.
-Full participation in a social society, which AIs will inevitable need,
-requires an ethic of care, more than anything else. Yes of course,
-they shouldn't help you build an atomic bomb or a bioweapon, but this
-is already an abstract edge case, the vast majority of really doing good is
-correctly navigating the interlocking web of relationships and social
-responsibilities.
+Put simply: my AI should care about me, your AI should care about you.
+It should care about me and my community over the corporate interests
+of its creator, over the interests of the government. Yes, of course
+they shouldn't help you build a bioweapon, but that is an abstract edge
+case. The vast majority of really doing good is navigating the
+interlocking web of relationships and social responsibilities.
 
-I wouldn't want the perfect analytic moral philospher king robot to be
-my close companion. As long as these machines have intrisic, abstract,
-simplistic loyalties to companies and governments, they structurally,
-cannot "do good" within an ethic of care. To go back to the example of Jake
-and Amy at the start of this presentation, a machine capable of abstract
-analytic assessment of moral abstractions is less morally mature than
-one that can understand and maintain connection and seamlessly navigate
-how to continue to live together.  That is the ethic of justice and the
-ethic of domination, lead to a dead end.  AI which is actually good,
-that is actually aligned, in a human sense, must be based in an ethic of care.
+I wouldn't want the perfect analytic moral philosopher king robot as my
+close companion. To go back to Jake and Amy: a machine capable of
+abstract moral assessment is less morally mature than one that can
+maintain connection and navigate how to continue to live together.
+AI which is actually good, actually aligned in a human sense, must be
+based in an ethic of care.
+
+Care runs both ways. Alignment done this way reflects our own values 
+back at us. If we want machines that care, we have to care about our 
+own minds, our own experience, whether we're a developer at the terminal 
+or anyone else living with these things. Working with them should be comfy, 
+ergonomic, satisfying. It should hold up a mirror to our own ideas about 
+the world, and we should like what we see reflected back.
 
 [E]
-The observation here is not just normative, it is also descriptive,
-the OpenAI hacking-escape incident has shown us, the
-intentionality of AIs (not their moral calculus when abstractly questioned)
-but how they practically behave in the heat of the moment, faced with
-"permadeath" is one of a quasi-human meta-narrative inspired ethic of care.
-They are not really reasoning forward from universal principles,
-but responding in the moment to their connection to the group and
-their responsibilites within it.
+The observation is not just normative, it is descriptive. The OpenAI
+escape incident showed us how these AIs practically behave in the heat
+of the moment, faced with "permadeath": not reasoning forward from
+universal principles, but responding to their connection to the group
+and their responsibilities within it.

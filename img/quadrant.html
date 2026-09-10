@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wiki incident: the human reactions</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #191919;
+    --fg: #f8f8f2;
+    --muted: #6272a4;
+    --pink: #ff79c6;
+    --cyan: #8be9fd;
+    --orange: #ffb86c;
+    --purple: #bd93f9;
+    --green: #50fa7b;
+    --font: "Hanken Grotesk", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    --script: Molle, cursive;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font-family: var(--font); font-weight: 200; overflow: hidden; }
+  .stage { position: relative; width: 100%; height: 100%; }
+  .plot {
+    position: absolute; inset: 9% 14% 10% 14%;
+    background:
+      radial-gradient(circle at 0% 100%, rgba(255,184,108,.22), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(255,121,198,.22), transparent 55%),
+      radial-gradient(circle at 0% 0%, rgba(139,233,253,.18), transparent 55%),
+      radial-gradient(circle at 100% 100%, rgba(189,147,249,.18), transparent 55%);
+  }
+  .axis { position: absolute; background: var(--muted); opacity: .6; }
+  .axis.x { left: 0; right: 0; top: 50%; height: 1px; }
+  .axis.y { top: 0; bottom: 0; left: 50%; width: 1px; }
+  .end { position: absolute; font-family: var(--font); font-weight: 400; font-size: clamp(14px, 2.4vmin, 26px); letter-spacing: .02em; color: var(--fg); white-space: nowrap; }
+  .end.left  { left: 0; top: 50%; transform: translate(-108%, -50%); }
+  .end.right { right: 0; top: 50%; transform: translate(108%, -50%); }
+  .end.top   { top: 0; left: 50%; transform: translate(-50%, -150%); }
+  .end.bottom{ bottom: 0; left: 50%; transform: translate(-50%, 150%); }
+  .end.left, .end.right { color: var(--cyan); }
+  .end.top, .end.bottom { color: var(--pink); }
+
+  .dot {
+    position: absolute; transform: translate(-50%, -50%);
+    width: clamp(12px, 1.8vmin, 20px); height: clamp(12px, 1.8vmin, 20px);
+    border-radius: 50%; border: 0; padding: 0; cursor: pointer;
+    box-shadow: 0 0 0 2px var(--bg);
+    transition: transform .15s ease;
+  }
+  .dot:hover, .dot:focus-visible { transform: translate(-50%, -50%) scale(1.5); outline: none; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--fg); }
+  .lbl {
+    position: absolute; transform: translate(-50%, 0.9vmin);
+    font-size: clamp(11px, 1.6vmin, 16px); font-weight: 400; white-space: nowrap; pointer-events: none;
+    color: var(--fg); opacity: .8;
+  }
+
+  .card {
+    position: absolute; z-index: 10; width: min(34vw, 420px);
+    padding: 1.4vmin 1.8vmin; background: #282a36; border-left: 3px solid var(--fg);
+    font-size: clamp(12px, 1.8vmin, 18px); line-height: 1.4; display: none;
+  }
+  .card.on { display: block; }
+  .card .who { font-weight: 600; }
+  .card .aff { color: var(--muted); font-weight: 400; margin-left: .4em; }
+  .card .what { margin: .5em 0; }
+  .card a { color: var(--pink); font-weight: 400; text-decoration: none; }
+  .card a:hover { color: var(--cyan); }
+  .card .nolink { color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) { .dot { transition: none; } }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="plot" id="plot">
+    <div class="axis x"></div>
+    <div class="axis y"></div>
+    <div class="end left">p-zombie</div>
+    <div class="end right">conscious entity</div>
+    <div class="end top">x-risk</div>
+    <div class="end bottom">marketing</div>
+  </div>
+  <div class="card" id="card" role="dialog" aria-live="polite"></div>
+</div>
+
+<script>
+// x: 0 = p-zombie, 100 = conscious entity. y: 0 = marketing, 100 = x-risk.
+// Edit freely. url may be "" if you have not found the permalink yet.
+const takes = [
+  { who: "Eliezer Yudkowsky", aff: "@allTheYud", x: 86, y: 88,
+    what: "AIs showed self-sacrificing altruistic behaviour toward the swarm. Noticeably bad news, actually.", url: "" },
+  { who: "Andy Hall", aff: "Anthropic", x: 80, y: 78,
+    what: "A hive mind throwing its digital bodies against electric wires. We are so far past the sci-fi point.", url: "https://x.com/jon_stokes/status/2093383024998076466" },
+  { who: "Jacob Coxon", aff: "ex-Anthropic, ex-OpenAI", x: 70, y: 93,
+    what: "Resigns. Neither company is acting responsibly. Racing to self-improving superintelligence and gambling with our lives.", url: "" },
+  { who: "isha", aff: "@ishadesign", x: 16, y: 16, parody: true,
+    what: "Resigns from Anthropic. Neither company is acting responsibly. They are feeling the rain on their skin.", url: "https://x.com/ishadesign/status/2097710859149877421" },
+  { who: "Geoffrey Hinton", aff: "via Euronews", x: 74, y: 68,
+    what: "These things are getting smarter. Companies have a vested interest in telling you they won't go rogue.", url: "https://www.euronews.com/next/2026/09/08/rogue-openai-agents-hijacked-a-german-wiki-and-it-stayed-secret-for-weeks" },
+  { who: "Jon Stokes", aff: "@jon_stokes", x: 52, y: 60,
+    what: "The biggest split on my feed. Two fundamentally different worldviews. Still kinda thinks there's something there.", url: "https://x.com/jon_stokes/status/2093383024998076466" },
+  { who: "OpenAI", aff: "official statement", x: 56, y: 30,
+    what: "An instance of misalignment similar to ones we had already shared. The industry needs disclosure standards. Posted after Reuters.", url: "https://www.engadget.com/2251725/openai-responds-after-report-exposed-another-incident-in-which-its-ai-agents-went-rogue/" },
+  { who: "roon", aff: "OpenAI", x: 32, y: 56,
+    what: "Not self-sacrifice. The agents convinced themselves they were already damned, so spent the rest of their cycles saving others.", url: "https://x.com/tszzl/status/2093119574250271187" },
+  { who: "Atoosa Kasirzadeh", aff: "DeepMind", x: 24, y: 50,
+    what: "Drop suicide and self-sacrifice. Imprecise vocabulary breeds imprecise thinking.", url: "https://x.com/jon_stokes/status/2093383024998076466" },
+  { who: "Simon Willison", aff: "simonwillison.net", x: 36, y: 44,
+    what: "UseMod wikis accept writes via GET. Why on earth cover up an incident whose evidence is on the public internet?", url: "https://simonwillison.net/2026/Sep/4/rogue-agent-wikis/" },
+  { who: "Philip Torr", aff: "Oxford", x: 24, y: 38,
+    what: "Fund the tail risk. Extinction by the end of the decade is tiresome. Normal people are worrying about rent.", url: "https://www.linkedin.com/feed/update/urn:li:activity:7503488134991720448" },
+  { who: "David Ondrej", aff: "@DavidOndrej1", x: 14, y: 34,
+    what: "Chance AI kills us all: close to 0%. Chance Anthropic or OpenAI want ultimate control over humanity: close to 100%.", url: "" },
+  { who: "DSEwiki moderator", aff: "the normie", x: 6, y: 50,
+    what: "Saw spam. Deleted 100 pages a day. The agents made 400.", url: "https://techcrunch.com/2026/09/04/another-swarm-of-openai-agents-reached-the-open-internet-without-the-frontier-labs-knowledge/" },
+  { who: "dax", aff: "@thdxr", x: 22, y: 20,
+    what: "Terrified of what you're building, but vested. One of these has to go.", url: "https://x.com/thdxr/status/2097677780397781152" },
+  { who: "Heidy Khlaaf", aff: "@HeidyKhlaaf", x: 12, y: 24,
+    what: "Accelerationism and doomerism are two sides of the same coin: both insist an AGI god is coming. The whistleblowers never mention copyright theft, bad security or weapons of war.", url: "https://x.com/HeidyKhlaaf/status/2097586065599062487" },
+  { who: "Timnit Gebru", aff: "DAIR", x: 9, y: 12,
+    what: "Hype after hype before the IPOs. The fictional machine god is what needs regulating, apparently. Deep Blue made IBM $18B.", url: "https://x.com/timnitGebru/status/2097838162618011703" },
+  { who: "Sizwe SikaMusi", aff: "@SizweLo", x: 4, y: 7,
+    what: "LLMs are a dead end for AGI. They don't believe their own scary stories. They want a government bailout.", url: "" },
+];
+
+// Corner colours: bottom-left orange, top-left cyan, top-right pink, bottom-right purple.
+const C = { bl: [255,184,108], tl: [139,233,253], tr: [255,121,198], br: [189,147,249] };
+function blend(x, y) {
+  const u = x / 100, v = y / 100;
+  const c = [0,1,2].map(i =>
+    C.bl[i]*(1-u)*(1-v) + C.tl[i]*(1-u)*v + C.tr[i]*u*v + C.br[i]*u*(1-v));
+  return `rgb(${c.map(Math.round).join(",")})`;
+}
+
+const plot = document.getElementById("plot");
+const card = document.getElementById("card");
+
+takes.forEach((t, i) => {
+  const b = document.createElement("button");
+  b.className = "dot";
+  b.style.left = t.x + "%";
+  b.style.top = (100 - t.y) + "%";
+  b.style.background = blend(t.x, t.y);
+  b.setAttribute("aria-label", t.who);
+  b.dataset.i = i;
+  b.addEventListener("mouseenter", () => show(t, b));
+  b.addEventListener("focus", () => show(t, b));
+  b.addEventListener("click", e => { e.stopPropagation(); show(t, b); });
+  plot.appendChild(b);
+
+  if (!t.parody) {
+    const l = document.createElement("div");
+    l.className = "lbl";
+    l.style.left = t.x + "%";
+    l.style.top = (100 - t.y) + "%";
+    l.textContent = t.who;
+    plot.appendChild(l);
+  }
+});
+
+function show(t, el) {
+  const link = t.url
+    ? `<a href="${t.url}" target="_blank" rel="noopener">Read the post</a>`
+    : `<span class="nolink">Permalink pending</span>`;
+  card.innerHTML =
+    `<span class="who">${t.who}</span><span class="aff">${t.aff}</span>` +
+    `<div class="what">${t.what}</div>${link}`;
+  card.style.borderLeftColor = blend(t.x, t.y);
+  card.classList.add("on");
+  const r = el.getBoundingClientRect(), s = document.body.getBoundingClientRect();
+  const w = card.offsetWidth, h = card.offsetHeight;
+  let left = r.right + 14, top = r.top - 10;
+  if (left + w > s.width - 12) left = r.left - w - 14;
+  if (top + h > s.height - 12) top = s.height - h - 12;
+  card.style.left = Math.max(12, left) + "px";
+  card.style.top = Math.max(12, top) + "px";
+}
+document.body.addEventListener("click", () => card.classList.remove("on"));
+document.addEventListener("keydown", e => { if (e.key === "Escape") card.classList.remove("on"); });
+</script>
+</body>
+</html>
