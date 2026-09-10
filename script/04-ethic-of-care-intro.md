@@ -1,5 +1,6 @@
 ## Ethic of care vs ethic of justice (5m)
 
+<slide>
 [E]
 
 Let's talk about some research now, I like research.  Around the 1960s
@@ -16,6 +17,8 @@ Of course, he generalized the moral development of human children from
 only interviews with boys. In later experiments, girls would be consistently 
 scored lower on average. Girls around level three, compared to the boys at 
 around level four. Carol Gilligan proposed a new theory to explain why.
+
+<slide>
 
 Let's compare Jake and Amy, both aged 11. They were asked the same moral
 question, the Heinz dilemma: Should a man steal a special and expensive drug
@@ -39,6 +42,7 @@ values to be argued and calculated. Amy emphasised the maintenance of
 relationships, communication, the consequences and how to live together
 afterwards.
 
+<slide>
 [E]
 
 Gilligan created a framework to understand this distinction, she identified
@@ -62,6 +66,8 @@ In this case, a pattern was observed by Gilligan, the resistance of teenage
 girls to this artificial framing was coded as moral underdevelopment.
 However, this was completely backwards, it indicated a parallel development
 of moral maturity within the ethic of care.
+
+<slide>
 
 This is also why it often feels so strange that while we use these AI tools
 every day, the "good" is decided using abstract mathematics and secret

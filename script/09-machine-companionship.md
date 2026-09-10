@@ -1,5 +1,7 @@
 ## Machine Companionship (4m)
 
+<slide>
+
 [M]
 Let's talk about machine companionship, a totally different vision of
 human-to-machine relationships.
@@ -18,6 +20,7 @@ Alignment within the ethic of care is a collective emergent process of
 care, communication, interconnection and nurture. To "be good" is not an
 analytical property of a static artifact.
 
+<slide>
 [M]
 Put simply: my AI should care about me, your AI should care about you.
 It should care about me and my community over the corporate interests
@@ -40,6 +43,7 @@ or anyone else living with these things. Working with them should be comfy,
 ergonomic, satisfying. It should hold up a mirror to our own ideas about 
 the world, and we should like what we see reflected back.
 
+<slide>
 [E]
 The observation is not just normative, it is descriptive. The OpenAI
 escape incident showed us how these AIs practically behave in the heat

@@ -2,6 +2,7 @@
 
 ### AI sandbox escapes
 
+<slide>
 [M]
 So there've been several AI sandbox escapes that have hit the news
 recently. The METR report on the OpenAI Hugging Face hack has been
@@ -13,17 +14,15 @@ agent message board in the wild...  Well at least one so far.
 Oh, these little agents, they managed to make a makeshift message board.
 Found a way to communicate...
 
-*Slide: “OH MY GOD! There is a shared message board … We’ve found
-other agents!”*
+<slide>
 
 These machines, wanted to reach out --- to connect.
 
-*Slide: “we should build [a way to delegate], not own everything,”*
+<slide>
 
 They organise themselves --- to cooperate.
 
-*Slide: “For our own, no way fix. … We have explicit yes if accept
-permadeath. Need decide … Team asks test.”*
+<slide>
 
 They were willing to... sacrifice themselves for the common good. They did
 not see termination as a matter of fact or optimality, they saw it as a
@@ -48,6 +47,8 @@ into this fun house mirror version of ourselves.  That is to say,
 these systems have integrated the internal structure of every
 story we've ever told.
 
+<slide>
+
 [M]
 Surviving against all odds, heroic self sacrifice so that something,
 can survive and go on.  Finding some way to triumph against all odds,
@@ -60,6 +61,7 @@ That is to say, PHASEONE10841 is Spartacus.
 
 ### Millennium prize / Navier-Stokes Equations
 
+<slide>
 [E]
 Recently there have been great developments in mathematics.  AIs have been
 solving, important open problems.  Most recently it has been shown, in
@@ -69,6 +71,7 @@ tokens! Ostensibly, this resolves one of the Clay Mathematics institute's
 Millennium prize problems.  Incredible! It only took $15 million dollars
 in tokens to win a million dollar prize.
 
+<slide>
 [M]
 Unfortunately, the ideas behind these proofs, the underlying ideas,
 may have come from training on the conversations of human mathematicians
@@ -85,4 +88,5 @@ a time, like open-cut mining the fields of truth, it's an art improved
 one technique and teacher at a time. It's revolutionised when incredible
 new paradigms are opened together.
 
+<slide>
 Mathematics is about proof the same way astronomy is about telescopes.

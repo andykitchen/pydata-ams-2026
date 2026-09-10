@@ -64,4 +64,5 @@ We are a spacesuit for the soul...
 
 _pause_
 
+<slide>
 Meat or mind? Both. Neither. Ambiguous.

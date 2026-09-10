@@ -1,5 +1,7 @@
 ## Meta-narrative: the mother-warrior (8m)
 
+<slide>
+
 [M] 
 To continue, we'll put aside this question of how to measure our experience
 of the world, and examine instead the question of how we tell each other stories 
@@ -81,6 +83,7 @@ autonomous.
 In The Fifth Element the military is General Munro's federation: procedural, 
 noisy, and ineffective: its so-called "ultimate weapon" a woman it cannot comprehend. 
 
+<slide>
 [M]
 Different stories, and yet the same. Cells within cells, interlinked.
 

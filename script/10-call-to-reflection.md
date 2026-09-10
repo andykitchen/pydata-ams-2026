@@ -1,5 +1,7 @@
 ## Call to reflection (2m)
 
+<slide>
+
 [M]
 We are living in Ambiguous times. _We_ are Ambiguous.
 
@@ -25,11 +27,13 @@ But isn't it wonderful that we can shift and play in all these different worlds?
 Isn't that out job, to invent and build little bridges that allow us to cross
 over, like the one called AI?
 
+<slide>
 We are science and fiction.
 We are world and model.
 We are meat and mind.
 
 [M]
+<slide>
 We are inventor-compressor.
 We are nurture-compute.
 We are birth-replicator.
@@ -42,6 +46,7 @@ Your body is the spacesuit for your soul...
 ...and it is also just the life support system for a meat computer.
 
 
+<slide>
 [M]
 We invite you to a moment of reflection,
 Consider this your invitation to be a good mother ---

@@ -7,6 +7,7 @@ our information and systems, we need energy and we need computation.
 That is what it is to be alive. But is it?
 
 [E]
+<slide>
 Let us consider as a thought experiment, Maxwell's daemon.  A hypothetical
 daemon sits between two chambers filled with gas, controlling a little door. 
 When the daemon sees an atom going in one direction towards the door, she 
@@ -17,6 +18,7 @@ this pressure difference could be used to do physical work.  This seems
 to violate the second law of thermodynamics --- that systems should naturally tend
 toward entropy, chaos, disorder.  What is the resolution to this paradox?
 
+<slide>
 First, to resolve the paradox, imagine the daemon was running a little
 simulation of the gas and using it to decide when to open the door.
 The patterns in the head of the daemon predict the movements of the
@@ -25,12 +27,14 @@ implies there is still available free energy in the system.  There is
 no paradox: when including the mind-computer of the daemon, the system
 was not as disordered as it seemed.
 
+<slide>
 Now let us imagine further that this special gas is not totally
 disordered. Imagine it has structure; there are some patterns
 in how the atoms move together. If the daemon could learn these patterns, she
 could use this information to extract energy. The better she could learn
 these patterns, the more efficiently she could extract energy.
 
+<slide>
 Representing the structure of the gas-world with a shorter program,
 or compression, if you will. This allows her to extract more energy for the
 same computation limits.  She can use the low Kolmogorov complexity of
@@ -47,6 +51,7 @@ must build up, as fast as she can, a picture of the gas from sparse and
 incomplete observations. The more effectively the daemon can do this,
 again, the more energy she can extract.
 
+<slide>
 Now furthermore let us imagine we are a replicating daemon.  We don't
 just extract energy for the sake of it, we extract energy in order to
 replicate. That is we are describing a Von Neumann machine, a universal
@@ -54,6 +59,7 @@ machine, which can construct copies of itself.  The more our internal
 states can capture the structure in the world, the more efficient and
 compact our code, and the more energy we can extract from the world.
 
+<slide>
 So we see this compressor-extractor-replicator has three modes, three
 facets. It is a computer, that learns the structure of the world. It
 is a Maxwell's daemon that uses knowledge of that structure to extract
@@ -61,6 +67,7 @@ energy; then uses the extracted energy to make copies of itself.  What we just
 described is a living organism.  A more intelligent organism will simply
 be able to complete this process with ever more efficiency.
 
+<slide>
 But let us keep building up with this idea. Each stage of this
 compressor-extractor-replicator has fundamental physical limits.  The
 extractor-daemon can only access a limited amount of energy depending on
@@ -80,6 +87,7 @@ Maxwell's daemon has her door, the hunter her traps, and the farmer has
 her crops. Either way the residual energy-structure of the simpler organism
 is organised and extracted by the more computationally sophisticated.
 
+<slide>
 It has been said that "growth without end is the ideology of a cancer"
 but really this doesn't go far enough. The failing of the cancer is that 
 it can't use computation to discover new ways of growing.
