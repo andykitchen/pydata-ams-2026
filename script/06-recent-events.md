@@ -64,4 +64,23 @@ goals is even intelligent in a general sense, instead of just instrumental.
 
 ### Millenium prize / Navier-Stokes Equations
 
+[E]
+Recently there have been great developments in mathematics.
+AIs have been solving, important open problems.
+Most recently it has been shown, for the sum of only 300 billion tokens
+that the Navier Stokes equations admit solutions that are not well behaved.
+Ostensibly resolving one of the Clay Mathematics institute's Millennium price problems.
+Incredible! It only took $15 million dollars in tokens to win a million dollar prize!
 
+[M]
+Unfortunatly, the ideas behind these proofs, the underlying ideas,
+may have come from training on the conversations of human mathematicians working
+on these problems.
+
+Within an ethic of domination, simply overpowering these proofs in
+a deluge of tokens is sufficient. Only the outcome, the final logically valid argument
+matters. But what knowledge was generated along the way?
+Mathematics isn't improved one proof at a time, it's improved shared proof technique
+at a time. It's revolitionised when incredible new paradigms are opened.
+
+Mathematics is about proof the same way astronomy is about telescopes.
