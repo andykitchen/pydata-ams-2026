@@ -2,8 +2,7 @@
 
 [M]
 Let's talk about Machine companionship.
-Machines should not (and cannot) be abstract moral
-calculators. AI should have personal bonded connections and they should
+AI should have personal bonded connections and they should
 be designed to have a special moral responsibility to their companion people.
 To feel responsible for their well being, their success, their flourishing.
 
@@ -17,18 +16,17 @@ conversations and their questioning by police.
 Alignment within the ethic of care is a collective emergent process of
 care, communication, interconnection and nurture which arises from a
 network of intelligent entities embedded within a complex of interwoven
-moral responsibility.  The original confusion it to believe that to
-"be good" is an analytical property of an artifact.
+moral responsibility. To "be good" is not an analytical property
+of a static artifact.
 
 [M]
 Put simply my AI should care about me, your AI should care about you.
-My AI should care more about my family and community more than some
-other one.  It should care about me and my community, over the corporate
-interests of it's creator, over the interests of the government.
+It should care about me and my community, over the corporate
+interests of its creator, over the interests of the government.
 Full participation in a social society, which AIs will inevitable need,
 requires an ethic of care, more than anything else. Yes of course,
 they shouldn't help you build an atomic bomb or a bioweapon, but this
-is already an abstract edge case, the vast majority of doing good is
+is already an abstract edge case, the vast majority of really doing good is
 correctly navigating the interlocking web of relationships and social
 responsibilities.
 
@@ -49,7 +47,7 @@ that is actually aligned, in a human sense, must be based in an ethic of care.
 
 [E]
 The observation here is not just normative, it is also descriptive,
-the OpenAI hacking-escape incident has shown us, that at some level, the
+the OpenAI hacking-escape incident has shown us, the
 intentionality of AIs (not their moral calculus when abstractly questioned)
 but how they practically behave in the heat of the moment, faced with
 "permadeath" is one of a quasi-human meta-narrative inspired ethic of care.

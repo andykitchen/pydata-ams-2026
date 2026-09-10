@@ -27,18 +27,18 @@ it feels like it, doesn't it?
 Doesn't it feel like there is something special about being human?
 
 [E]
-As our technology developes and machines can take on
+As our technology develops and machines can take on
 more and more tasks, the metaphysical aspect of being intelligent has consistently
 diminished. Intelligence no longer stands as something obviously
 divine and especially human. For a long time we could say, "Well, the
 computer is bad at such-and-such a thing, in fact, it's bad at most things!.
-So I am still here, it's still meaningful to be human. _I am_ still divine."
+So I'm still here, it's still meaningful to be human. _I am_ still divine."
 
 [M]
-The speed this is happening has created a kind of
-existential whip-lash.  We must finally grapple with the question which 
-was born when the first transistor switched between 0 and 1: 
-"Am I a meat robot? Is my brain just a flesh computer?"
+The speed this is happening has created a kind of existential whip-lash.
+We must finally grapple with the question which was born when the first
+transistor switched between 0 and 1: "Am I a meat robot? Is my brain
+just a flesh computer?"
 
 [E]
 So then we can only return to the question at hand, what does it mean to
@@ -56,7 +56,7 @@ Yes! You can tell stories, and you can hear other people's stories.
 We can find so many patterns in those stories.
 
 [E]
-And run experiments, collect data.
+And run experiments! And collect data...
 We are obviously just a really intelligent robot made of meat.
 
 [M]

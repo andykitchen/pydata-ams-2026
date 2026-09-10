@@ -19,9 +19,14 @@ consciousness?
 
 <slide>
 [E] 
-Phenomenology investigates the very structures of experience — perception,
-imagination, memory, emotion, time, embodiment; interaction with others — from
-the interior perspective. Phenomenology asks: "What is it like to experience
-this?" This of course sits in contrast with natural science, which studies
-objects from a third-person, causal standpoint. Chemistry asks what chemicals
-make up the cocktail, physics investigates the viscosity of the liquid, etc.
+Phenomenology investigates the very structures of experience —
+perception, imagination, memory, emotion, time, embodiment — from the
+interior perspective. Phenomenology asks: "What is it like to experience
+this?" This of course sits in contrast with natural science, which
+studies objects from a third-person, causal standpoint. Chemistry asks
+what chemicals make up the cocktail, physics investigates the viscosity
+of the liquid, etc.
+
+But what is the phenomenology of intelligence?
+What is the experience of being intelligent.
+What is the experience-structure of interacting with another intelligence?

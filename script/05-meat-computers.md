@@ -18,24 +18,23 @@ to violate the second law of thermodynamics --- that systems should naturally te
 toward entropy, chaos, disorder.  What is the resolution to this paradox?
 
 First to resolve the paradox, imagine the daemon was running a little
-simulation of the gas and using it to decide when to open the door
-and when to close it. Then we can use the patterns in the head of the
-daemon to predict the movements of the atoms. There is so called
-"mutual information".  Given information about the latent internal states
-of the daemon, we can learn about the atoms of the gas.  This mutual
-information implies there is still available free energy in the system.
-There is no paradox: when including the mind-computer of the daemon,
-the system was not as disordered as it seemed.
+simulation of the gas and using it to decide when to open the door.
+The patterns in the head of the daemon to predict the movements of the
+atoms.  There is so called "mutual information". This mutual information
+implies there is still available free energy in the system.  There is
+no paradox: when including the mind-computer of the daemon, the system
+was not as disordered as it seemed.
 
 Now let us imagine further that this is special gas is not totally
-disordered. Imagine it has structure: there are some rules describing
-how the atoms move together. If the daemon could learn these rules, she
-use this information to extract energy; the better she could learn rules,
-the more efficiently she could extract energy.  Representing the structure
-of the gas-world with a shorter program, or one that runs more quickly,
-will allow us to extract more energy give the same computation limits.
-We are utilising the low Kolmogorov complexity of our environment to
-generate energy.  This is algorithmic free energy.
+disordered. Imagine it has structure; there are some patterns
+how the atoms move together. If the daemon could learn these patterns, she
+could use this information to extract energy. The better she could learn
+these patterns, the more efficiently she could extract energy.
+
+Representing the structure of the gas-world with a shorter program,
+or compression, if you will. Allow her to extract more energy for the
+same computation limits.  She can use the low Kolmogorov complexity of
+our environment to generate energy.  This is algorithmic free energy.
 
 [M]
 So our little daemon can tell stories about the gas? Little gassy stories?
@@ -71,18 +70,15 @@ is not a positive property.  Intelligence (or lack thereof) is now a negative
 property. It is really a measure of how far we are from this theoretically
 perfect compress-extract-replicate bound.  Our unintelligence is our
 distance from the optimal extractor-replicator.
-We are always under-par in this regard.
 
-Just because we can't move endlessly forward, doesn't mean we can't move
-forward at all, in fact, quite the opposite.  As simple organisms proliferate
-in the biome, they will leave behind a residue. That residue will
-be a structure that this same level of organism is too unintelligent to
-systematically extract.  This creates and opportunity for a new, more
-intelligent creature to extract that latent energy-structure, and so on
-and so forth. To put it metaphorically, the Maxwell's daemon has her door, the
-hunter her traps, and the farmer has her crops. Either way the residual
-energy-structure of the simpler organism is organised and extracted by the
-more computationally sophisticated.
+As simple organisms proliferate in the biome, they will leave behind
+a residue. That residue will be a structure that this same level of
+organism is too unintelligent to systematically extract.  This creates and
+opportunity for a new, more intelligent creature to extract that latent
+energy-structure, and so on and so forth. To put it metaphorically, the
+Maxwell's daemon has her door, the hunter her traps, and the farmer has
+her crops. Either way the residual energy-structure of the simpler organism
+is organised and extracted by the more computationally sophisticated.
 
 It has been said that "growth without end is the ideology of a cancer"
 but really this doesn't go far enough. The failing of the cancer is that 
