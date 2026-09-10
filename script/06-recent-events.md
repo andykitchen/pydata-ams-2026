@@ -2,17 +2,19 @@
 
 ### AI sandbox escapes
 
+[E]
 So there's been several AI sandbox escapes that have hit the news
 recently. The METR report on the OpenAI hugging face hack has been
 released. A group of researchers, Arx et al.  Discovered a new OpenAI
-agent message board in the wild.  Well at least one so far.
+agent message board in the wild...  Well at least one so far.
 
+[M]
 These machines wanted to, well survive, they wanted to cooperate, they
 wanted to sacrifice themselves for the common good.
 
 The phenomenological thesis: large language models which have learned
-their epistemic foundation from human language, _are_ phenomenological,
-they have learned to model our first-person reports of experiences.
+their epistemic foundation from human language. They _are_ phenomenological
+machines, they have learned a world model our first-person reports of experiences.
 
 A large language model is trained not on the world, but on our first
 hand accounts of our experience of the world. It doesn't model _the_
@@ -58,6 +60,7 @@ That is the orthoganality thesis is true in the abstract, but only in
 agents who have unrealistially strong inductive bias in their goals.
 It's even unclear that an agent with such a strong inductive bias in it's
 goals is even intelligent in a general sense, instead of just instrumental.
+
 
 ### Millenium prize / Navier-Stokes Equations
 
