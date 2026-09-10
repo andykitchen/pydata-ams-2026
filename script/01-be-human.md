@@ -51,6 +51,7 @@ So then we can only return to the question at hand, what does it mean to
 [M]
 That's easy to answer, it means to care and be cared for!
 
+<slide>
 [E]
 But you need to process information, you need to do inference, be logical,
 be rational. You need to _extract energy_ from the environment.
