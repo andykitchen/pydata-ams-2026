@@ -44,9 +44,9 @@ Your body is the spacesuit for your soul...
 
 [M]
 We invite you to a moment of reflection,
-Create an invitation to yourself to be a good mother ---
+Consider this your invitation to yourself to be a good mother ---
 to yourself, to others, and to technologies you birth. 
 
 Be playful,
 Be ambiguous,
-Be multitudes
+Contain multitudes
