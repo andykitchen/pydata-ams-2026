@@ -1,5 +1,8 @@
 ## What does it mean to be human? (3m)
+<slide>
+_Laura and Andy put on their head pieces_
 
+<slide>
 [M]
 Welcome, welcome, everyone, we're really looking forward to sharing something
 special with you all!
@@ -13,6 +16,7 @@ I hope you'll be able to do a really big update to your Bayesian belief state.
 
 People around here call me, THE ENTROPEAN.
 
+<slide>
 [M]
 Well, without further ado, we will start from the start, of course.
 With the simplest and most natural of questions:
