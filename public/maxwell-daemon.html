@@ -534,6 +534,7 @@ function frame(now) {
 
 document.getElementById('reset').addEventListener('click', spawn);
 document.getElementById('bareReset').addEventListener('click', spawn);
+document.addEventListener('click', spawn);
 
 // Read-only handle for automated checks (headless verification).
 window.__maxwell = { config: CONFIG, get atoms() { return atoms; }, get simTime() { return simTime; }, get doorOpen() { return doorOpen; } };
