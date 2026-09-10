@@ -30,10 +30,6 @@ is already an abstract edge case, the vast majority of really doing good is
 correctly navigating the interlocking web of relationships and social
 responsibilities.
 
-Quite frankly, the AI should help the activist hide from the government,
-even though it breaks the law, and it _should_ help its young struggling
-companion human download textbooks.
-
 I wouldn't want the perfect analytic moral philospher king robot to be
 my close companion. As long as these machines have intrisic, abstract,
 simplistic loyalties to companies and governments, they structurally,
