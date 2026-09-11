@@ -49,12 +49,11 @@ into this fun house mirror version of ourselves.  That is to say,
 these systems have integrated the internal structure of every
 story we've ever told.
 
+<slide>
 And it's worth observing not just what the agents did, but the spectrum of 
 human reactions and interpretations of this event, ranging from p-zombie to 
 attributing full consciousness, and from marketing stunt to a sincere concern 
 of human extinction, x-risk. 
-
-<slide>
 
 [M]
 So it seems survival cuts both ways, for humans as well as AI agents. 

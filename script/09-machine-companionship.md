@@ -36,6 +36,7 @@ maintain connection and navigate how to continue to live together.
 AI which is actually good, actually aligned in a human sense, must be
 based in an ethic of care.
 
+<slide>
 Care runs both ways. Alignment done this way reflects our own values 
 back at us. If we want machines that care, we have to care about our 
 own minds, our own experience, whether we're a developer at the terminal 
@@ -43,7 +44,6 @@ or anyone else living with these things. Working with them should be comfy,
 ergonomic, satisfying. It should hold up a mirror to our own ideas about 
 the world, and we should like what we see reflected back.
 
-<slide>
 [E]
 The observation is not just normative, it is descriptive. The OpenAI
 escape incident showed us how these AIs practically behave in the heat

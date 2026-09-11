@@ -29,6 +29,7 @@ But isn't it wonderful that we can shift and play in all these different worlds?
 Isn't that out job, to invent and build little bridges that allow us to cross
 over, like the one called AI?
 
+<slide>
 We are science and fiction.
 <slide>
 We are world and model.

@@ -1,13 +1,14 @@
 ## Meat Computers / Algorithmic Thermodynamics (8m)
 
+<slide>
 [M]
 Let us consider, the bit, then let us consider the atom.  Now let us
 consider replication. Now, THE ENTROPEAN will tell you: to copy ourselves,
 our information and systems, we need energy and we need computation.
 That is what it is to be alive. But is it?
 
-[E]
 <slide>
+[E]
 Let us consider as a thought experiment, Maxwell's daemon.  A hypothetical
 daemon sits between two chambers filled with gas, controlling a little door. 
 When the daemon sees an atom going in one direction towards the door, she 
@@ -18,7 +19,6 @@ this pressure difference could be used to do physical work.  This seems
 to violate the second law of thermodynamics --- that systems should naturally tend
 toward entropy, chaos, disorder.  What is the resolution to this paradox?
 
-<slide>
 First, to resolve the paradox, imagine the daemon was running a little
 simulation of the gas and using it to decide when to open the door.
 The patterns in the head of the daemon predict the movements of the
@@ -34,7 +34,6 @@ in how the atoms move together. If the daemon could learn these patterns, she
 could use this information to extract energy. The better she could learn
 these patterns, the more efficiently she could extract energy.
 
-<slide>
 Representing the structure of the gas-world with a shorter program,
 or compression, if you will. This allows her to extract more energy for the
 same computation limits.  She can use the low Kolmogorov complexity of
@@ -99,6 +98,7 @@ of view of being a thermodynamic organism, from the point of view of us.  We can
 subjectively know how much energy-structure remains to be extracted.
 This leads us to this very funny conclusion, a funny epistemic state...
 
+<slide>
 [M]
 So then are we always and forever lost inside an endless singularity?
 Will we always look back and see the past as boring, slow, over-exploited
