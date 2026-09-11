@@ -77,6 +77,16 @@ Unfortunately, the ideas behind these proofs, the underlying ideas,
 may have come from training on the conversations of human mathematicians
 working on these problems.
 
+[E]
+The Eureka moment! The Aha moment. Breaking the problem open, Catching
+that moment of insight, isn't that what we crave?  Isn't that what
+we hunt? Isn't that how we really know that we are...  intelligent.
+That we can not only wading though information, but that in a moment
+the world-structure becomes clear to us.  How can the machine take this
+away? Aren't we the ones who should be running naked through the street
+yelling, "Eureka!?"
+
+[M]
 Within an ethic of domination, simply overpowering these proofs in
 a deluge of tokens is sufficient. But the understanding is completely
 backwards, these problems were chosen carefully by humans, subjectively,
@@ -87,6 +97,7 @@ shared understanding forward.  Mathematics isn't improved one proof at
 a time, like open-cut mining the fields of truth, it's an art improved
 one technique and teacher at a time. It's revolutionised when incredible
 new paradigms are opened together.
+
 
 <slide>
 Mathematics is about proof the same way astronomy is about telescopes.

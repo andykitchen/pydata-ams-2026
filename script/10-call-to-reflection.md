@@ -5,7 +5,9 @@
 [M]
 We are living in Ambiguous times. _We_ are Ambiguous.
 
-Let us read and absorb, from the great Simone de Beauvoir:
+Let us read and absorb, from the great Simone de Beauvoir.
+The follow quote is from the opening of her book "The Ethics of Ambiguity",
+published in 1947. It is as if she is seeing into the future.
 
 > Man knows and thinks this tragic ambivalence which the animal and
 > the plant merely undergo. A new paradox is thereby introduced into
