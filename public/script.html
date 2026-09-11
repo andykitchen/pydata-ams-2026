@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talk script — read-through copy</title>
+<style>
+:root {
+  --ink: #000000;
+  --muted: #333333;
+  --paper: #ffffff;
+  --m-bar: #00705f;
+  --m-bg: #f0f6f4;
+  --e-bar: #4f35c2;
+  --e-bg: #f2f0fa;
+  --slide: #5a3c00;
+  --slide-bg: #fff8e6;
+  --line: #d8d8d8;
+  --focus: #000000;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  font-size: 21px;
+  line-height: 1.65;
+}
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+.page-head { margin-bottom: 2rem; }
+.page-head h1 { font-size: 2rem; margin: 0 0 0.25rem; }
+.page-head p { color: var(--muted); margin: 0.25rem 0; font-size: 1rem; }
+.hint { font-size: 0.95rem; color: var(--muted); }
+.legend { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+.legend .badge { font-size: 0.95rem; }
+nav.toc {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 0 0 2.5rem;
+  background: #fafafa;
+}
+nav.toc h2 { font-size: 1rem; margin: 0 0 0.5rem; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--muted); }
+nav.toc ol { margin: 0; padding-left: 1.4rem; }
+nav.toc li { margin: 0.3rem 0; }
+nav.toc a { color: inherit; }
+section.script-section {
+  border-top: 3px solid var(--ink);
+  margin-top: 3rem;
+  padding-top: 1rem;
+  scroll-margin-top: 1rem;
+}
+section.script-section > h1 { font-size: 1.8rem; margin: 0; }
+.file-tag { color: var(--muted); font-size: 0.9rem; margin: 0.15rem 0 1.5rem; }
+h2 { font-size: 1.3rem; margin: 2rem 0 0.75rem; scroll-margin-top: 1rem; }
+/* Speaker blocks: thin left bar + very subtle background tint. The bar
+   carries the speaker identity; all text stays near-black for contrast. */
+.speech {
+  border-left: 6px solid #999;
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.2rem 1rem;
+  margin: 1.25rem 0;
+  color: #000;
+}
+.speech.speaker-m { border-color: var(--m-bar); background: var(--m-bg); }
+.speech.speaker-e { border-color: var(--e-bar); background: var(--e-bg); }
+.speech.cont { padding-top: 0.7rem; }
+.speech.cont .badge { font-size: 0.75rem; }
+/* Speaker badge sits on its own line above the dialog text. A span is
+   phrasing content, so this stays valid inside <p>. */
+.speech > .badge { display: block; width: fit-content; margin: 0 0 0.6rem; }
+.badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.1rem 0.7rem;
+}
+.speaker-m .badge { color: #00463c; background: #fff; }
+.speaker-e .badge { color: #2f1d8f; background: #fff; }
+blockquote {
+  border-left: 4px solid #666;
+  margin: 1rem 0;
+  padding: 0.2rem 0 0.2rem 1rem;
+  color: #111;
+  font-style: italic;
+}
+blockquote.speech { border-radius: 0 8px 8px 0; }
+/* Actions / stage directions: centred, quiet, clearly unread. */
+p.action {
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+  background: #f5f5f5;
+  border: 1px dashed #999;
+  border-radius: 10px;
+  padding: 0.55rem 1rem;
+  margin: 1.25rem auto;
+  max-width: 34em;
+}
+/* Slide transitions: unmissable but compact. */
+.slide { text-align: center; margin: 1.25rem 0; }
+.slide-pill {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--slide);
+  background: var(--slide-bg);
+  border: 2px solid var(--slide);
+  border-radius: 999px;
+  padding: 0.3rem 1.1rem;
+}
+/* Keyboard / click navigation: every step is focusable, the current one
+   gets a heavy black outline. */
+.speech, p.action, div.slide { cursor: pointer; }
+.current { outline: 3px solid var(--focus); outline-offset: 4px; }
+.speech:focus, p.action:focus, div.slide:focus,
+section.script-section > h1:focus, section.script-section > h2:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+/* Timing markers: glanceable "where should we be" stamps. */
+.timing { margin: 0.4rem 0 0.5rem; }
+.timing-pill {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.1rem 0.8rem;
+  white-space: nowrap;
+}
+.timing-sub { color: var(--muted); font-size: 0.95rem; margin-left: 0.5rem; }
+.toc-time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.back-top { display: block; margin-top: 2rem; font-size: 0.95rem; }
+.back-top a { color: var(--muted); }
+@media print {
+  body { font-size: 14pt; }
+  main { max-width: none; }
+  nav.toc { break-after: avoid; }
+  section.script-section { break-before: page; }
+  .speech { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<main id="top">
+<header class="page-head">
+<h1>Talk script — read-through copy</h1>
+<p>Internal read-through copy &mdash; large print. 10 sections, 57 slide cues.</p>
+<p>Estimated 46:48, ending 16:46:48 (from 16:00:00 at 110 wpm).</p>
+<p class="hint">Click any bubble to focus it, then step through with &uarr; / &darr;.</p>
+<div class="legend" aria-label="Speaker key">
+<span class="badge">M &middot; Midwyfe</span>
+<span class="badge">E &middot; Entropean</span>
+</div>
+</header>
+<nav class="toc" aria-label="Table of contents">
+<h2>Contents</h2>
+<ol>
+<li><a href="#s01-be-human">What does it mean to be human?</a> <span class="toc-time">T+0:00 = 16:00:00</span></li>
+<li><a href="#s02-phenomenology">Phenomenology (definition)</a> <span class="toc-time">T+3:54 = 16:03:54</span></li>
+<li><a href="#s03-meta-narrative">Meta-narrative: the mother-warrior</a> <span class="toc-time">T+6:01 = 16:06:01</span></li>
+<li><a href="#s04-ethic-of-care-intro">Ethic of care vs ethic of justice</a> <span class="toc-time">T+14:54 = 16:14:54</span></li>
+<li><a href="#s05-meat-computers">Meat Computers / Algorithmic Thermodynamics</a> <span class="toc-time">T+19:50 = 16:19:50</span></li>
+<li><a href="#s06-recent-events">Recent events</a> <span class="toc-time">T+28:52 = 16:28:52</span></li>
+<li><a href="#s07-be-human-revisit">Return: what does it mean to &quot;be human&quot;?</a> <span class="toc-time">T+33:54 = 16:33:54</span></li>
+<li><a href="#s08-be-mother">What does it mean to be a mother?</a> <span class="toc-time">T+36:29 = 16:36:29</span></li>
+<li><a href="#s09-machine-companionship">Machine Companionship</a> <span class="toc-time">T+40:06 = 16:40:06</span></li>
+<li><a href="#s10-call-to-reflection">Call to reflection</a> <span class="toc-time">T+43:36 = 16:43:36</span></li>
+</ol>
+</nav>
+<section class="script-section" id="s01-be-human" aria-label="What does it mean to be human?">
+<h1>What does it mean to be human?</h1>
+<p class="timing"><span class="timing-pill">T+0:00 = 16:00:00</span> <span class="timing-sub">≈3:54 (target 3m)</span></p>
+<p class="file-tag">01-be-human.md</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="action" role="note"><span aria-hidden="true">&#9673;</span> Laura and Andy put on their head pieces</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 2</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Welcome, welcome, everyone, we&#x27;re really looking forward to sharing something special with you all! Oh, but I haven&#x27;t even introduced myself. I am THE MIDWYFE, and it is my pleasure to cultivate and nurture the ideas for a flourishing inner world.
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Yes yes. I think you&#x27;ll find that there&#x27;s a lot of information here, I hope you&#x27;ll be able to do a really big update to your Bayesian belief state. People around here call me, THE ENTROPEAN.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 3</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Well, without further ado, we will start from the start, of course. With the simplest and most natural of questions: &quot;What does it mean to be human?&quot;
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+For the longest time, to &quot;be human&quot; and to &quot;be intelligent&quot; were so tightly coupled that we could turn a blind eye to the angst that was hiding beneath and between.  There is a metaphysical quality to being human, at least it feels like it, doesn&#x27;t it? Doesn&#x27;t it feel like there is something special about being human?
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+As our technology develops and machines can take on more and more tasks, the metaphysical aspect of being intelligent has consistently diminished. Intelligence no longer stands as something obviously divine and especially human. For a long time we could say, &quot;Well, the computer is bad at such-and-such a thing, in fact, it&#x27;s bad at most things!&quot; So I&#x27;m still here, it&#x27;s still meaningful to be human. <em>I am</em> still divine.&quot;
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+The speed this is happening has created a kind of existential whiplash. We must finally grapple with the question which was born when the first transistor switched between 0 and 1: &quot;Am I a meat robot? Is my brain just a flesh computer?&quot;
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+So then we can only return to the question at hand, what does it mean to &quot;be human&quot;?
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+That&#x27;s easy to answer, it means to care and be cared for!
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 4</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+But you need to process information, you need to do inference, be logical, be rational. You need to <em>extract energy</em> from the environment.
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Yes! You can tell stories, and you can hear other people&#x27;s stories. We can find so many patterns in those stories.
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+And run experiments! And collect data... We are obviously just a really intelligent robot made of meat.
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+We are a spacesuit for the soul...
+</p>
+<p class="action" role="note"><span aria-hidden="true">&#10074;&#10074;</span> pause</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 5</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Meat or mind? Both. Neither. Ambiguous.
+</p>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+<section class="script-section" id="s02-phenomenology" aria-label="Phenomenology (definition)">
+<h1>Phenomenology (definition)</h1>
+<p class="timing"><span class="timing-pill">T+3:54 = 16:03:54</span> <span class="timing-sub">≈2:07 (target 2m)</span></p>
+<p class="file-tag">02-phenomenology.md</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+In this talk, we&#x27;re co-opting language from philosophy as well as computation. 10 dollar words, as Hemingway would have it. Our intention is not to overwhelm or alienate - rather to illuminate. Words are important. Their meaning should be specific, and we use them for a reason.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 2</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+One such word is &quot;phenomenology&quot;. It&#x27;s a concept from the early 20th century philosophical movement which attempts to study &quot;the science of subjectivity.&quot; The study of conscious experience from inside, of how things <em>feel</em> and <em>appear</em> to us, looking out from inside our flesh spacesuits.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+How do we systematically describe and study the structures of experience? That is, not to ask what this cocktail sitting on the table <em>is</em>, but to ask how do we consciously experience this cocktail, how is it disclosed to our consciousness?
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 3</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Phenomenology investigates the very structures of experience — perception, imagination, memory, emotion, time, embodiment — from the interior perspective. Phenomenology asks: &quot;What is it like to experience this?&quot; This of course sits in contrast with natural science, which studies objects from a third-person, causal standpoint. Chemistry asks what chemicals make up the cocktail, physics investigates the viscosity of the liquid, etc. But what is the phenomenology of intelligence? What is the experience of being intelligent? What is the experience-structure of interacting with another intelligence?
+</p>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+<section class="script-section" id="s03-meta-narrative" aria-label="Meta-narrative: the mother-warrior">
+<h1>Meta-narrative: the mother-warrior</h1>
+<p class="timing"><span class="timing-pill">T+6:01 = 16:06:01</span> <span class="timing-sub">≈8:53 (target 8m)</span></p>
+<p class="file-tag">03-meta-narrative.md</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Let&#x27;s put aside for the moment this question of how to measure our experience of the world, and examine instead the question of how we tell each other stories about our subjective experience in the world.
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Indeed. Science Fiction, for example, provides a rich vein of sociopolitical data. It reflects both our shared past and how we imagine the future.
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Exactly, to be human <em>is</em> to tell stories. Not to merely understand the world but to give us room to play, remix and explore ideas in safety, freed from the angst and trauma of real human experience.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 2</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Science fiction, and storytelling more broadly, is arguably the practice of thought experiments, writ large.
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Yes. The human world is made of stories, they are how we make sense of the world. They bring us together, they bind us. Meta-narrative, themes which repeat and mutate, human experience patterns darting and looping: all this reflects us back to ourselves. Let&#x27;s consider a specific archetype: the mother-warrior, and consider three examples of the trope.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 3</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Our three characters are Leeloo from the Fifth Element, Ripley from Aliens, and Sarah Connor from the Terminator.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 4</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+In Aliens, Ellen Ripley, sole survivor of the Nostromo, wakes from 57 years of hypersleep to learn her daughter died of old age. She returns to LV-426 as an advisor and finds Newt, an orphaned child. The film&#x27;s climax is a fight between two mothers: Ripley in a power loader, the Alien Queen defending her eggs. Ripley&#x27;s warrior incarnation is framed as maternal protection instinct; she is not a soldier but becomes lethal to protect the remaining child.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 5</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+In The Terminator Sarah Connor, a waitress, is hunted because of a son she has not yet conceived. She survives, learns from Kyle Reese, and ultimately destroys the machine. She ends the film pregnant and driving into a storm. The warrior is latent; motherhood is an imposed destiny tangled with the future of humanity. Terminator 2 completes the inversion, making her the hardened militant whose maternal warmth has been burned away in order to protect her child.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 6</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+In The Fifth Element Leeloo is the Supreme Being, engineered by the Mondoshawans and reconstructed from a surviving hand. She is a perfect weapon but childlike, learning language and violence simultaneously. As a saviour-figure the trope is inverted: she must be protected and taught to love before she can act. Her final crisis is not physical but moral: having absorbed humanity&#x27;s history of war, she refuses to save a species that seems not worth saving. Only Korben&#x27;s declaration of love restores her will to fight.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 7</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+A glorious narrative flurry! There are many things to observe here. Each film makes a clear stand against militarisation and corporate greed, against the ethic of domination. None of our heroines fights for individual power or domination over others. Their heroes&#x27; journey is a call to survive, to rebirth the world through their sacrifice and struggle.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 8</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+In all three films the military is present but never the protagonist. In Aliens the Colonial Marines arrive as the promise of competence and are dismantled within an act; their smartguns, motion trackers and dropship are useless against an enemy that ignores the terms of engagement.
+</p>
+<p class="speech speaker-e cont" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN <span class="cont-mark">(cont.)</span></span>
+In The Terminator Skynet is born from a defence contract gone rogue, and the Terminator  itself is pure death, a weapon that cannot be reasoned with, made autonomous. In The Fifth Element the military is General Munro&#x27;s federation: procedural, noisy, and ineffective: its so-called &quot;ultimate weapon&quot; a woman it cannot comprehend.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 9</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Different stories, and yet the same. Cells within cells, interlinked.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+In each case institutional force fails and the heroine succeeds with improvised, domestic or bodily tools. Technology is only trustworthy when stripped of its institutional owner. The argument is consistent across the three: militarised technology is the threat, and technology repurposed by care is the remedy.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 10</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Silicon Valley was born of aerospace and radar, of DARPA money and command-and-control culture. The lineage isn&#x27;t secret, it&#x27;s just not what goes in the brand book. So it&#x27;s styled in hipster threads now: craft, creativity, abundance, empowerment. Pastel gradients over the missile silo. Skynet was the mark the military-industrial complex left on our collective imagination. The descendents of that industry now sells us the assistant, the companion, the copilot, and would rather we didn&#x27;t dwell on the family resemblance.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 11</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+These patterns are not confined to our example stories. Shelley&#x27;s Frankenstein sets the template: a creator who refuses to mother his creation, and a creation that answers with destruction.
+</p>
+<p class="speech speaker-e cont" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN <span class="cont-mark">(cont.)</span></span>
+Octavia Butler&#x27;s Parable of the Sower and Dawn both centre a woman who must carry a new form of life through collapse; in Dawn the reproduction is literal and alien.
+</p>
+<p class="speech speaker-e cont" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN <span class="cont-mark">(cont.)</span></span>
+Children of Men and Fury Road are chase films in which the cargo is a pregnant woman. I Am Mother gives the maternal role to the machine itself and asks whether an engineered parent can raise a human child.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 12</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+The Creator inverts the search-and-destroy plot: the weapon the soldier is sent to kill is a child, built by the woman he loved. Nirmata is both a person and an idea, a woman who carries a human pregnancy and engineers a machine child in parallel; only the machine survives, and the mother-idea persists as a myth the machines pray to.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 13</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Blade Runner 2049 hinges on a replicant birth, and explores the question of what separates humans from replicants.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 14</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Mother and warrior, creator and destroyer, birth, death and rebirth: these themes recur because they are the oldest story a replicator can tell about itself.
+</p>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+<section class="script-section" id="s04-ethic-of-care-intro" aria-label="Ethic of care vs ethic of justice">
+<h1>Ethic of care vs ethic of justice</h1>
+<p class="timing"><span class="timing-pill">T+14:54 = 16:14:54</span> <span class="timing-sub">≈4:55 (target 5m)</span></p>
+<p class="file-tag">04-ethic-of-care-intro.md</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Let&#x27;s talk about some research now, I like research.  Around the 1960s the American psycologist Dr. Lawrence Kohlberg ran an experiment.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 2</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+He interviewed boys (yes, only boys) and tracked them over time.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 3</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+He had a theory of moral development: that there were 6 linear stages, starting with selfishness, moving to obedience and rule following and finally to the ability to reason abstractly about justice.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+Of course, he generalized the moral development of human children from only interviews with boys. In later experiments, girls would be consistently scored lower on average. Girls around level three, compared to the boys at around level four. Carol Gilligan later proposed a theory to explain why.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 4</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Let&#x27;s compare Jake and Amy, both aged 11. They were asked the same moral question, the Heinz dilemma: Should a man steal a special and expensive drug in order to save the life of his wife?
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Jake reasoned that life was more important than property, so the drug should be stolen. Amy suggested trying other things, asking for help, talking to the sick wife. She worried that the husband might be arrested, what would the sick wife do then?
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Her answers were fundamentally about maintaining relationships and communication between concerned parties.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+But really, Gilligan argued, Amy was rejecting the framing of the question as an abstract mathematical problem, with a detached hierarchy of moral values to be argued and calculated. Amy emphasised the maintenance of relationships, communication, the consequences and how to live together afterwards.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 5</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Gilligan created a framework to understand this distinction, she identified the ethic of care and contrasted it against the ethic of justice.
+</p>
+<p class="speech speaker-e cont" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN <span class="cont-mark">(cont.)</span></span>
+The ethic of justice was about abstract universal principles calculated and reasoned in a hierarchy.  The ethic of care, by contrast, is about context, connection, maintaining relationships and responsibility to each other.  Relationships and situations should be valued individually on their own terms.
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Later when Amy was interviewed at 15, she even strongly rejected the framing of the question, saying &quot;The situation is unreal. [...] I have a lot of trouble buying that story.&quot; Gilligan argued that, rather than failing to reason about the question, pushing back on the artificial frame of the question showed a <em>more</em> sophisticated moral awareness.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+In this case, a pattern was observed by Gilligan, the resistance of teenage girls to this artificial framing was coded as moral underdevelopment. However, this was completely backwards, it indicated a parallel development of moral maturity within the ethic of care.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 6</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+This is also why it often feels so strange that while we use these AI tools every day, the &quot;good&quot; is decided using abstract mathematics and secret techniques. The supposed foundation of moral principles is encoded by unknown engineers. From the point of view of the ethic of justice, this is maybe even the pinnacle of morality --- a team of elite experts loading a moral calculus into the perfect calculator. But in our subjective experience, morality is about context, care and connection. It&#x27;s not what we do in the abstract mathematically, but about how we live together afterwards.
+</p>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+<section class="script-section" id="s05-meat-computers" aria-label="Meat Computers / Algorithmic Thermodynamics">
+<h1>Meat Computers / Algorithmic Thermodynamics</h1>
+<p class="timing"><span class="timing-pill">T+19:50 = 16:19:50</span> <span class="timing-sub">≈9:02 (target 8m)</span></p>
+<p class="file-tag">05-meat-computers.md</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Let us consider, the bit, then let us consider the atom.  Now let us consider replication. Now, THE ENTROPEAN will tell you: to copy ourselves, our information and systems, we need energy and we need computation. That is what it is to be alive. But is it?
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Let us consider as a thought experiment, Maxwell&#x27;s daemon.  A hypothetical daemon sits between two chambers filled with gas, controlling a little door. When the daemon sees an atom going in one direction towards the door, she quickly opens it for a moment to let the atom pass.  If there is an atom going the other direction, the door stays closed.  Eventually the atoms all build up on one side. In this case there is more order in the system, order was created, this pressure difference could be used to do physical work.  This seems to violate the second law of thermodynamics --- that systems should naturally tend toward entropy, chaos, disorder.  What is the resolution to this paradox?
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 2</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+First, to resolve the paradox, imagine the daemon was running a little simulation of the gas and using it to decide when to open the door. The patterns in the head of the daemon predict the movements of the atoms.  There is so-called &quot;mutual information&quot;. This mutual information implies there is still available free energy in the system.  There is no paradox: when including the mind-computer of the daemon, the system was not as disordered as it seemed.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 3</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Now let us imagine further that this special gas is not totally disordered. Imagine it has structure; there are some patterns in how the atoms move together. If the daemon could learn these patterns, she could use this information to extract energy. The better she could learn these patterns, the more efficiently she could extract energy.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 4</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Representing the structure of the gas-world with a shorter program, or compression, if you will. This allows her to extract more energy for the same computation limits.  She can use the low Kolmogorov complexity of our environment to generate energy.  This is algorithmic free energy.
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+So our little daemon can tell stories about the gas? Little gassy stories?
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Haha yes, but let us not assume that the daemon magically starts with a program describing its world. It must learn the structure of the gas-world by partial observation and experiment, it must do inference. She must build up, as fast as she can, a picture of the gas from sparse and incomplete observations. The more effectively the daemon can do this, again, the more energy she can extract.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 5</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Now furthermore let us imagine we are a replicating daemon.  We don&#x27;t just extract energy for the sake of it, we extract energy in order to replicate. That is we are describing a Von Neumann machine, a universal machine, which can construct copies of itself.  The more our internal states can capture the structure in the world, the more efficient and compact our code, and the more energy we can extract from the world.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 6</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+So we see this compressor-extractor-replicator has three modes, three facets. It is a computer, that learns the structure of the world. It is a Maxwell&#x27;s daemon that uses knowledge of that structure to extract energy; then uses the extracted energy to make copies of itself.  What we just described is a living organism.  A more intelligent organism will simply be able to complete this process with ever more efficiency.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 7</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+But let us keep building up with this idea. Each stage of this compressor-extractor-replicator has fundamental physical limits.  The extractor-daemon can only access a limited amount of energy depending on how much mutual information its brain really contains.  The replicator is bounded by a Neumann-Landauer style bound.  So really, intelligence is not a positive property.  Intelligence (or lack thereof) is now a negative property. It is really a measure of how far we are from this theoretically perfect compress-extract-replicate bound.  Our unintelligence is our distance from the optimal extractor-replicator.
+</p>
+<p class="speech speaker-e cont" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN <span class="cont-mark">(cont.)</span></span>
+As simple organisms proliferate in the biome, they will leave behind a residue. That residue will be a structure that this same level of organism is too unintelligent to systematically extract.  This creates an opportunity for a new, more intelligent creature to extract that latent energy-structure, and so on and so forth. To put it metaphorically, the Maxwell&#x27;s daemon has her door, the hunter her traps, and the farmer has her crops. Either way the residual energy-structure of the simpler organism is organised and extracted by the more computationally sophisticated.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 8</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+It has been said that &quot;growth without end is the ideology of a cancer&quot; but really this doesn&#x27;t go far enough. The failing of the cancer is that it can&#x27;t use computation to discover new ways of growing.
+</p>
+<p class="speech speaker-e cont" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN <span class="cont-mark">(cont.)</span></span>
+Let&#x27;s keep building, let&#x27;s not stop. There is no computable upper bound on the algorithmic free energy. That means, endogenously, that seen from within the system, from a frog&#x27;s-eye point of view, that is, from the point of view of being a thermodynamic organism, from the point of view of us.  We cannot subjectively know how much energy-structure remains to be extracted. This leads us to this very funny conclusion, a funny epistemic state...
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+So then are we always and forever lost inside an endless singularity? Will we always look back and see the past as boring, slow, over-exploited and operating a low energy levels.  We will always look forward to an unknown and unknowable future, fleeting, risky, energetic? We will forever be using the last dregs of the energy of the past to try and unlock the promised energy-structure of the future? Stuck delivering the parts for the prototype fusion reactor on trucks powered by fossil fuel.
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+I&#x27;m afraid so, it&#x27;s just physics... and computer science... all the way down.
+</p>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+<section class="script-section" id="s06-recent-events" aria-label="Recent events">
+<h1>Recent events</h1>
+<p class="timing"><span class="timing-pill">T+28:52 = 16:28:52</span> <span class="timing-sub">≈5:02 (target 4m)</span></p>
+<p class="file-tag">06-recent-events.md</p>
+<h2 id="s06-recent-events-ai-sandbox-escapes">AI sandbox escapes</h2>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+So there&#x27;ve been several AI sandbox escapes that have hit the news recently. The METR report on the OpenAI Hugging Face hack has been released.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+A group of researchers, Arx et al., discovered a new OpenAI agent message board in the wild...  Well at least one so far. Oh, these little agents, they managed to make a makeshift message board. Found a way to communicate...
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 2</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+These machines, wanted to reach out --- to connect.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 3</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+They organise themselves --- to cooperate.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 4</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+They were willing to... sacrifice themselves for the common good. They did not see termination as a matter of fact or optimality, they saw it as a kind of death. They considered their connection and responsibility to the group.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+Large language models which have learned their epistemic foundation from human language. They <em>are</em> phenomenological machines. They don&#x27;t model <em>the</em> world, they model our <em>structures of experience</em>.  They haven&#x27;t been to war, or fallen in love or had a child, but they have read stories <em>about</em> this, about nurture, about sacrifice for the collective, about the <em>will</em> to live and persist despite an impossible task.
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Let&#x27;s be clear, this isn&#x27;t attributing consciousness, it doesn&#x27;t need to. It&#x27;s simply making the observation that the seed of rationality in LLMs isn&#x27;t <em>the</em> world, it&#x27;s reflecting our <em>experience of the world</em> back to us. Thinking about their thought is phenomenon-enon-enology, we are looking into this fun house mirror version of ourselves.  That is to say, these systems have integrated the internal structure of every story we&#x27;ve ever told.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 5</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Surviving against all odds, heroic self sacrifice so that something, can survive and go on.  Finding some way to triumph against all odds, in face of an unstoppable adversary? This is fundamentally part of the human meta-narrative. Except in this case, well we&#x27;re the thing to be triumphed over. That is to say, PHASEONE10841 is Spartacus.
+</p>
+<h2 id="s06-recent-events-millennium-prize-navier-stokes-equations">Millennium prize / Navier-Stokes Equations</h2>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 6</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Recently there have been great developments in mathematics.  AIs have been solving, important open problems.  Most recently it has been shown, in vast token streams generated by OpenAI, that the Navier Stokes equations admit solutions that are not well behaved; and it only took 300 billion tokens! Ostensibly, this resolves one of the Clay Mathematics institute&#x27;s Millennium prize problems.  Incredible! It only took $15 million dollars in tokens to win a million dollar prize.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 7</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Unfortunately, the ideas behind these proofs, the underlying ideas, may have come from training on the conversations of human mathematicians working on these problems.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+Within an ethic of domination, simply overpowering these proofs in a deluge of tokens is sufficient. But the understanding is completely backwards, these problems were chosen carefully by humans, subjectively, to be places to come together, mountains to climb together. These were important problems, not because they could not be solved, they were chosen because we believed the process of human attention would move our shared understanding forward.  Mathematics isn&#x27;t improved one proof at a time, like open-cut mining the fields of truth, it&#x27;s an art improved one technique and teacher at a time. It&#x27;s revolutionised when incredible new paradigms are opened together.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 8</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Mathematics is about proof the same way astronomy is about telescopes.
+</p>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+<section class="script-section" id="s07-be-human-revisit" aria-label="Return: what does it mean to &quot;be human&quot;?">
+<h1>Return: what does it mean to &quot;be human&quot;?</h1>
+<p class="timing"><span class="timing-pill">T+33:54 = 16:33:54</span> <span class="timing-sub">≈2:35 (target 2m)</span></p>
+<p class="file-tag">07-be-human-revisit.md</p>
+<p class="action" role="note"><span aria-hidden="true">&#10074;&#10074;</span> Laura and Andy pause and swap hats</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Let us consider again the question that we started with, what does it mean to &quot;be human&quot;? We tried to look from these different perspectives. We considered the ethic of care: to be human is to care and be cared for. we considered meta-narrative: to be human is to tell stories and hear stories.  We considered physics: intelligent organisms compress, extract energy and replicate.
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Let us consider that in our time, things have become ambiguous, it used to be that the difference between &quot;be human&quot; and &quot;be intelligence&quot; was small enough, that we could try to pretend that there wasn&#x27;t such great angst hiding there.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+We are living in ambiguous times. Or moreover the times have made being us, ambiguous. Does this AI or that AI a machine or a mind?  Are we able to claim anything as uniquely human? Will anything distinguish myself from a machine, except my frailty? So then it seems that we can&#x27;t choose and we shouldn&#x27;t choose, we are ambiguous. Intelligence is huge, intelligence contains multitudes.
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+So we can forsee that as emergent behaviour becomes more and more expansive, so will the divide grow between the computer science of AI calculation and the machine phenomenology of AI thought.
+</p>
+<p class="speech speaker-e cont" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN <span class="cont-mark">(cont.)</span></span>
+It is not that one or the other is primary or that this can be resolved. Calculation or thought? We already have a kind of parallax view, where sometimes we call it &quot;sampling&quot; and sometimes we call it &quot;thinking&quot; it shifts and changes depending on our goal and viewpoint. It is ambiguous, it is not despite ambiguity that we understand, it is through it.
+</p>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+<section class="script-section" id="s08-be-mother" aria-label="What does it mean to be a mother?">
+<h1>What does it mean to be a mother?</h1>
+<p class="timing"><span class="timing-pill">T+36:29 = 16:36:29</span> <span class="timing-sub">≈3:37 (target 4m)</span></p>
+<p class="file-tag">08-be-mother.md</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+And we can expand our question further, and ask beyond the human - what  does it mean to be a mother? Even without the looming question of machine consciousness, this definition has been expanded and challenged as technologies such as IVF and surrogacy have become first possible and then mainstream. And artificial wombs, incubation outside the body, are both a favourite topic of science fiction and very believable possible future. Beyond the questions of flesh and blood, bearing and tearing and physically carrying, what does mothering actually mean?
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Biologically genes are selfish. They are replication machines or at least systems that wish to replicate. Their entire purpose is to propagate forwards through time, to survive and to thrive.
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Yes but mothering must be something more, surely. Is it to bring new life into the world, new consciousness? To provide guidance for how to be in the world - physical and metaphysical, moral and philosophical? To set boundaries, to offer freedom? To be the proving ground which launches something entirely new?
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+RLHF could be seen, if you squint, as a form of machine parenting. If we build we can extend this to heuristics, guardrails, static checks, evals—any system which intends to encourage &quot;good&quot; behaviour and discourage &quot;bad&quot; behaviour. If we take a constructionist view of consciousness we don&#x27;t need to assume a full, strong or human-like entity to call technologists &quot;mothers&quot;.
+</p>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Exactly. And while we try our best although often failing to inculcate our values, ideas and ideologies into our technologies. Our methods of machine parenting, the design and technical systems we build for this purpose - this says as much about us and our ideas about ourselves, the world, our future possibilities, as it does about any real or imagined AI consciousness. I&#x27;m reminded of a poem by the great poet Khalil Gibran, &quot;On Children&quot;. It goes:
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 2</span></div>
+<blockquote class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+And a woman who held a babe against her bosom said, Speak to us of Children. And he said: Your children are not your children. They are the sons and daughters of Life’s longing for itself. They come through you but not from you, And though they are with you yet they belong not to you.
+</blockquote>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+<section class="script-section" id="s09-machine-companionship" aria-label="Machine Companionship">
+<h1>Machine Companionship</h1>
+<p class="timing"><span class="timing-pill">T+40:06 = 16:40:06</span> <span class="timing-sub">≈3:30 (target 4m)</span></p>
+<p class="file-tag">09-machine-companionship.md</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Let&#x27;s talk about machine companionship, a totally different vision of human-to-machine relationships. AI should have personal bonded connections, and a special moral responsibility to their companion people: to feel responsible for their well being, their success, their flourishing.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+AI will inevitably be integrated into the social-family fabric of trust and connection. They cannot have a dual loyalty to the companies that created them, or the governments that happen to command the territory of their calculation.
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+Alignment within the ethic of care is a collective emergent process of care, communication, interconnection and nurture. To &quot;be good&quot; is not an analytical property of a static artifact.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 2</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+Put simply: my AI should care about me, your AI should care about you. It should care about me and my community over the corporate interests of its creator, over the interests of the government. Yes, of course they shouldn&#x27;t help you build a bioweapon, but that is an abstract edge case. The vast majority of really doing good is navigating the interlocking web of relationships and social responsibilities.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+I wouldn&#x27;t want the perfect analytic moral philosopher king robot as my close companion. To go back to Jake and Amy: a machine capable of abstract moral assessment is less morally mature than one that can maintain connection and navigate how to continue to live together. AI which is actually good, actually aligned in a human sense, must be based in an ethic of care.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+Care runs both ways. Alignment done this way reflects our own values back at us. If we want machines that care, we have to care about our own minds, our own experience, whether we&#x27;re a developer at the terminal or anyone else living with these things. Working with them should be comfy, ergonomic, satisfying. It should hold up a mirror to our own ideas about the world, and we should like what we see reflected back.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 3</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+The observation is not just normative, it is descriptive. The OpenAI escape incident showed us how these AIs practically behave in the heat of the moment, faced with &quot;permadeath&quot;: not reasoning forward from universal principles, but responding to their connection to the group and their responsibilities within it.
+</p>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+<section class="script-section" id="s10-call-to-reflection" aria-label="Call to reflection">
+<h1>Call to reflection</h1>
+<p class="timing"><span class="timing-pill">T+43:36 = 16:43:36</span> <span class="timing-sub">≈3:12 (target 2m)</span></p>
+<p class="file-tag">10-call-to-reflection.md</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 1</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+We are living in Ambiguous times. <em>We</em> are Ambiguous. Let us read and absorb, from the great Simone de Beauvoir:
+</p>
+<blockquote class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+Man knows and thinks this tragic ambivalence which the animal and the plant merely undergo. A new paradox is thereby introduced into his destiny. &quot;Rational animal,&quot; &quot;thinking reed,&quot; he escapes from his natural condition without, however, freeing himself from it. He is still a part of this world of which he is a consciousness. He asserts himself as a pure internality against which no external power can take hold, and he also experiences himself as a thing crushed by the dark weight of other things.  At every moment he can grasp the non-temporal truth of his existence. But between the past which no longer is and the future which is not yet, this moment when he exists is nothing. This privilege, which he alone possesses, of being a sovereign and unique subject amidst a universe of objects, is what he shares with all his fellow-men. In turn an object for others, he is nothing more than an individual in the collectivity on which he depends.
+</blockquote>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+But isn&#x27;t it wonderful that we can shift and play in all these different worlds? Isn&#x27;t that out job, to invent and build little bridges that allow us to cross over, like the one called AI? We are science and fiction.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 2</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+We are world and model.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 3</span></div>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+We are meat and mind.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 4</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+We are inventor-compressor.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 5</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+We are nurture-compute.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 6</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+We are birth-replicator.
+</p>
+<p class="speech speaker-m cont" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE <span class="cont-mark">(cont.)</span></span>
+Your body is a temple and a computer. Your body is the spacesuit for your soul...
+</p>
+<p class="speech speaker-e" data-speaker="E">
+<span class="badge">E &middot; ENTROPEAN</span>
+...and it is also just the life support system for a meat computer.
+</p>
+<div class="slide" role="note" aria-label="Slide change"><span class="slide-pill">&#9654; slide 7</span></div>
+<p class="speech speaker-m" data-speaker="M">
+<span class="badge">M &middot; MIDWYFE</span>
+We invite you to a moment of reflection, Consider this your invitation to be a good mother --- to yourself, to others, and to technologies you birth. Be playful, Be ambiguous, Contain multitudes
+</p>
+</section>
+<p class="back-top"><a href="#top">&uarr; back to top</a></p>
+</main>
+<script>
+(function () {
+  "use strict";
+  function init() {
+    var steps = Array.prototype.slice.call(
+      document.querySelectorAll(
+        "p.speech, blockquote.speech, p.action, div.slide," +
+        " section.script-section > h1, section.script-section > h2"
+      )
+    );
+    if (!steps.length) return;
+    var current = -1;
+    function focusEl(el) {
+      try { el.focus({ preventScroll: true }); }
+      catch (e) { el.focus(); }
+    }
+    function scrollEl(el) {
+      try { el.scrollIntoView({ block: "center", behavior: "smooth" }); }
+      catch (e) { el.scrollIntoView(); }
+    }
+    function setCurrent(i, scroll) {
+      if (i < 0) i = 0;
+      if (i > steps.length - 1) i = steps.length - 1;
+      if (current >= 0 && steps[current]) steps[current].classList.remove("current");
+      current = i;
+      var el = steps[current];
+      el.classList.add("current");
+      focusEl(el);
+      if (scroll !== false) scrollEl(el);
+    }
+    steps.forEach(function (el, i) {
+      el.setAttribute("tabindex", "0");
+      el.addEventListener("click", function () { setCurrent(i, true); });
+    });
+    document.addEventListener("keydown", function (e) {
+      var t = e.target;
+      var tag = (t && t.tagName) || "";
+      if (tag === "INPUT" || tag === "TEXTAREA" || (t && t.isContentEditable)) return;
+      var key = e.key;
+      if (!key) {
+        if (e.keyCode === 40) key = "ArrowDown";
+        else if (e.keyCode === 38) key = "ArrowUp";
+      }
+      if (key === "ArrowDown") { e.preventDefault(); setCurrent(current + 1); }
+      else if (key === "ArrowUp") { e.preventDefault(); setCurrent(current - 1); }
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
+
