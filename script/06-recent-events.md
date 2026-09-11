@@ -83,6 +83,7 @@ Unfortunately, the ideas behind these proofs, the underlying ideas,
 may have come from training on the conversations of human mathematicians
 working on these problems.
 
+<slide>
 [E]
 The Eureka moment! The Aha moment. Breaking the problem open. Catching
 that moment of insight. Isn't that what we crave?  Isn't that what
