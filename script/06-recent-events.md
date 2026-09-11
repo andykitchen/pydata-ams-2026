@@ -86,11 +86,11 @@ working on these problems.
 [E]
 The Eureka moment! The Aha moment. Breaking the problem open. Catching
 that moment of insight. Isn't that what we crave?  Isn't that what
-we hunt? Isn't that how we really know that we are...  intelligent.
-That we are not only wading though information. In that in a moment
-the world-structure becomes clear to us.  How can the machine take this
-away? Aren't we the ones who should be running naked through the street
-yelling, "Eureka!?"
+we hunt? Isn't that how we really know that we are... Intelligent.
+We want to know that we aren't just wading though information.  In that
+moment the world-structure becomes clear to us.  How can the machine
+take this away? Aren't we the ones who should be running naked through
+the street yelling, "Eureka!?"
 
 [M]
 Within an ethic of domination, simply overpowering these proofs in
