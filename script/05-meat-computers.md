@@ -17,7 +17,7 @@ the other direction, the door stays closed.  Eventually the atoms all build up
 on one side. In this case there is more order in the system, order was created,
 this pressure difference could be used to do physical work.  This seems
 to violate the second law of thermodynamics --- that systems should naturally tend
-toward entropy, chaos, disorder.  What is the resolution to this paradox?
+toward entropy, disorder.  What is the resolution to this paradox?
 
 First, to resolve the paradox, imagine the daemon was running a little
 simulation of the gas and using it to decide when to open the door.
@@ -35,17 +35,17 @@ could use this information to extract energy. The better she could learn
 these patterns, the more efficiently she could extract energy.
 
 Representing the structure of the gas-world with a shorter program,
-or compression, if you will. This allows her to extract more energy for the
+or compression, if you will --- allows her to extract more energy for the
 same computation limits.  She can use the low Kolmogorov complexity of
-our environment to generate energy.  This is algorithmic free energy.
+her environment to generate energy.  This is algorithmic free energy.
 
 [M]
 So our little daemon can tell stories about the gas? Little gassy stories?
 
 [E]
 Haha yes, but let us not assume that the daemon magically starts
-with a program describing its world. It must learn the structure of the
-gas-world by partial observation and experiment, it must do inference. She
+with a program describing her world. She must learn the structure of the
+gas-world by partial observation and experiment, she must do inference. She
 must build up, as fast as she can, a picture of the gas from sparse and
 incomplete observations. The more effectively the daemon can do this,
 again, the more energy she can extract.
