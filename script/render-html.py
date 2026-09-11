@@ -107,7 +107,10 @@ def slugify(text):
 
 
 def render_inline(text):
-    """Escape HTML then apply minimal inline markdown (*em*, _em_, **strong**)."""
+    """Escape HTML then apply minimal inline markdown (*em*, _em_, **strong**).
+
+    Also converts `---` to an em dash (&mdash;).
+    """
     parts = INLINE_RE.split(html.escape(text))
     out = []
     for part in parts:
@@ -121,7 +124,7 @@ def render_inline(text):
             out.append(f"<em>{part[1:-1]}</em>")
         else:
             out.append(part)
-    return "".join(out)
+    return "".join(out).replace("---", "&mdash;")
 
 
 def flush_para(buffer):
