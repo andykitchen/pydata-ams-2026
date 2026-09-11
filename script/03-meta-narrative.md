@@ -3,7 +3,7 @@
 <slide>
 
 [M] 
-To continue, we'll put aside this question of how to measure our experience
+Let's put aside for the moment this question of how to measure our experience
 of the world, and examine instead the question of how we tell each other stories 
 about our subjective experience in the world.
 
