@@ -307,11 +307,11 @@ def render_section(path, index, timing=""):
                 emit_bubbles()  # keep the turn open, keep cue ordering
             else:
                 flush_paragraph(buf, blocks)
-            slides += 1
             blocks.append(
                 f'<div class="slide" role="note" aria-label="Slide change">'
                 f'<span class="slide-pill">&#9654; slide {slides}</span></div>'
             )
+            slides += 1
             continue
 
         action = ACTION_RE.match(line)
@@ -322,7 +322,6 @@ def render_section(path, index, timing=""):
                 flush_paragraph(buf, blocks)
             cue = (action.group(1) or action.group(2)).strip()
             if SLIDE_CUE_RE.match(cue):
-                slides += 1
                 detail = SLIDE_CUE_RE.sub("", cue).strip(" \u2013-—:")
                 rendered = render_inline(detail) if detail else ""
                 label = f"&#9654; slide {slides}"
@@ -332,6 +331,7 @@ def render_section(path, index, timing=""):
                     f'<div class="slide" role="note" aria-label="Slide cue">'
                     f'<span class="slide-pill">{label}</span></div>'
                 )
+                slides += 1
             else:
                 icon = "&#10074;&#10074;" if "pause" in cue.lower() else "&#9673;"
                 blocks.append(
