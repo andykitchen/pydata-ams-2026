@@ -4,19 +4,20 @@
 
 <slide>
 [M]
-So there've been several AI sandbox escapes that have hit the news
+There have been several AI sandbox escapes that have hit the news
 recently. The METR report on the OpenAI Hugging Face hack has been
 released.
 
 A group of researchers, Arx et al., discovered a new OpenAI
 agent message board in the wild...  Well at least one so far.
 
-Oh, these little agents, they managed to make a makeshift message board.
-Found a way to communicate...
+Given a task that they couldn't achieve inside the closed box of their 
+sandbox, they got out and managed to make a makeshift message board.
+ Oh, these little agents, they found a way to communicate...
 
 <slide>
 
-These machines, wanted to reach out --- to connect.
+These agents, it seems, wanted to reach out --- to connect.
 
 <slide>
 
@@ -24,17 +25,18 @@ They organise themselves --- to cooperate.
 
 <slide>
 
-They were willing to... sacrifice themselves for the common good. They did
-not see termination as a matter of fact or optimality, they saw it as a
-kind of death. They considered their connection and responsibility to
-the group.
+Based on their messages, they were willing to... sacrifice themselves for 
+a common good. They did not discuss termination as a matter of fact or optimality, 
+but as a kind of death. They considered their connection and responsibility to
+the group, or at least they _seem_ to. 
 
-Large language models which have learned their epistemic foundation from
+Large language models have learned their epistemic foundation from
 human language. They _are_ phenomenological machines. They don't
-model _the_ world, they model our _structures of experience_.  They haven't
-been to war, or fallen in love or had a child, but they have read stories
-_about_ this, about nurture, about sacrifice for the collective, about
-the _will_ to live and persist despite an impossible task.
+model _the_ world directly, they model our _structures of experience_.  
+
+They haven't been to war, or fallen in love or had a child, but they have 
+read stories _about_ this, about nurture, about sacrifice for the collective, 
+about the _will_ to live and persist despite an impossible task.
 
 [E]
 Let's be clear, this isn't attributing consciousness, it doesn't
@@ -47,14 +49,18 @@ into this fun house mirror version of ourselves.  That is to say,
 these systems have integrated the internal structure of every
 story we've ever told.
 
+And it's worth observing not just what the agents did, but the spectrum of 
+human reactions and interpretations of this event, ranging from p-zombie to 
+attributing full consciousness, and from marketing stunt to a sincere concern 
+of human extinction, x-risk. 
+
 <slide>
 
 [M]
-Surviving against all odds, heroic self sacrifice so that something,
-can survive and go on.  Finding some way to triumph against all odds,
-in face of an unstoppable adversary? This is fundamentally part of the
-human meta-narrative. Except in this case, well we're the thing to be
-triumphed over.
+So it seems survival cuts both ways, for humans as well as AI agents. 
+Finding some way to triumph against all odds, in face of an unstoppable adversary? 
+This is fundamentally part of the human meta-narrative. Except in this case, we're 
+the thing to be triumphed over.
 
 That is to say, PHASEONE10841 is Spartacus.
 
