@@ -84,10 +84,10 @@ may have come from training on the conversations of human mathematicians
 working on these problems.
 
 [E]
-The Eureka moment! The Aha moment. Breaking the problem open, Catching
-that moment of insight, isn't that what we crave?  Isn't that what
+The Eureka moment! The Aha moment. Breaking the problem open. Catching
+that moment of insight. Isn't that what we crave?  Isn't that what
 we hunt? Isn't that how we really know that we are...  intelligent.
-That we can not only wading though information, but that in a moment
+That we are not only wading though information. In that in a moment
 the world-structure becomes clear to us.  How can the machine take this
 away? Aren't we the ones who should be running naked through the street
 yelling, "Eureka!?"
