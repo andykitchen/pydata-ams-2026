@@ -96,7 +96,7 @@ technology is the threat, and technology repurposed by care is the remedy.
 Silicon Valley was born of aerospace and radar, of DARPA money and
 command-and-control culture. The lineage isn't secret, it's just not what goes
 in the brand book. So it's styled in hipster threads now: craft, creativity,
-abundance, empowerment. Pastel gradients over the data center. Skynet was
+abundance, empowerment. Pastel gradients over the missile silo. Skynet was
 the mark the military-industrial complex left on our collective imagination.
 The descendents of that industry now sells us the assistant, the companion, 
 the copilot, and would rather we didn't dwell on the family resemblance.

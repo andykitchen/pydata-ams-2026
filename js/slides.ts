@@ -2,6 +2,7 @@ import Reveal from './reveal.js';
 
 import Highlight from '../plugin/highlight/index.ts';
 import Notes from '../plugin/notes/index.ts';
+import { initWordSwap } from './wordswap.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
 	const revealElement = document.querySelector('.reveal');
@@ -21,6 +22,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 		plugins: [Highlight, Notes],
 	});
+
+	initWordSwap(deck);
 
 	// The Maxwell's daemon simulation is compute-heavy, so only keep it
 	// loaded while its slide is visible: park the URL back in data-src

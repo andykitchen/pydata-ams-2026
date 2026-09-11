@@ -1,11 +1,17 @@
 ## Ethic of care vs ethic of justice (5m)
 
 <slide>
+
 [E]
 
 Let's talk about some research now, I like research.  Around the 1960s
-the American psycologist: Dr. Lawrence Kohlberg ran an experiment. He
-interviewed boys (yes, only boys) and tracked them over time.
+the American psycologist Dr. Lawrence Kohlberg ran an experiment. 
+
+<slide>
+
+He interviewed boys (yes, only boys) and tracked them over time.
+
+<slide>
 
 [M]
 
@@ -16,7 +22,7 @@ finally to the ability to reason abstractly about justice.
 Of course, he generalized the moral development of human children from
 only interviews with boys. In later experiments, girls would be consistently 
 scored lower on average. Girls around level three, compared to the boys at 
-around level four. Carol Gilligan proposed a new theory to explain why.
+around level four. Carol Gilligan later proposed a theory to explain why.
 
 <slide>
 

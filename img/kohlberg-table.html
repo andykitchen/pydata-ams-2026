@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kohlberg's stages of moral development</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #191919;
+    --fg: #f8f8f2;
+    --muted: #6272a4;
+    --pink: #ff79c6;
+    --cyan: #8be9fd;
+    --orange: #ffb86c;
+    --purple: #bd93f9;
+    --font: "Hanken Grotesk", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font-family: var(--font); font-weight: 200; overflow: hidden; }
+  .stage { height: 100%; display: grid; place-items: center; padding: 4vmin 6vmin; }
+
+  table { border-collapse: collapse; width: 100%; max-width: 1400px; font-size: clamp(13px, 2.3vmin, 26px); line-height: 1.35; }
+  th, td { text-align: left; vertical-align: top; padding: 1.4vmin 2vmin; }
+  thead th { font-weight: 400; color: var(--muted); border-bottom: 1px solid var(--muted); padding-bottom: 1vmin; }
+
+  /* level column: one cell per level, coloured */
+  td.level { font-weight: 600; white-space: nowrap; border-left: 3px solid var(--lv); color: var(--lv); }
+  tr:not(:first-child) td.level { border-left: 0; }
+  td.num { font-weight: 400; color: var(--lv); width: 4ch; text-align: right; padding-right: 0; }
+  td.name { font-weight: 400; white-space: nowrap; }
+  td.focus { color: var(--fg); opacity: .85; }
+
+  /* subtle band per level */
+  tbody.lv { --lv: var(--cyan); }
+  tbody.lv + tbody.lv { --lv: var(--pink); }
+  tbody.lv + tbody.lv + tbody.lv { --lv: var(--purple); }
+  tbody.lv tr:last-child td { border-bottom: 1px solid rgba(98,114,164,.35); }
+  tbody.lv:last-child tr:last-child td { border-bottom: 0; }
+  tbody.lv td.level { background: linear-gradient(90deg, color-mix(in srgb, var(--lv) 14%, transparent), transparent); }
+
+  @media (max-width: 640px) {
+    td.name { white-space: normal; }
+    td.level { writing-mode: vertical-rl; transform: rotate(180deg); border-left: 0; border-right: 3px solid var(--lv); }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+  <table>
+    <thead>
+      <tr><th>Level</th><th colspan="2">Stage</th><th>Core focus</th></tr>
+    </thead>
+    <tbody class="lv">
+      <tr><td class="level" rowspan="2">Preconventional</td><td class="num">1</td><td class="name">Obedience &amp; punishment</td><td class="focus">Avoiding punishment; rules are fixed</td></tr>
+      <tr><td class="num">2</td><td class="name">Individualism &amp; exchange</td><td class="focus">Self-interest; “what's in it for me?”</td></tr>
+    </tbody>
+    <tbody class="lv">
+      <tr><td class="level" rowspan="2">Conventional</td><td class="num">3</td><td class="name">Good interpersonal relationships</td><td class="focus">Gaining approval; “good boy / nice girl”</td></tr>
+      <tr><td class="num">4</td><td class="name">Maintaining social order</td><td class="focus">Duty, law, and social order</td></tr>
+    </tbody>
+    <tbody class="lv">
+      <tr><td class="level" rowspan="2">Postconventional</td><td class="num">5</td><td class="name">Social contract &amp; individual rights</td><td class="focus">Laws are social agreements; rights matter</td></tr>
+      <tr><td class="num">6</td><td class="name">Universal ethical principles</td><td class="focus">Self-chosen abstract principles (justice, dignity)</td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
