@@ -23,7 +23,8 @@ Semantics handled:
                         configurable talk start time (default 16:00).
 
 The page also embeds a tiny script: clicking any bubble, cue or heading
-focuses it, and the up/down arrow keys step through the script line by line.
+focuses it, and the arrow keys step through the script block by block
+(up/left = previous, down/right = next).
 
 Usage:
     python3 render-html.py [--output ../public/script.html] [--dir .]
@@ -568,9 +569,11 @@ NAV_JS = """(function () {
       if (!key) {
         if (e.keyCode === 40) key = "ArrowDown";
         else if (e.keyCode === 38) key = "ArrowUp";
+        else if (e.keyCode === 39) key = "ArrowRight";
+        else if (e.keyCode === 37) key = "ArrowLeft";
       }
-      if (key === "ArrowDown") { e.preventDefault(); setCurrent(current + 1); }
-      else if (key === "ArrowUp") { e.preventDefault(); setCurrent(current - 1); }
+      if (key === "ArrowDown" || key === "ArrowRight") { e.preventDefault(); setCurrent(current + 1); }
+      else if (key === "ArrowUp" || key === "ArrowLeft") { e.preventDefault(); setCurrent(current - 1); }
     });
   }
   if (document.readyState === "loading") {
@@ -597,7 +600,7 @@ PAGE = """<!DOCTYPE html>
 <h1>{title}</h1>
 <p>Internal read-through copy &mdash; large print. {n_sections} sections, {n_slides} slide cues.</p>
 <p>Estimated {est_total}, ending {end_clock} (from {start_str} at {wpm:g} wpm).</p>
-<p class="hint">Click any bubble to focus it, then step through with &uarr; / &darr;.</p>
+<p class="hint">Click any bubble to focus it, then step through with &uarr; / &darr; / &larr; / &rarr;.</p>
 <div class="legend" aria-label="Speaker key">
 <span class="badge">M &middot; Midwyfe</span>
 <span class="badge">E &middot; Entropean</span>
