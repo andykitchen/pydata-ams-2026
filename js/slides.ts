@@ -1,7 +1,5 @@
 import Reveal from './reveal.js';
 
-import Highlight from '../plugin/highlight/index.ts';
-import Notes from '../plugin/notes/index.ts';
 import { initWordSwap } from './wordswap.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -20,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 		hash: true,
 
-		plugins: [Highlight, Notes],
+		plugins: [],
 	});
 
 	initWordSwap(deck);
